@@ -1,0 +1,140 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - Kenya Freelance Writers</title>
+    <style>
+        /* Set background color and style for the page */
+        body {
+            background-color: #000000; /* Deep black background */
+            color: #ffffff; /* White text color for contrast */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            position: relative; /* Make body relative to position the button */
+        }
+
+        /* Go Back button container */
+        .go-back-container {
+            position: absolute; /* Positioning to keep it in the corner */
+            bottom: 20px; /* Distance from the bottom */
+            left: 20px; /* Distance from the left */
+            width: 20%; /* Width of the Go Back button */
+        }
+
+        /* Styling for the sign-in container */
+        .signin-container {
+            background-color: #1a1a1a; /* Dark grey for form contrast */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+            width: 300px;
+            text-align: center;
+        }
+
+        /* Form elements styling */
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #333333; /* Darker input background */
+            color: #ffffff;
+        }
+
+        a {
+            display: block;
+            color: #007bff;
+            margin-bottom: 15px;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"] {
+            background-color: #28a745; /* Green color for primary sign-in */
+            color: #ffffff;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #218838;
+        }
+
+        /* Social sign-in buttons */
+        button:not([type="submit"]) {
+            background-color: #444444;
+            color: #ffffff;
+            margin-top: 5px;
+        }
+
+        button:not([type="submit"]):hover {
+            background-color: #666666;
+        }
+
+        /* Go Back button style */
+        .go-back {
+            background-color: #1cf54f; /* Green color for go back button */
+            color: #ffffff;
+            width: 100%; /* Full width of the container */
+        }
+
+        .go-back:hover {
+            background-color: #218838; /* Darker green on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="signin-container">
+        <h2>Sign In</h2>
+        <form action="/login" method="POST">
+            <label for="username">Username or Email</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+            <a href="/forgot-password">Forgot Password?</a>
+            <button type="submit">Sign In</button>
+            <button>Sign in with Google</button>
+            <button>Sign in with LinkedIn</button>
+        </form>
+    </div>
+
+    <div class="go-back-container">
+        <button class="go-back" onclick="goBack()">Go Back</button> <!-- Go Back button -->
+    </div>
+
+    <script>
+        // Function to go back to the previous page
+        function goBack() {
+            window.history.back(); // Go back in the browser's history
+        }
+    </script>
+</body>
+</html>

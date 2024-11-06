@@ -1,0 +1,179 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Kenya Freelance Writers</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Body Styles */
+        body {
+            background-color: #121212;
+            color: #f0f0f0;
+            line-height: 1.6;
+        }
+
+        /* Container */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #0d6efd;
+            text-align: center;
+        }
+
+        /* Contact Info */
+        .contact-info {
+            margin-bottom: 20px;
+        }
+
+        /* Form Styles */
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input, textarea {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #333;
+            border-radius: 5px;
+            background-color: #1e1e1e;
+            color: #f0f0f0;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #0d6efd;
+            color: #f0f0f0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        button:hover {
+            background-color: #0a58ca;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 40px;
+            padding: 10px 0;
+            text-align: center;
+            color: #bbb;
+            font-size: 0.9em;
+            border-top: 1px solid #333;
+        }
+
+        footer a {
+            color: #0d6efd;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Buttons */
+        .go-back, .whatsapp {
+            position: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50px;
+            height: 50px;
+            color: #fff;
+            font-size: 20px;
+            text-decoration: none;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        /* Go Back Button */
+        .go-back {
+            top: 20px;
+            left: 20px;
+            background-color: #28a745;
+        }
+
+        /* WhatsApp Button */
+        .whatsapp {
+            bottom: 20px;
+            right: 20px;
+            background-color: #25D366;
+            animation: rotate 3s linear infinite;
+            padding: 10px;
+        }
+
+        /* WhatsApp Icon Rotation */
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Contact Us</h1>
+
+        <div class="contact-info">
+            <p><strong>Location:</strong> Westlands, Nairobi, Amanza Plaza, 3rd Floor</p>
+            <p><strong>CEO:</strong> John Musembi</p>
+            <p><strong>Phone:</strong> +254704195290</p>
+            <p><strong>Email:</strong> <a href="mailto:info@kenyafreelancewriters.com" style="color: #0d6efd;">info@kenyafreelancewriters.com</a></p>
+            <p>Feel free to reach out via our contact form below or directly through WhatsApp.</p>
+        </div>
+
+        <!-- Contact Form -->
+        <form action="mailto:info@kenyafreelancewriters.com" method="post" enctype="text/plain">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your Full Name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Your Email Address" required>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+
+    <!-- Go Back Button -->
+    <a href="javascript:history.back()" class="go-back">←</a>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/qr/CGYRGFT3LDKRG1" target="_blank" class="whatsapp">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png" alt="WhatsApp" style="width: 30px; height: 30px;">
+    </a>
+
+    <!-- Footer -->
+    <footer>
+        <p>Location: Westlands, Amanza Plaza, 3rd Floor</p>
+        <p>Contact: +254704195290 | CEO: John Musembi</p>
+        <p>Payment Methods: M-Pesa, Skrill, PayPal, Neteller, Bitcoin</p>
+        <p>&copy; 2024 Kenya Freelance Writers. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
