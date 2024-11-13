@@ -4,23 +4,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HUTSLE 5</title>
     <style>
-        /* Basic Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      /* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 20px;
-            background-color: #f5f5f5;
-            color: #333;
-        }
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background-color: #f5f5f5;
+    color: #333;
+}
 
-        /* Header */
+/* Header */
 .header {
     z-index: 1000;
     width: 100%;
@@ -46,6 +46,7 @@
     margin-bottom: 180px;
 }
 
+/* Search Box */
 .search-box {
     display: flex;
     align-items: center;
@@ -55,7 +56,6 @@
     transform: translateX(-50%);
     margin-bottom: 70px;
 }
-
 
 .search-box input[type="text"] {
     width: 300px;
@@ -81,6 +81,35 @@
     background-color: #0d4671;
 }
 
+/* Responsive Styles */
+@media (max-width: 768px) {
+    /* Reduce header height and adjust padding */
+    .header {
+        height: 80px;
+        padding: 0 10px;
+    }
+
+    /* Adjust search box layout on smaller screens */
+    .search-box {
+        flex-direction: column;
+        position: static;
+        transform: none;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .search-box input[type="text"] {
+        width: 90%;
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+
+    .search-box button {
+        width: 90%;
+        font-size: 14px;
+    }
+}
+
 /* Main Categories */
 .nav-bar {
     flex-grow: 1;
@@ -90,13 +119,13 @@
     margin-bottom: 30px;
 }
 
-
+/* Auth Buttons */
 .auth-buttons {
-    position: absolute; /* Position it relative to the header */
-    top: 10px; /* 10px from the top of the header */
-    right: 20px; /* 20px from the right margin */
-    display: flex; /* Align buttons horizontally */
-    gap: 10px; /* Space between the buttons */
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
 }
 
 .auth-buttons .login-btn,
@@ -115,18 +144,18 @@
 .auth-buttons .login-btn:hover,
 .auth-buttons .register-btn:hover {
     background-color: #f0f0f0;
-} /* Ensures the image does not stretch more than needed */
+}
 
- /* Main Content Container */
+/* Main Content Container */
 .container {
     display: flex;
     align-items: flex-start;
     gap: 40px;
-    padding: 80px 20px 20px; /* Padding to ensure the header doesn't overlap content */
+    padding: 80px 20px 20px;
     background-color: #fff;
-    border-radius: none;
+    border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-top: none; /* Prevents the container from touching the fixed header */
+    margin-top: 20px;
 }
 
 .image-box img {
@@ -169,39 +198,74 @@
     font-size: 14px;
     margin-top: 10px;
     border-radius: 4px;
+    text-align: center;
 }
 
 /* Right-alignment for the image box */
 .container .image-box {
-    margin-left: auto; /* Ensures the image box is aligned to the right */
-}
-
-.read-more-button {
-    text-align: center;
+    margin-left: auto;
 }
 
 /* Responsive Design for Mobile */
 @media (max-width: 768px) {
-    .header .search-box {
-        width: 90%;
-        margin-left: 10px;
+    /* Adjust nav-bar and layout */
+    .nav-bar {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
     }
-    
+
+    /* Align auth buttons vertically */
+    .auth-buttons {
+        position: static;
+        justify-content: center;
+        width: 100%;
+        gap: 5px;
+    }
+
+    /* Reduce font sizes and padding for smaller screens */
+    .auth-buttons .login-btn,
+    .auth-buttons .register-btn {
+        font-size: 14px;
+        padding: 6px 12px;
+    }
+
+    /* Stack container elements vertically */
     .container {
-        flex-direction: column; /* Stack content vertically on smaller screens */
-        align-items: center; /* Center content */
+        flex-direction: column;
+        align-items: center;
+        padding: 60px 10px 20px;
+        gap: 20px;
     }
-    
-    .container .image-box {
-        margin: 0; /* Remove right margin on smaller screens */
-        width: 100%; /* Make image box take full width */
+
+    .image-box img {
+        width: 80px;
     }
-    
-    .text-box {
-        text-align: center; /* Center text on small screens */
+
+    .heading {
+        font-size: 20px;
+    }
+
+    .subheading {
+        font-size: 16px;
+    }
+
+    .subsubheading {
+        font-size: 14px;
+    }
+
+    .read-more-button {
+        font-size: 12px;
+        padding: 8px 16px;
     }
 }
- /* Title Section */
+/* Main Content Container */
+.container {
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Title Section */
 .top-rated-title {
     text-align: center;
     margin-top: 40px;
@@ -212,78 +276,71 @@
     font-size: 26px;
     color: #333;
     font-weight: bold;
-    letter-spacing: 1px; /* Slight spacing for a modern look */
-    text-transform: uppercase; /* Adds a professional and clean touch */
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
 /* Carousel Container */
 .carousel {
-    z-index: 1; /* Lower than header's z-index */
-    position: relative;
+    z-index: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
     width: 100%;
-    overflow: hidden; /* Hide overflow content to simulate the scrolling effect */
+    overflow: hidden;
     padding: 20px;
-    background-color: #fafafa; /* Slightly lighter background for a clean effect */
-    border-top: 3px solid #1471a7; /* Accent line for a finished look */
-    border-bottom: 3px solid #1471a7; /* Matching line at the bottom for symmetry */
+    background-color: #fafafa;
+    border-top: 3px solid #1471a7;
+    border-bottom: 3px solid #1471a7;
 }
 
-/* Profiles Container */
 .carousel-container {
     display: flex;
     flex-wrap: nowrap;
     transition: transform 0.5s ease-in-out;
-    justify-content: flex-start; /* Start from the left for better alignment */
+    justify-content: flex-start;
 }
 
-/* Individual Profile */
 .profile {
     flex: 0 0 auto;
-    width: 240px; /* Slightly larger profile width */
+    width: 240px;
     text-align: center;
     background-color: #fff;
     padding: 20px;
-    border-radius: 12px; /* More rounded corners for a softer look */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle, more pronounced shadow */
-    margin-right: 30px; /* Increase space between profiles */
-    transition: transform 0.3s ease; /* Smooth transition on hover */
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-right: 30px;
+    transition: transform 0.3s ease;
 }
 
-/* Profile Image */
 .profile img {
-    width: 120px; /* Uniform size for all images */
+    width: 120px;
     height: 120px;
     border-radius: 50%;
-    margin-bottom: 15px; /* Adds space between image and text */
-    border: 3px solid #1471a7; /* Border around the image for emphasis */
+    margin-bottom: 15px;
+    border: 3px solid #1471a7;
 }
 
-/* Profile Text */
 .profile h3 {
     font-size: 18px;
     font-weight: bold;
     color: #333;
-    margin-bottom: 8px; /* Space between name and rating */
+    margin-bottom: 8px;
 }
 
 .profile p {
     font-size: 14px;
-    color: #777; /* Lighter color for job description */
+    color: #777;
     margin-bottom: 5px;
 }
 
-/* Rating */
 .profile .rating {
-    color: #ffb400; /* Gold color for the rating stars */
+    color: #ffb400;
     font-size: 16px;
     margin-bottom: 10px;
 }
 
-/* Left and Right buttons */
+/* Left and Right Buttons */
 .carousel-btn {
     background-color: transparent;
     border: none;
@@ -291,13 +348,13 @@
     color: #1471a7;
     cursor: pointer;
     z-index: 2;
-    padding: 10px; /* Added padding to increase click area */
-    border-radius: 50%; /* Rounded buttons for a more modern look */
+    padding: 10px;
+    border-radius: 50%;
     transition: background-color 0.3s ease;
 }
 
 .carousel-btn:hover {
-    background-color: rgba(0, 0, 0, 0.1); /* Subtle hover effect */
+    background-color: rgba(0, 0, 0, 0.1);
 }
 
 .carousel-btn.left-btn {
@@ -310,308 +367,231 @@
     right: 10px;
 }
 
-/* Hover effect for profiles */
+/* Hover Effect for Profiles */
 .profile:hover {
-    transform: translateY(-10px); /* Slight lift effect on hover */
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15); /* More intense shadow on hover */
+    transform: translateY(-10px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
 }
-#moreContentPaymentPractices, #moreContentCustomerSupport, #moreContentAffiliateProgramme,#moreContentCommunityBuilding, #moreContentRegistration, #moreContentHustle {
-            display: none;
-        }
-      
-        /* New Carousel container */
-        .carousel-container-new {
-            display: flex;
-            overflow: hidden;
-            width: 100%; /* Make it full width */
-            justify-content: center;
-            align-items: center;
-            height: 80px; /* Increased height for better visibility */
-            font-size: 40px; /* Increased font size */
-            margin-top: 70px; /* Space below header */
-            position: relative;
-            background-color: none; /* Dark background to make the text stand out */
-        }
 
-        /* Carousel text wrapper */
-        .carousel-text {
-            display: flex;
-            font-weight: bold; /* Make text bold */
-            color: #fff; /* White text for contrast */
-            animation: scroll 15s linear infinite;
-        }
+/* Hidden Content Sections */
+#moreContentPaymentPractices, #moreContentCustomerSupport, #moreContentAffiliateProgramme, #moreContentCommunityBuilding, #moreContentRegistration, #moreContentHustle {
+    display: none;
+}
 
-        /* Keyframes for smooth moving text */
-        @keyframes scroll {
-            0% { transform: translateX(100%); } /* Start from the right */
-            100% { transform: translateX(-100%); } /* End on the left */
-        }
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+    /* Adjustments for container */
+    .container {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
 
-        /* Individual word spacing */
-        .carousel-text span {
-            margin-right: 60px; /* Increased space between words */
-        }
+    /* Center and reduce spacing in profiles */
+    .carousel-container {
+        justify-content: center;
+    }
 
-     /* General footer styling */
+    .profile {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 20px;
+        box-shadow: none;
+    }
+
+    /* Adjust profile image size and text */
+    .profile img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .profile h3 {
+        font-size: 16px;
+    }
+
+    .profile p {
+        font-size: 13px;
+    }
+
+    /* Title Section */
+    .top-rated-title h2 {
+        font-size: 22px;
+        margin-top: 20px;
+    }
+
+    /* Hide carousel buttons if space is limited */
+    .carousel-btn {
+        display: none;
+    }
+} 
+        
+/* New Carousel container */
+.carousel-container-new {
+    display: flex;
+    overflow: hidden;
+    width: 100%; /* Full width */
+    justify-content: center;
+    align-items: center;
+    height: 80px; /* Increased height */
+    font-size: 40px; /* Increased font size */
+    margin-top: 70px; /* Space below header */
+    position: relative;
+}
+
+.carousel-text {
+    display: flex;
+    font-weight: bold; /* Bold text */
+    color: #fff;
+    animation: scroll 15s linear infinite;
+}
+
+/* Animation for text scrolling */
+@keyframes scroll {
+    0% { transform: translateX(100%); } /* Start right */
+    100% { transform: translateX(-100%); } /* End left */
+}
+
+.carousel-text span {
+    margin-right: 60px; /* Word spacing */
+}
+
+/* Footer Styles */
 .footer {
-  background-color: #f8f9fa;
-  padding: 40px 20px;
-  font-family: 'Arial', sans-serif;
-  color: #333;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  margin-top: 40px;
+    background-color: #f8f9fa;
+    padding: 40px 20px;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 40px;
 }
 
-/* Footer Main Area */
 .footer-main {
-  display: flex;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 40px;
-  width: 100%;
-  max-width: 1200px;
-  margin-bottom: 40px;
+    display: flex;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 40px;
+    width: 100%;
+    max-width: 1200px;
+    margin-bottom: 40px;
 }
 
-/* Brand Section */
-.footer-brand {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+.footer-brand,
+.footer-links,
+.footer-social,
+.footer-affiliate,
+.footer-newsletter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
 .footer-logo {
-  width: 150px;
-  margin-bottom: 10px;
+    width: 150px;
+    margin-bottom: 10px;
 }
 
-.footer-brand p {
-  font-size: 14px;
-  color: #555;
-  text-align: center;
-}
-
-/* Quick Links Section */
-.footer-links {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-}
-
-.footer-links h4 {
-  font-size: 18px;
-  margin-bottom: 10px;
-  font-weight: bold;
-}
-
-.footer-links ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.footer-links ul li {
-  margin: 10px 0;
-}
-
-.footer-links ul li a {
-  text-decoration: none;
-  color: #1471a7;
-  font-size: 14px;
-  transition: color 0.3s ease;
-}
-
-.footer-links ul li a:hover {
-  color: #005f8d;
-}
-
-/* Social Media Section */
-.footer-social {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-}
-
-.footer-social h4 {
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-
-.footer-social ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  gap: 10px;
-}
-
-.footer-social ul li {
-  display: inline-block;
-}
-
-.footer-social ul li a {
-  text-decoration: none;
-  color: #1471a7;
-  font-size: 20px;
-  transition: color 0.3s ease;
-}
-
-.footer-social ul li a:hover {
-  color: #005f8d;
-}
-
-/* Referral Section */
-.footer-affiliate {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-}
-
-.footer-affiliate h4 {
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-
+.footer-brand p,
 .footer-affiliate p {
-  font-size: 14px;
-  color: #555;
+    font-size: 14px;
+    color: #555;
 }
 
-.footer-affiliate a {
-  text-decoration: none;
-  color: #1471a7;
-  font-weight: bold;
-}
-
-.footer-affiliate a:hover {
-  color: #005f8d;
-}
-
-/* Newsletter Section */
-.footer-newsletter {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-}
-
+.footer-links h4,
+.footer-social h4,
+.footer-affiliate h4,
 .footer-newsletter h4 {
-  font-size: 18px;
-  margin-bottom: 10px;
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.footer-links ul,
+.footer-social ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links ul li a,
+.footer-social ul li a {
+    text-decoration: none;
+    color: #1471a7;
+    font-size: 14px;
+    transition: color 0.3s ease;
 }
 
 .footer-newsletter input[type="email"] {
-  width: 140%;
-  padding: 10px;
-  font-size: 14px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+    width: 140%;
+    padding: 10px;
+    font-size: 14px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
 .footer-newsletter button {
-  padding: 10px 20px;
-  background-color: #1471a7;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 14px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+    padding: 10px 20px;
+    background-color: #1471a7;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.footer-newsletter button:hover {
-  background-color: #005f8d;
-}
-
-/* Legal Section */
 .footer-legal {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  margin-top: 20px;
-}
-
-.footer-legal ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  gap: 20px;
-}
-
-.footer-legal ul li {
-  font-size: 14px;
-}
-
-.footer-legal ul li a {
-  text-decoration: none;
-  color: #1471a7;
-  transition: color 0.3s ease;
-}
-
-.footer-legal ul li a:hover {
-  color: #005f8d;
-}
-
-/* Footer Bottom Section */
-.footer-bottom {
-  margin-top: 20px;
-  font-size: 14px;
-  color: #777;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 20px;
+    gap: 20px;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .footer-main {
-    grid-template-columns: repeat(2, 1fr);
-  }
+    .footer-main {
+        grid-template-columns: repeat(2, 1fr);
+    }
 
-  .footer-logo {
-    width: 120px;
-  }
+    .footer-logo {
+        width: 120px;
+    }
 
-  .footer-links, .footer-social, .footer-affiliate, .footer-newsletter {
-    align-items: center;
-  }
-
-  .footer-newsletter input[type="email"] {
-    width: 60%;
-  }
+    .footer-newsletter input[type="email"] {
+        width: 60%;
+    }
 }
 
 @media (max-width: 480px) {
-  .footer-main {
-    grid-template-columns: 1fr;
-    padding: 0 10px;
-  }
+    .footer-main {
+        grid-template-columns: 1fr;
+        padding: 0 10px;
+    }
 
-  .footer-logo {
-    width: 100px;
-  }
+    .footer-logo {
+        width: 100px;
+    }
 
-  .footer-links h4,
-  .footer-social h4,
-  .footer-affiliate h4,
-  .footer-newsletter h4 {
-    font-size: 16px;
-  }
+    .footer-links h4,
+    .footer-social h4,
+    .footer-affiliate h4,
+    .footer-newsletter h4 {
+        font-size: 16px;
+    }
 
-  .footer-links ul li a,
-  .footer-social ul li a {
-    font-size: 12px;
-  }
+    .footer-links ul li a,
+    .footer-social ul li a {
+        font-size: 12px;
+    }
 
-  .footer-newsletter button {
-    font-size: 12px;
-  }
+    .footer-newsletter button {
+        font-size: 12px;
+    }
 }
     
  </style>
