@@ -1,572 +1,1292 @@
-<!DOCTYPE html>
 <html lang="en">
-    <style>* {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HUTSLE 5</title>
     <style>
+        /* Basic Reset */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
-        /* Body and Header */
+
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-        }
-        
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 1em;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        header .logo h1 a {
-            color: #fff;
-            text-decoration: none;
-        }
-        
-        /* Top Navigation Buttons */
-        .top-nav button {
-            background-color: #555;
-            color: #fff;
-            border: none;
-            padding: 0.5em 1em;
-            margin-left: 0.5em;
-            cursor: pointer;
-        }
-        
-        .top-nav button a {
-            color: #fff;
-            text-decoration: none;
-        }
-        
-        /* Dropdown Menu */
-        .menu-dropdown {
-            position: relative;
-            display: inline-block;
-        }
-        
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-            min-width: 160px;
-            z-index: 1;
-        }
-        
-        .dropdown-content a {
-            color: #333;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-        }
-        
-        .dropdown-content a:hover {
-            background-color: #f1f1f1;
-        }
-        
-        .menu-dropdown:hover .dropdown-content {
-            display: block;
-        }
-    
-body {
-        font-family: Arial, sans-serif;
-        color: #333;
-        background-color: #f4f4f4;
-        line-height: 1.6;
-    }
-    
-    
-    /* Header */
-    header {
-        background-color: #333;
-        color: #fff;
-        padding: 1em;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    
-    header .logo h1 a {
-        color: #fff;
-        text-decoration: none;
-        font-size: 1.5em;
-    }
-    
-    header .top-nav button {
-        background-color: #555;
-        color: #fff;
-        border: none;
-        padding: 0.5em 1em;
-        margin-left: 0.5em;
-        cursor: pointer;
-        transition: background-color 0.3s;
-    }
-    
-    header .top-nav button a {
-        color: #fff;
-        text-decoration: none;
-    }
-    
-    header .top-nav button:hover {
-        background-color: #777;
-    }
-    
-    /* Hero Section */
-    .hero {
-        background-image: url('hero-bg.jpg');
-        background-size: cover;
-        background-position: center;
-        padding: 3em 1em;
-        text-align: center;
-        color: #333;
-    }
-    
-    .hero h2 {
-        font-size: 2em;
-        margin-bottom: 1em;
-    }
-    
-    .hero .search-bar {
-        display: flex;
-        justify-content: center;
-        margin-top: 1em;
-    }
-    
-    .hero .search-bar input[type="text"] {
-        padding: 0.5em;
-        width: 60%;
-        max-width: 400px;
-        border: 2px solid #333;
-        border-radius: 5px 0 0 5px;
-        font-size: 1em;
-    }
-    
-    .hero .search-bar button {
-        padding: 0.5em 1em;
-        border: none;
-        background-color: #333;
-        color: #fff;
-        font-size: 1em;
-        cursor: pointer;
-        border-radius: 0 5px 5px 0;
-    }
-    
-    .hero .search-bar button:hover {
-        background-color: #555;
-    }
-    
-    /* Highlights Section */
-    .highlights {
-        padding: 2em 1em;
-        background-color: #fff;
-        text-align: center;
-    }
-    
-    .highlights h3 {
-        font-size: 1.8em;
-        margin-bottom: 1em;
-    }
-    
-    .freelancer-list {
-        display: flex;
-        justify-content: center;
-        gap: 2em;
-        flex-wrap: wrap;
-    }
-    
-    .freelancer-card {
-        background-color: #f4f4f4;
-        padding: 1em;
-        width: 200px;
-        text-align: center;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        transition: box-shadow 0.3s;
-    }
-    
-    .freelancer-card:hover {
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-    
-    .freelancer-card img {
-        width: 100%;
-        height: auto;
-        border-radius: 50%;
-        margin-bottom: 1em;
-    }
-    
-    .freelancer-card h4 {
-        font-size: 1.2em;
-        margin-bottom: 0.5em;
-    }
-    
-    .freelancer-card p {
-        color: #666;
-        margin-bottom: 0.5em;
-    }
-    
-    .freelancer-card a {
-        text-decoration: none;
-        color: #333;
-        font-weight: bold;
-    }
-    
-    /* Testimonials Section */
-    .testimonials {
-        background-color: #333;
-        color: #fff;
-        padding: 2em 1em;
-        text-align: center;
-    }
-    
-    .testimonials h3 {
-        font-size: 1.8em;
-        margin-bottom: 1em;
-    }
-    
-    .testimonial-carousel p {
-        font-style: italic;
-        max-width: 600px;
-        margin: 0 auto 1em auto;
-    }
-    
-    /* CTA Section */
-    .cta {
-        background-color: #555;
-        color: #fff;
-        padding: 2em 1em;
-        text-align: center;
-    }
-    
-    .cta h3 {
-        font-size: 1.8em;
-        margin-bottom: 1em;
-    }
-    
-    .cta .cta-button {
-        background-color: #333;
-        color: #fff;
-        padding: 0.5em 1.5em;
-        text-decoration: none;
-        border-radius: 5px;
-        font-size: 1em;
-        transition: background-color 0.3s;
-    }
-    
-    .cta .cta-button:hover {
-        background-color: #777;
-    }
-    
-    /* Footer */
-    footer {
-        background-color: #222;
-        color: #fff;
-        padding: 1em;
-        text-align: center;
-    }
-    
-    .footer-links a {
-        color: #fff;
-        text-decoration: none;
-        margin: 0 0.5em;
-    }
-    
-    .footer-links a:hover {
-        color: #bbb;
-    }
-    .reviews h3 {
-            font-size: 1.8rem;
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 10px;
-            border-radius: 10px;
-            margin: 20px 0;
-        }
-        .review-box {
-            background: #333;
-            color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            margin: 10px auto;
-            max-width: 100%;
-        }
-        .review-box img {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            margin-bottom: 10px;
-        }
-        .review-box p {
-            font-style: italic;
+            line-height: 1.6;
             margin: 0;
-        }
-        
-        }
-        .footer {
-            background-color: #111;
-            color: #fff;
-            padding: 40px 20px;
-            text-align: center;
-            margin-top: 20px;
-        }
-        footer {
-            margin-top: 40px;
-            padding: 10px 0;
-            text-align: center;
-            color: #bbb;
-            font-size: 0.9em;
-            border-top: 1px solid #333;
-        }
-        .footer h3 {
-            margin: 0 0 20px 0;
-            font-size: 1.5em;
-        }
-        .footer p, .footer a {
-            margin: 5px 0;
-            color: #fff;
-            text-decoration: none;
-        }
-        .footer a:hover {
-            color: gold;
-        }
-        .footer .links, .footer .social-media {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            max-width: 1200px;
-            margin: auto;
-            padding: 0 10px;
-        }
-        .footer .link-column, .footer .social-column {
-            flex: 1;
-            min-width: 200px;
-            margin: 10px;
-            text-align: center;
-        }
-        .footer .social-media a {
-            margin: 0 10px;
-        }
-        .footer .social-media img {
-            width: 30px;
-            height: 30px;
-        }
-        .footer .footer-words {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            margin-top: 20px;
-        }
-        .footer .footer-word {
-            flex: 1;
-            min-width: 150px;
-            text-align: center;
-            margin: 5px;
-        }
-        @media (max-width: 768px) {
-            .footer {
-                padding: 20px 10px;
-            }
-            .footer h3 {
-                font-size: 1.2em;
-            }
-        }
-        .verified-icon {
-            width: 30px;
-            height: auto;
-        }
-        .features {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            padding: 10px;
-        }
-        .feature {
-            background-color: whitesmoke;
-            padding: 15px;
-            border-radius: 10px;
+            padding: 20px;
+            background-color: #f5f5f5;
             color: #333;
         }
-        .feature h4 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
+
+        /* Header */
+.header {
+    z-index: 1000;
+    width: 100%;
+    height: 120px;
+    background-color: #1471a7;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+/* Header Image (Optional) */
+.header-image-box {
+    width: 40px;
+    height: 40px;
+    background-color: none;
+    border-radius: 50%;
+    margin-bottom: 180px;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 70px;
+}
+
+
+.search-box input[type="text"] {
+    width: 300px;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+}
+
+.search-box button {
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    background-color: #125a8a;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 5px;
+    transition: background-color 0.3s;
+}
+
+.search-box button:hover {
+    background-color: #0d4671;
+}
+
+/* Main Categories */
+.nav-bar {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-bottom: 30px;
+}
+
+
+.auth-buttons {
+    position: absolute; /* Position it relative to the header */
+    top: 10px; /* 10px from the top of the header */
+    right: 20px; /* 20px from the right margin */
+    display: flex; /* Align buttons horizontally */
+    gap: 10px; /* Space between the buttons */
+}
+
+.auth-buttons .login-btn,
+.auth-buttons .register-btn {
+    background-color: #ffffff;
+    color: #1471a7;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.auth-buttons .login-btn:hover,
+.auth-buttons .register-btn:hover {
+    background-color: #f0f0f0;
+} /* Ensures the image does not stretch more than needed */
+
+ /* Main Content Container */
+.container {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+    padding: 80px 20px 20px; /* Padding to ensure the header doesn't overlap content */
+    background-color: #fff;
+    border-radius: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: none; /* Prevents the container from touching the fixed header */
+}
+
+.image-box img {
+    width: 100px;
+    height: auto;
+    border-radius: 8px;
+}
+
+.text-box {
+    flex: 1;
+}
+
+.heading {
+    font-weight: bold;
+    color: #333;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.subheading {
+    font-weight: bold;
+    color: #333;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+.subsubheading {
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 10px;
+    color: #555;
+}
+
+.read-more-button {
+    background-color: #1471a7;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 10px;
+    border-radius: 4px;
+}
+
+/* Right-alignment for the image box */
+.container .image-box {
+    margin-left: auto; /* Ensures the image box is aligned to the right */
+}
+
+.read-more-button {
+    text-align: center;
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+    .header .search-box {
+        width: 90%;
+        margin-left: 10px;
+    }
+    
+    .container {
+        flex-direction: column; /* Stack content vertically on smaller screens */
+        align-items: center; /* Center content */
+    }
+    
+    .container .image-box {
+        margin: 0; /* Remove right margin on smaller screens */
+        width: 100%; /* Make image box take full width */
+    }
+    
+    .text-box {
+        text-align: center; /* Center text on small screens */
+    }
+}
+ /* Title Section */
+.top-rated-title {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.top-rated-title h2 {
+    font-size: 26px;
+    color: #333;
+    font-weight: bold;
+    letter-spacing: 1px; /* Slight spacing for a modern look */
+    text-transform: uppercase; /* Adds a professional and clean touch */
+}
+
+/* Carousel Container */
+.carousel {
+    z-index: 1; /* Lower than header's z-index */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    overflow: hidden; /* Hide overflow content to simulate the scrolling effect */
+    padding: 20px;
+    background-color: #fafafa; /* Slightly lighter background for a clean effect */
+    border-top: 3px solid #1471a7; /* Accent line for a finished look */
+    border-bottom: 3px solid #1471a7; /* Matching line at the bottom for symmetry */
+}
+
+/* Profiles Container */
+.carousel-container {
+    display: flex;
+    flex-wrap: nowrap;
+    transition: transform 0.5s ease-in-out;
+    justify-content: flex-start; /* Start from the left for better alignment */
+}
+
+/* Individual Profile */
+.profile {
+    flex: 0 0 auto;
+    width: 240px; /* Slightly larger profile width */
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px; /* More rounded corners for a softer look */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle, more pronounced shadow */
+    margin-right: 30px; /* Increase space between profiles */
+    transition: transform 0.3s ease; /* Smooth transition on hover */
+}
+
+/* Profile Image */
+.profile img {
+    width: 120px; /* Uniform size for all images */
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 15px; /* Adds space between image and text */
+    border: 3px solid #1471a7; /* Border around the image for emphasis */
+}
+
+/* Profile Text */
+.profile h3 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8px; /* Space between name and rating */
+}
+
+.profile p {
+    font-size: 14px;
+    color: #777; /* Lighter color for job description */
+    margin-bottom: 5px;
+}
+
+/* Rating */
+.profile .rating {
+    color: #ffb400; /* Gold color for the rating stars */
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+/* Left and Right buttons */
+.carousel-btn {
+    background-color: transparent;
+    border: none;
+    font-size: 30px;
+    color: #1471a7;
+    cursor: pointer;
+    z-index: 2;
+    padding: 10px; /* Added padding to increase click area */
+    border-radius: 50%; /* Rounded buttons for a more modern look */
+    transition: background-color 0.3s ease;
+}
+
+.carousel-btn:hover {
+    background-color: rgba(0, 0, 0, 0.1); /* Subtle hover effect */
+}
+
+.carousel-btn.left-btn {
+    position: absolute;
+    left: 10px;
+}
+
+.carousel-btn.right-btn {
+    position: absolute;
+    right: 10px;
+}
+
+/* Hover effect for profiles */
+.profile:hover {
+    transform: translateY(-10px); /* Slight lift effect on hover */
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15); /* More intense shadow on hover */
+}
+#moreContentPaymentPractices, #moreContentCustomerSupport, #moreContentAffiliateProgramme,#moreContentCommunityBuilding, #moreContentRegistration, #moreContentHustle {
+            display: none;
         }
-    </style>
+      
+        /* New Carousel container */
+        .carousel-container-new {
+            display: flex;
+            overflow: hidden;
+            width: 100%; /* Make it full width */
+            justify-content: center;
+            align-items: center;
+            height: 80px; /* Increased height for better visibility */
+            font-size: 40px; /* Increased font size */
+            margin-top: 70px; /* Space below header */
+            position: relative;
+            background-color: none; /* Dark background to make the text stand out */
+        }
+
+        /* Carousel text wrapper */
+        .carousel-text {
+            display: flex;
+            font-weight: bold; /* Make text bold */
+            color: #fff; /* White text for contrast */
+            animation: scroll 15s linear infinite;
+        }
+
+        /* Keyframes for smooth moving text */
+        @keyframes scroll {
+            0% { transform: translateX(100%); } /* Start from the right */
+            100% { transform: translateX(-100%); } /* End on the left */
+        }
+
+        /* Individual word spacing */
+        .carousel-text span {
+            margin-right: 60px; /* Increased space between words */
+        }
+
+     /* General footer styling */
+.footer {
+  background-color: #f8f9fa;
+  padding: 40px 20px;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 40px;
+}
+
+/* Footer Main Area */
+.footer-main {
+  display: flex;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 40px;
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 40px;
+}
+
+/* Brand Section */
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.footer-logo {
+  width: 150px;
+  margin-bottom: 10px;
+}
+
+.footer-brand p {
+  font-size: 14px;
+  color: #555;
+  text-align: center;
+}
+
+/* Quick Links Section */
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.footer-links h4 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links ul li {
+  margin: 10px 0;
+}
+
+.footer-links ul li a {
+  text-decoration: none;
+  color: #1471a7;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.footer-links ul li a:hover {
+  color: #005f8d;
+}
+
+/* Social Media Section */
+.footer-social {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.footer-social h4 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.footer-social ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 10px;
+}
+
+.footer-social ul li {
+  display: inline-block;
+}
+
+.footer-social ul li a {
+  text-decoration: none;
+  color: #1471a7;
+  font-size: 20px;
+  transition: color 0.3s ease;
+}
+
+.footer-social ul li a:hover {
+  color: #005f8d;
+}
+
+/* Referral Section */
+.footer-affiliate {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.footer-affiliate h4 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.footer-affiliate p {
+  font-size: 14px;
+  color: #555;
+}
+
+.footer-affiliate a {
+  text-decoration: none;
+  color: #1471a7;
+  font-weight: bold;
+}
+
+.footer-affiliate a:hover {
+  color: #005f8d;
+}
+
+/* Newsletter Section */
+.footer-newsletter {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.footer-newsletter h4 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.footer-newsletter input[type="email"] {
+  width: 140%;
+  padding: 10px;
+  font-size: 14px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.footer-newsletter button {
+  padding: 10px 20px;
+  background-color: #1471a7;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.footer-newsletter button:hover {
+  background-color: #005f8d;
+}
+
+/* Legal Section */
+.footer-legal {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.footer-legal ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 20px;
+}
+
+.footer-legal ul li {
+  font-size: 14px;
+}
+
+.footer-legal ul li a {
+  text-decoration: none;
+  color: #1471a7;
+  transition: color 0.3s ease;
+}
+
+.footer-legal ul li a:hover {
+  color: #005f8d;
+}
+
+/* Footer Bottom Section */
+.footer-bottom {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #777;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer-main {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-logo {
+    width: 120px;
+  }
+
+  .footer-links, .footer-social, .footer-affiliate, .footer-newsletter {
+    align-items: center;
+  }
+
+  .footer-newsletter input[type="email"] {
+    width: 60%;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-main {
+    grid-template-columns: 1fr;
+    padding: 0 10px;
+  }
+
+  .footer-logo {
+    width: 100px;
+  }
+
+  .footer-links h4,
+  .footer-social h4,
+  .footer-affiliate h4,
+  .footer-newsletter h4 {
+    font-size: 16px;
+  }
+
+  .footer-links ul li a,
+  .footer-social ul li a {
+    font-size: 12px;
+  }
+
+  .footer-newsletter button {
+    font-size: 12px;
+  }
+}
+    
+ </style>
 </head>
 <body>
-
-    <!-- Header Section -->
-    <header>
-        <div class="logo">
-            <h1><a href="#">Kenya Freelance Writers</a></h1>
+    <header class="header">
+        <div class="search-box">
+            <input type="text" id="search-input" placeholder="Search for Services...">
+            <button onclick="performSearch()">Search</button>
         </div>
-        <div class="top-nav">
-            <button><a href="signin.html">Sign In</a></button>
-            <button><a href="signup.html">Sign Up</a></button>
-            <div class="menu-dropdown">
-                <button>Menu</button>
-                <div class="dropdown-content">
-                    <a href="index.html">Home</a>
-                    <a href="pages/about.us.html">About Us</a>
-                    <a href="pages/ourservices.html">Our Services</a>
-                    <a href="pages/FAQ.html">FAQ</a>
-                    <a href="pages/CONTACT.html">Contact</a>
-                    <a href="pages/signinpage.html">Sign In</a>
-                    <a href="pages/testimonials.html">Testimonials</a>
-                </div>
+        <div class="header-image-box">
+            <img src="./whitelogohustle5.PNG" alt="Header Image">
+        </div>
+        <div class="auth-buttons">
+            <button class="login-btn">Login</button>
+            <button class="register-btn">Register</button>
+        </div>
+    </div>
+
+         <!-- New Carousel container positioned below the header -->
+    <div class="carousel-container-new">
+        <div class="carousel-text">
+            <span>WELCOME</span>
+            <span>TO</span>
+            <span>HUTSLE</span>
+            <span>5</span>
+            <span>YOUR</span>
+            <span>FREELANCING</span>
+            <span>HUB</span>
+        </div>
+        <div class="carousel-text">
+            <span>WELCOME</span>
+            <span>TO</span>
+            <span>HUTSLE</span>
+            <span>5</span>
+            <span>YOUR</span>
+            <span>FREELANCING</span>
+            <span>HUB</span>
+        </div>
+    </div>
+        </header>
+        <div class="container">
+          <div class="text-box">
+            <P> . </p>
+                <P> . </p>
+
+            <p class="heading">HUTSLE 5: Empowering Freelancers & Clients for Long-Term Success</p>
+            <p>Welcome to <strong>Hustle 5</strong> - The Future of Freelancing. In today’s dynamic digital age, the freelancing industry is experiencing rapid growth. At <strong>Hustle 5</strong>, we understand that freelancers and clients alike are looking for a platform that goes beyond the traditional expectations—one that offers personalized services, cutting-edge tools, and a reliable community. That’s where we come in. <strong>Hustle 5</strong> is more than just another freelancing platform; it’s a solution built to empower freelancers and clients for long-term success. Whether you’re a freelancer striving to showcase your talents or a client seeking top-tier services, <strong>Hustle 5</strong> ensures a genuine and transparent experience for all.</p>
+            <p><strong>Our Mission</strong> is simple: Build long-lasting relationships through trust, quality, and unmatched customer support.</p>
+    
+            <button class="read-more-button" onclick="toggleContent('moreContentHustle', this)">Read More</button>
+            <div id="moreContentHustle">
+                <p class="subheading">Why Hustle 5?</p>
+                <p class="subsubheading">1. Trust and Transparency</p>
+                <p>Trust is the foundation of any successful collaboration, and Hustle 5 makes it our top priority. With our robust rating and review system, clients and freelancers can make informed decisions based on transparent feedback. This system encourages accountability and ensures that every transaction is fair, helping to foster an environment of trust. The result? A platform where freelancers can consistently showcase their skills, and clients can rest assured knowing they are working with the best.</p>
+    
+                <p class="subsubheading">2. Seamless Payment Protection</p>
+                <p>One of the greatest concerns for freelancers is securing timely and guaranteed payments. Hustle 5 integrates advanced payment systems that cater to both international and local transactions, including options like PayPal, Skrill, Neteller, M-Pesa, and Bitcoin. Our platform also ensures bi-weekly payment cycles, allowing freelancers to receive payments for their hard work on a regular basis, unlike many platforms that offer more rigid, monthly schedules.</p>
+    
+                <p class="subsubheading">3. Skill Verification for Quality Assurance</p>
+                <p>To stand out in an increasingly competitive marketplace, it’s crucial for freelancers to demonstrate their expertise. Hustle 5 offers innovative skill verification to ensure that only highly qualified professionals are part of our community. This gives clients the confidence to work with freelancers who have proven their skills and are ready to deliver exceptional results. Our verification system ensures that freelancers maintain high standards, and clients benefit from the professionalism and expertise they deserve.</p>
+    
+                <p class="subsubheading">4. Tailored Services for Freelancers</p>
+                <p>Freelancers are at the heart of Hustle 5, and we offer tools to help them thrive. From creating comprehensive profiles that highlight their unique skills and experience to participating in skill-building programs, freelancers have access to resources designed to help them succeed. Hustle 5 also features an affiliate/referral program, allowing freelancers to earn additional income by inviting others to join the platform. This creates a cycle of growth, collaboration, and opportunities for everyone involved.</p>
+    
+                <p class="subsubheading">5. Fostering Long-Term Relationships</p>
+                <p>At Hustle 5, we believe that freelancing is about more than just completing individual projects—it’s about building long-term, sustainable relationships. Our project management tools allow clients and freelancers to collaborate smoothly, manage expectations, and meet deadlines efficiently. With integrated messaging and file-sharing features, Hustle 5 ensures clear communication and smooth project execution, reducing the chances of misunderstandings or delays.</p>
+    
+                <p class="subheading">How Hustle 5 Stands Out</p>
+                <p class="subsubheading">Quality Over Quantity</p>
+                <p>Unlike platforms that prioritize mass listings and freelancers, Hustle 5 is focused on curating a network of top-tier professionals. We require thorough skill assessments to ensure freelancers are truly experts in their respective fields. This enables clients to find skilled professionals quickly without sifting through numerous profiles. It’s all about delivering results, not just fulfilling orders.</p>
+    
+                <p class="subsubheading">Personalized Experience</p>
+                <p>Hustle 5 offers a highly personalized experience for both freelancers and clients. For freelancers, this means ongoing professional development and a platform that values their growth. For clients, it means tailored services that make it easy to find the right talent for every project. Our customer support team is always available to resolve any issues or questions promptly, ensuring that your experience with Hustle 5 is smooth and efficient.</p>
+    
+                <p class="subsubheading">Niche Expertise</p>
+                <p>We believe in the power of specialization. Hustle 5 is focused on industries such as writing, editing, and content creation. This specialization makes it easier for clients to find freelancers with the precise skills they need, and for freelancers to showcase their niche expertise. With an intuitive analytics dashboard, freelancers can track their performance and continuously improve their craft, ensuring they remain competitive in the market.</p>
+    
+                <p class="subsubheading">Dispute Resolution</p>
+                <p>Even with the best intentions, conflicts can arise. At Hustle 5, we offer a comprehensive dispute resolution system that ensures any issues between freelancers and clients are handled fairly and professionally. Through third-party mediation and clear guidelines, we help both parties maintain their professional relationship, even when things don’t go as planned. This commitment to fair conflict resolution is just another way we prioritize trust and transparency.</p>
+    
+                <p class="subheading">Building a Sustainable Freelancing Community</p>
+                <p>At Hustle 5, we know that a successful freelancing platform is built on community, not just transactions. Our platform encourages collaboration and creates opportunities for freelancers and clients to form lasting, professional relationships. By focusing on quality, transparency, and mutual respect, Hustle 5 aims to be more than just a platform—it’s a business partner for the long term.</p>
+                <p>We foster continuous growth by offering resources for skill improvement, ensuring that freelancers stay ahead of the curve. Clients, on the other hand, can rely on our platform to find talent that meets their needs and expectations, with every project completed on time and to the highest standard.</p>
+    
+                <p class="subheading">Join Hustle 5 Today</p>
+                <p>Ready to take your freelancing career or business to the next level? Hustle 5 is the platform built for those who want more than just a transaction. With a focus on trust, quality, and sustainable success, we are the freelancing platform for professionals who are serious about long-term growth.</p>
+                <p>Hustle 5 is where freelancers and clients meet to achieve greatness together. Let’s build the future of freelancing—one trusted relationship at a time.</p>
             </div>
         </div>
-    </header>
-    <!-- Hero Section -->
-    <section class="hero">
-        <h2>Find Your Perfect Freelancer or Job Today</h2>
-        <div class="search-bar">
-            <input type="text" placeholder="Search for freelancers, jobs, skills...">
-            <button>Search</button>
-        </div>
-    </section>
-
-    <!-- Freelancer & Client Highlights -->
-    <section class="highlights">
-        <h3>Featured Freelancers</h3>
-        <div class="freelancer-list">
-            <div class="freelancer-card">
+    </div>
+    <div class="top-rated-title">
+        <h2>Top Rated Freelancers</h2>
+    </div>
+    <div class="carousel">
+        <button class="carousel-btn left-btn" onclick="moveLeft()">‹</button>
+        
+        <div class="carousel-container">
+            <div class="profile">
                 <img src="freelancer1.jpg" alt="Freelancer 1">
-                <h4>John Doe</h4>
-                <p>Top Rated Writer</p>
-                <a href="freelancer-profile.html">View Profile</a>
+                <h3>John Doe</h3>
+                <p>Rating: ⭐⭐⭐⭐</p>
+                <p>Web Developer specializing in front-end development</p>
             </div>
-            <div class="freelancer-card">
+            <div class="profile">
                 <img src="freelancer2.jpg" alt="Freelancer 2">
-                <h4>Jane Smith</h4>
-                <p>Verified Expert in Design</p>
-                <a href="freelancer-profile.html">View Profile</a>
+                <h3>Jane Smith</h3>
+                <p>Rating: ⭐⭐⭐⭐⭐</p>
+                <p>Graphic Designer with 5 years of experience</p>
+            </div>
+            <div class="profile">
+                <img src="freelancer3.jpg" alt="Freelancer 3">
+                <h3>Maria Gonzalez</h3>
+                <p>Rating: ⭐⭐⭐⭐⭐</p>
+                <p>Content Writer specializing in SEO and tech articles</p>
+            </div>
+            <div class="profile">
+                <img src="freelancer4.jpg" alt="Freelancer 4">
+                <h3>David Kim</h3>
+                <p>Rating: ⭐⭐⭐⭐</p>
+                <p>Mobile App Developer with experience in Android and iOS</p>
+            </div>
+            <div class="profile">
+                <img src="freelancer5.jpg" alt="Freelancer 5">
+                <h3>Ayesha Patel</h3>
+                <p>Rating: ⭐⭐⭐⭐⭐</p>
+                <p>UX/UI Designer creating user-friendly interfaces</p>
+            </div>
+            <div class="profile">
+                <img src="freelancer6.jpg" alt="Freelancer 6">
+                <h3>Ravi Desai</h3>
+                <p>Rating: ⭐⭐⭐⭐</p>
+                <p>Data Analyst with expertise in R and Python</p>
+            </div>
+            <div class="profile">
+                <img src="freelancer7.jpg" alt="Freelancer 7">
+                <h3>Emma O'Connor</h3>
+                <p>Rating: ⭐⭐⭐⭐⭐</p>
+                <p>Copywriter specializing in marketing and ad campaigns</p>
+            </div>
+            <div class="profile">
+                <img src="freelancer8.jpg" alt="Freelancer 8">
+                <h3>Hassan Ali</h3>
+                <p>Rating: ⭐⭐⭐⭐</p>
+                <p>Social Media Strategist with 4 years of experience</p>
+            </div>
+            <div class="profile">
+                <img src="freelancer9.jpg" alt="Freelancer 9">
+                <h3>Lina Chang</h3>
+                <p>Rating: ⭐⭐⭐⭐⭐</p>
+                <p>Illustrator and Animator creating digital art for brands</p>
+            </div>
+            <div class="profile">
+                <img src="freelancer10.jpg" alt="Freelancer 10">
+                <h3>Michael Johnson</h3>
+                <p>Rating: ⭐⭐⭐⭐⭐</p>
+                <p>Video Editor with expertise in Adobe Premiere and After Effects</p>
             </div>
         </div>
-    </section>
+        
+        <button class="carousel-btn right-btn" onclick="moveRight()">›</button>
+    </div>
 
-    <section class="features">
-        <div class="feature">
-            <h4>Transparent Employment</h4>
-            <p>A straightforward application process that ensures a quick and easy onboarding experience.</p>
-        </div>
-        <div class="feature">
-            <h4>Above-Average Rates</h4>
-            <p>Earn between $4 per page as a beginner to $12 as an expert.</p>
-        </div>
-        <div class="feature">
-            <h4>Frequent Payouts</h4>
-            <p>Receive payments bi-monthly via PayPal, Skrill, Payoneer, or Neteller with zero extra fees.</p>
-        </div>
-        <div class="feature">
-            <h4>Constant Workload</h4>
-            <p>Access new projects anytime, enabling continuous earning opportunities.</p>
-        </div>
-    </section>    
+    
+<!-- Main content container for Payments -->
+<div class="container">
+    <div class="image-box">
+        <img src="artiz.ai_A_stylized_image_of_ (1).jpg" alt="HUTSLE 5 Logo"  style="width:100%; max-width:400px;">
+    </div>
+    <div class="text-box">
+        <p class="heading">Payment Practices at HUTSLE 5: Ensuring Security, Reliability, and Trust</p>
+        <p>HUTSLE 5 understands that timely, secure, and transparent payment practices are critical in building a trustworthy platform for freelancers and clients. Our platform is designed to foster confidence and reliability through on-time payments, an escrow system for secure transactions, and well-defined policies that ensure the privacy and safety of all financial interactions.</p>
+        <button class="read-more-button" onclick="toggleContent('moreContentPaymentPractices', this)">Read More</button>
+        <div id="moreContentPaymentPractices">
+            <p class="subheading">Why Choose HUTSLE 5?</p>
+            <p class="subsubheading">1. Trust and Transparency</p>
+            <p>Our robust rating and review system allows freelancers and clients to make informed decisions based on transparent feedback, fostering an environment of trust for both sides.</p>
 
-    <section class="reviews">
-        <h3>Client Reviews</h3>
-        <div class="review-box">
-            <img src="images/jetfofo1.PNG" alt="Reviewer 1" class="reviewer-img">
-            <p><strong>Jane Smith</strong>: “Amazing work! Highly recommended. The attention to detail and creativity were beyond my expectations. Truly impressed!”</p>
+            <p class="subsubheading">2. Payment Practices at HUTSLE 5: Ensuring Security, Reliability, and Trust</p>
+            <p>HUTSLE 5 emphasizes secure and timely payments, supported by an escrow system and transparent policies for smooth, dependable financial transactions.</p>
+
+            <p class="subsubheading">On-Time Payments</p>
+            <p>We understand the importance of dependable income for freelancers. Payments are processed within 7-14 days after project completion, fostering reliable cash flow. Partnering with reputable providers, we streamline payments to minimize delays, allowing freelancers to plan confidently and focus on their work.</p>
+
+            <p class="subsubheading">Escrow Payment System: A Secure Transactional Solution</p>
+            <p>Our escrow system ensures security for both freelancers and clients by securing funds upfront. This process guarantees payment upon satisfactory project completion, reducing risk for freelancers and ensuring client satisfaction. In case of disputes, our escrow service includes a built-in resolution process that holds funds until an agreement is reached.</p>
+
+            <p class="subsubheading">Multiple Payment Options</p>
+            <p>To accommodate our global user base, HUTSLE 5 supports various secure payment methods, including M-Pesa, PayPal, Skrill, Neteller, and Bitcoin. These options offer flexibility and convenience, reinforcing the trustworthiness of our platform.</p>
+
+            <p class="subsubheading">Clear Terms and Data Privacy</p>
+            <p>HUTSLE 5 prioritizes clarity, providing detailed policies about payment processes, fees, and escrow terms. Additionally, we protect user data with encryption technologies, ensuring confidentiality in all financial transactions.</p>
+
+            <p>Our payment practices at HUTSLE 5 are designed with trust, security, and transparency to support a thriving freelancer-client community.</p>
+
+            <p class="subheading">Join HUTSLE 5 Today</p>
+            <p>Ready to advance your freelancing career or business? HUTSLE 5 is a platform built for professionals seeking secure, trustworthy relationships. Let’s shape the future of freelancing together.</p>
         </div>
-        <div class="review-box">
-            <img src="images/jetfofo3.PNG" alt="Reviewer 2" class="reviewer-img">
-            <p><strong>Mary Johnson</strong>: “Great quality and fast delivery. I received my project ahead of time, and the results were top-notch. Will return for more!”</p>
-        </div>
-        <div class="review-box">
-            <img src="images/jetfofo4.PNG" alt="Reviewer 3" class="reviewer-img">
-            <p><strong>Emily Davis</strong>: “Will definitely hire again. The writer understood my requirements perfectly and delivered a polished piece that exceeded my hopes.”</p>
-        </div>
-    </section>
-
-    <!-- Footer Section -->
-    <style>
-        .footer {
-            background-color: #333; /* Footer background color */
-            padding: 20px; /* Add some padding */
-            text-align: left; /* Align text to the left */
-        }
-
-        .quick-links {
-            font-weight: bold; /* Make "Quick Links" bold */
-        }
-
-        .quick-links-container a {
-            display: block; /* Stack links vertically */
-            text-decoration: none; /* Remove underline from links */
-            padding: 5px 0; /* Add some spacing between links */
-        }
-
-        .quick-links-container a:hover {
-            text-decoration: underline; /* Add underline on hover */
-        }
-
-        .footer-words {
-            text-decoration: underline; /* Underline all footer words */
-        }
-
-        .footer-word {
-            margin: 5px 0; /* Space between each footer word */
-        }
-    </style>
-</head>
-<body>
-   <!-- Footer Section -->
-    <footer class="footer">
-        <h3>Stay Connected</h3>
-        <div class="links">
-            <div class="link-column">
-                <h4 class="quick-links">Quick Links</h4>
-                <div class="quick-links-container">
-                    <a href="#Home">Home</a>
-                    <a href="#ourservices">Services</a>
-                    <a href="#CONTACT">Contact</a>
-                    <a href="#privacy">Privacy Policy</a>
-                </div>
-            </div>
-            <div class="social-column">
-                <h4>Follow Us</h4>
-                <div class="social-media">
-                    <a href="#"><img src="images/INSTAGRAM_ICON-removebg-preview.png" alt="Instagram"></a>
-                    <a href="#"><img src="images/FACEBOOKICON-removebg-preview.png" alt="Facebook"></a>
-                    <a href="#"><img src="images/X_FORMERLY_TWITTER_ICON-removebg-preview.png" alt="Twitter"></a>
-                    <a href="#"><img src="images/LINKEDIN_ICON-removebg-preview.png" alt="LinkedIn"></a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-words">
-            <div class="footer-word">Creative</div>
-            <div class="footer-word">Quality</div>
-            <div class="footer-word">Professional</div>
-            <div class="footer-word">Affordable</div>
-            <div class="footer-word">Reliable</div>
-            <div class="footer-word">Efficient</div>
-            <div class="footer-word">Trustworthy</div>
-            <div class="footer-word">Skilled</div>
-        </div>
-    </footer>
-     <!-- Footer -->
-<footer>
-    <p>Location: Westlands, Amanza Plaza, 3rd Floor</p>
-    <p>Contact: +254704195290 | CEO: John Musembi</p>
-    <p>Payment Methods: M-Pesa, Skrill, PayPal, Neteller, Bitcoin</p>
-    <p>&copy; 2024 Kenya Freelance Writers. All Rights Reserved.</p>
-</footer>
-    <!-- WhatsApp Button -->
-<a href="https://wa.me/qr/CGYRGFT3LDKRG1" target="_blank" class="whatsapp">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png" alt="WhatsApp" style="width: 30px; height: 30px;">
-</a>
-
+    </div>
 </div>
+
+
+
+<!-- Customer Support Section -->
+<div class="container">
+    <div class="image-box">
+        <img src="./CUSTOMER.PNG" alt="HUTSLE 5 Logo" style="width:100%; max-width:400px;">
+    </div>
+    <div class="text-box">
+        <h1 class="heading">Customer Support at HUTSLE 5</h1>
+        <p>At <strong>HUTSLE 5</strong>, we prioritize customer satisfaction as a core value. Our Customer Support Team is dedicated to delivering exceptional service, ensuring that your experience with us is seamless, responsive, and reliable. Whether you’re a freelancer juggling multiple projects or a client searching for the perfect talent, our support team is here to assist you at every stage.</p>
+        <button class="read-more-button" onclick="toggleContent('moreContentCustomerSupport', this)">Read More</button>
+
+        <div id="moreContentCustomerSupport" style="display: none;">
+            <!-- Introduction and Support Overview -->
+            <h2>Dedicated Support for Your Success</h2>
+            <p>We understand that freelancing and hiring can be complex and sometimes overwhelming. Our support system is designed to provide you with personalized assistance, enabling you to focus on what matters most—your projects. Here’s how our Customer Support Team at HUTSLE 5 goes above and beyond to ensure your needs are met efficiently and effectively:</p>
+
+            <!-- 24/7 Live Chat Support -->
+            <h3>24/7 Live Chat Support</h3>
+            <p>In today’s fast-paced world, timely communication is essential. That’s why HUTSLE 5 offers <strong>24/7 Live Chat Support</strong>, ensuring you have immediate access to our knowledgeable support team whenever questions arise. Our live chat is available directly on the platform, allowing for instant assistance with account issues, technical questions, or general inquiries. We’re here to help you, day or night.</p>
+            <ul>
+                <li><strong>Instant Responses</strong> – Get answers in real-time, reducing wait times and keeping your projects on track.</li>
+                <li><strong>Multi-language Support</strong> – Our live chat service supports multiple languages to cater to our diverse user base.</li>
+                <li><strong>Expert Assistance</strong> – Our team is trained to assist with technical troubleshooting, billing questions, and account guidance.</li>
+            </ul>
+
+            <!-- Comprehensive Ticketing System -->
+            <h3>Efficient Ticketing System</h3>
+            <p>For more detailed inquiries that require thorough troubleshooting, our <strong>Ticketing System</strong> allows users to submit support requests and track them through to resolution. Our ticketing system is ideal for complex issues, enabling you to provide detailed information and receive ongoing updates on your request status.</p>
+            <ul>
+                <li><strong>Transparency</strong> – Track your support request and receive notifications at each stage of the resolution process.</li>
+                <li><strong>Specialized Support</strong> – Tickets are routed to specialists based on the type of request, ensuring accurate and efficient solutions.</li>
+                <li><strong>Follow-Up Services</strong> – Once an issue is resolved, our team provides follow-up guidance to prevent similar issues in the future.</li>
+            </ul>
+
+            <!-- Knowledge Base & FAQs -->
+            <div class="community-section">
+                <img src="knowledgebase-icon.png" alt="Knowledge Base Icon" style="width:50px;">
+                <h3>Extensive Knowledge Base & FAQs</h3>
+                <p>For those who prefer to resolve issues independently, our comprehensive <strong>Knowledge Base</strong> offers a wealth of information. This resource includes FAQs, how-to guides, and troubleshooting tips, all designed to make it easy for users to find solutions on their own. Our Knowledge Base covers topics such as:</p>
+                <ul>
+                    <li><strong>Platform Navigation</strong> – Step-by-step guides for managing your account, setting up profiles, and posting projects.</li>
+                    <li><strong>Technical Support</strong> – Solutions for common technical issues, ensuring smooth platform use.</li>
+                    <li><strong>Financial Transactions</strong> – Information on billing, payments, and withdrawal processes.</li>
+                </ul>
+            </div>
+
+            <!-- Enhanced Self-Service Options -->
+            <h3>Enhanced Self-Service Options</h3>
+            <p>In addition to live support, HUTSLE 5 offers an array of self-service tools that make it easy to manage your account and resolve issues on your own. Our intuitive platform allows users to update profile information, reset passwords, and manage project settings effortlessly. Here’s what our self-service options include:</p>
+            <ul>
+                <li><strong>Account Management Tools</strong> – Easily update personal information, change passwords, and adjust security settings.</li>
+                <li><strong>Transaction History Access</strong> – View and download statements, invoices, and transaction history at any time.</li>
+                <li><strong>Resource Access</strong> – Access a library of downloadable templates, checklists, and best practices for freelancers and clients.</li>
+            </ul>
+
+            <!-- Feedback and Improvement System -->
+            <h3>Continuous Improvement through Feedback</h3>
+            <p>We believe that customer feedback is crucial to the continuous improvement of our platform. HUTSLE 5 provides multiple channels for you to share your experiences, suggestions, and concerns, including:</p>
+            <ul>
+                <li><strong>Customer Satisfaction Surveys</strong> – After each support interaction, you can provide feedback on your experience.</li>
+                <li><strong>Feature Request Portal</strong> – Suggest new features or improvements, which our development team reviews regularly.</li>
+                <li><strong>Quarterly Feedback Forums</strong> – Participate in interactive sessions with our team to discuss platform updates and provide feedback.</li>
+            </ul>
+
+            <!-- Visual Support and Tutorials -->
+            <h3>Visual Support: Video Tutorials & Walkthroughs</h3>
+            <p>Our <strong>Video Tutorials</strong> and interactive platform walkthroughs offer visual guidance to help users navigate HUTSLE 5's features effectively. These resources make it easy to understand complex processes such as project bidding, account verification, and service usage, empowering you to maximize the platform’s capabilities.</p>
+            <ul>
+                <li><strong>Video Library</strong> – Access tutorials covering everything from profile optimization to project submission.</li>
+                <li><strong>Interactive Walkthroughs</strong> – Step-by-step guides that walk you through platform processes in real time.</li>
+            </ul>
+
+            <!-- Join the HUTSLE 5 Community -->
+            <h3>Join HUTSLE 5 Today: Support that Grows with You</h3>
+            <p>At HUTSLE 5, our Customer Support is more than just assistance; it’s a partnership for your success. By joining our platform, you gain access to a responsive, knowledgeable, and dedicated support team focused on your success. Explore all that we offer to make your freelancing or hiring journey efficient, enjoyable, and rewarding.</p>
+            <p>Become part of HUTSLE 5, where customer support means being by your side every step of the way. Experience support that adapts to your needs, fosters your growth, and ensures your satisfaction every time.</p>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <!-- Image Box -->
+    <div class="image-box">
+        <img src="artiz.ai_A_stylized_image_of_ (3).jpg" alt="HUTSLE 5 Logo"  style="width:100%; max-width:400px;">
+    </div>
+<div class="text-box">
+        <h1 class="heading">HUTSLE 5 Affiliate Program: Earn, Refer, and Grow with Us</h1>
+        <p>Welcome to the <strong>HUTSLE 5 Affiliate Program</strong>! This is an opportunity for you to earn money by spreading the word about our platform. Whether you're a freelancer, client, or influencer, we value your support in growing our community and offer rewarding incentives for your contributions. Monetize your network, help HUTSLE 5 thrive, and enjoy fantastic rewards.</p>
+
+        <button class="read-more-button" onclick="toggleContent('moreContentAffiliateProgram', this)">Read More</button>
+
+        <div id="moreContentAffiliateProgram" style="display: none;">
+            <!-- How It Works Section -->
+            <h2>How the Affiliate Program Works</h2>
+            <p>Joining our program is simple and designed to be beneficial for all. Here’s how you can make the most of your referrals:</p>
+            <ul>
+                <li><strong>Sign Up</strong>: Register as an affiliate through the HUTSLE 5 platform to receive your unique referral link.</li>
+                <li><strong>Share and Promote</strong>: Use your link to refer freelancers and clients on social media, blogs, email newsletters, or personal websites.</li>
+                <li><strong>Earn Rewards</strong>: Each time someone registers, completes a profile, or conducts a transaction through your link, you receive a commission. Your earnings potential grows with every referral!</li>
+            </ul>
+
+            <!-- Commission Structure and Examples -->
+            <h2>Generous Commission Structure</h2>
+            <p>Our commission structure is tailored to reward affiliates for their active contributions to HUTSLE 5's success:</p>
+            <ul>
+                <li><strong>Freelancer Referrals</strong>: Earn a 5% commission each time a freelancer you referred secures their first job.</li>
+                <li><strong>Client Referrals</strong>: Receive a 5% commission whenever a client you referred posts a job or completes their first hire.</li>
+                <li><strong>Bonus Opportunities</strong>: Achieve higher commission rates through consistent referrals and high performance.</li>
+            </ul>
+            <p><em>Example:</em> If a freelancer you refer earns $100 on their first job, you earn $5! As more referrals join, these earnings add up significantly.</p>
+
+            <!-- Enhanced Features for Top Affiliates -->
+            <h2>Special Rewards for Top Affiliates</h2>
+            <p>We value dedication and provide exclusive benefits for high-performing affiliates:</p>
+            <ul>
+                <li><strong>Exclusive Bonus Tiers</strong>: Enjoy increased commission rates as a reward for consistent high performance.</li>
+                <li><strong>Special Gifts & Recognition</strong>: Earn rewards, recognition, and even gift packages as you achieve referral milestones.</li>
+                <li><strong>Personal Account Manager</strong>: Our top affiliates gain direct access to dedicated support for maximizing referral potential.</li>
+            </ul>
+
+            <!-- Affiliate Dashboard and Tracking Tools -->
+            <h2>Powerful Tracking and Reporting Dashboard</h2>
+            <p>Our affiliate dashboard gives you all the tools you need to succeed, making it easy to track and optimize your performance:</p>
+            <ul>
+                <li><strong>Detailed Analytics</strong>: Access reports on clicks, registrations, and transactions, allowing you to refine your marketing strategies.</li>
+                <li><strong>Conversion Tracking</strong>: Monitor the success of each referral and maximize your efforts for higher earnings.</li>
+                <li><strong>Payout Tracking</strong>: Stay on top of your earnings and set goals based on real-time performance data.</li>
+            </ul>
+            <p>With transparent reporting, you’ll always know where you stand and how to boost your affiliate success!</p>
+
+            <!-- Referral Rewards and Connect Benefits -->
+            <h2>Free Connects and Incentives for Referred Members</h2>
+            <p>New members who join HUTSLE 5 through your referral link are eligible for exclusive starter incentives:</p>
+            <ul>
+                <li><strong>10 Free Connects</strong>: Referrals receive 10 free connects to start applying for jobs immediately, making their onboarding smooth and rewarding.</li>
+                <li><strong>Discounted Fees for First Transactions</strong>: New users enjoy reduced transaction fees on their first project, creating a positive start to their journey on HUTSLE 5.</li>
+            </ul>
+
+            <!-- Why Join HUTSLE 5's Affiliate Program -->
+            <h2>Benefits of the HUTSLE 5 Affiliate Program</h2>
+            <p>Joining the HUTSLE 5 Affiliate Program comes with a variety of benefits that allow you to earn money while helping to grow our vibrant community:</p>
+            <ul>
+                <li><strong>Flexible Promotion Channels</strong>: Share your affiliate link on social media, email, or personal blogs to reach a wide audience.</li>
+                <li><strong>Unlimited Earning Potential</strong>: Earn as much as you like—there are no limits to your referral commissions.</li>
+                <li><strong>Early Access Perks</strong>: As an early affiliate, you’re positioned to capitalize on HUTSLE 5’s growth from the ground up, ensuring maximum earning potential as the platform expands.</li>
+                <li><strong>Marketing Support and Resources</strong>: We offer a range of promotional materials, templates, and tips to help you succeed in reaching your audience effectively.</li>
+            </ul>
+
+            <!-- Frequently Asked Questions -->
+            <h2>Affiliate Program FAQ</h2>
+            <p><strong>How and when do I get paid?</strong><br> Affiliates are paid bi-weekly via M-Pesa, Skrill, PayPal, or Bitcoin. You can track your earnings and payouts in your affiliate dashboard.</p>
+            <p><strong>Who can join the Affiliate Program?</strong><br> Our program is open to anyone! Whether you're a freelancer, client, influencer, or simply a fan of HUTSLE 5, we welcome you to join and start earning.</p>
+            <p><strong>Are there limits to my earnings?</strong><br> No, your earnings are unlimited. The more you promote and refer, the more you earn—our commission structure is designed to reward growth and engagement.</p>
+
+            <!-- Final Call to Action -->
+            <h2>Join Us Today and Start Earning!</h2>
+            <p>Ready to begin your journey with HUTSLE 5? Sign up for our Affiliate Program, share your referral link, and start earning right away. Whether you're looking for extra income or want to play a part in growing the HUTSLE 5 community, our Affiliate Program is designed to reward you every step of the way.</p>
+            <p><strong>Don’t miss out—join today, refer, and watch your earnings grow!</strong></p>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="image-box">
+        <img src="./community.PNG" alt="HUTSLE 5 Logo"  style="width:100%; max-width:400px;">
+    </div>
+    <div class="text-box">
+
+        <h1 class="heading">Community Building at HUTSLE 5</h1>
+        <p><strong>HUTSLE 5</strong> is more than a freelancing platform—it’s a community-driven ecosystem where freelancers and clients come together to build trust, collaborate, and support each other's growth. We’re committed to creating an environment that transcends simple transactions, fostering meaningful relationships through community engagement, learning, and professional development.</p>
+        <button class="read-more-button" onclick="toggleContent('moreContentCommunityBuilding', this)">Read More</button>
+
+        <div id="moreContentCommunityBuilding" style="display: none;">
+            <!-- Community Goals and Values -->
+            <h2>Our Mission: Building a Supportive and Inclusive Community</h2>
+            <p>Our community-driven approach is designed to unite freelancers and clients, facilitating professional connections and shared experiences. Through interactive forums, mentorship opportunities, and feedback mechanisms, HUTSLE 5 actively promotes the core values of trust, collaboration, and empowerment.</p>
+
+            <!-- Networking Opportunities -->
+            <h2>Networking and Professional Connections</h2>
+            <p>Freelancers and clients alike can expand their professional networks through HUTSLE 5's <em>virtual meet-ups, community boards, and dedicated social media groups</em>. These channels are ideal for finding like-minded professionals, discussing industry trends, and uncovering new opportunities for collaboration.</p>
+            <p>To foster meaningful connections, we also offer:</p>
+            <ul>
+                <li><strong>Weekly Community Spotlights</strong> – Discover top-performing freelancers and insightful projects from our clients.</li>
+                <li><strong>Freelancer Matchmaking Events</strong> – Personalized recommendations based on skills, interests, and career goals.</li>
+                <li><strong>Client Collaboration Corners</strong> – A forum dedicated to clients who want to brainstorm, share feedback, and connect with potential project teams.</li>
+            </ul>
+
+            <!-- Freelancer Collaboration -->
+            <div class="community-section">
+                <img src="collaboration-icon.png" alt="Collaboration Icon" style="width:50px;">
+                <h2>Collaborative Projects for Freelancers</h2>
+                <p>HUTSLE 5 encourages freelancers to join forces on larger, multifaceted projects, providing a platform to combine unique talents and deliver comprehensive, high-quality results. Our “Project Partnerships” feature enables freelancers to:</p>
+                <ul>
+                    <li>Work in collaborative teams with other professionals.</li>
+                    <li>Gain exposure to diverse project demands, from strategy to execution.</li>
+                    <li>Share insights, resources, and creative strategies to enhance project outcomes.</li>
+                </ul>
+            </div>
+
+            <!-- Learning and Growth -->
+            <div class="community-section">
+                <img src="learning-icon.png" alt="Learning Icon" style="width:50px;">
+                <h2>Learning and Development Programs</h2>
+                <p>HUTSLE 5 supports lifelong learning by providing access to <strong>webinars, workshops, and resource libraries</strong> designed to elevate your skills and stay current with industry trends. Highlights include:</p>
+                <ul>
+                    <li><strong>Monthly Expert Webinars</strong> – Learn from industry leaders on topics like digital marketing, financial management, and portfolio building.</li>
+                    <li><strong>Certification Programs</strong> – Accredited courses that allow freelancers to showcase verified skills on their profiles.</li>
+                    <li><strong>Resource Libraries</strong> – Comprehensive guides and tools tailored to the unique challenges of freelancing.</li>
+                </ul>
+            </div>
+
+            <!-- Engagement Events -->
+            <h2>Community Engagement Events</h2>
+            <p>HUTSLE 5 organizes interactive events to foster a sense of camaraderie and provide freelancers with opportunities to showcase their talents:</p>
+            <ul>
+                <li><strong>Quarterly Hackathons</strong> – Compete, collaborate, and solve creative challenges.</li>
+                <li><strong>Networking Mixers</strong> – Virtual meet-ups for freelancers and clients to discuss projects, share insights, and explore new partnerships.</li>
+                <li><strong>Portfolio Contests</strong> – A chance for freelancers to win recognition and prizes based on their work quality and creativity.</li>
+            </ul>
+
+            <!-- Professional Support and Mentorship -->
+            <h2>Mentorship and Professional Guidance</h2>
+            <p>Freelancers at all stages of their career can access guidance from experienced mentors through HUTSLE 5’s Mentorship Program. Mentors provide valuable insights, feedback, and career advice, empowering freelancers to navigate challenges and succeed. Our mentorship program includes:</p>
+            <ul>
+                <li><strong>One-on-One Mentorship Sessions</strong> – Personalized guidance from experienced freelancers and industry experts.</li>
+                <li><strong>Career Growth Workshops</strong> – Sessions focused on portfolio improvement, brand building, and career strategies.</li>
+                <li><strong>Peer Review Circles</strong> – Regular feedback sessions for freelancers to critique each other’s work and foster constructive learning.</li>
+            </ul>
+
+            <!-- Community Initiatives for Freelancers and Clients -->
+            <h2>Community Initiatives: Giving Back</h2>
+            <p>HUTSLE 5 is committed to creating a positive impact by investing in initiatives that support freelancers' well-being, such as:</p>
+            <ul>
+                <li><strong>Mental Health and Wellness</strong> – Access to resources that support work-life balance, including wellness seminars and meditation apps.</li>
+                <li><strong>Social Responsibility Programs</strong> – Opportunities for freelancers to contribute to local and global causes through pro bono projects and charity drives.</li>
+                <li><strong>Annual Community Awards</strong> – Recognizing outstanding achievements in creativity, community involvement, and client satisfaction.</li>
+            </ul>
+
+            <!-- Join HUTSLE 5 Today -->
+            <h2>Join the HUTSLE 5 Community Today</h2>
+            <p>Ready to experience freelancing in a truly supportive environment? At HUTSLE 5, we believe in the power of collaboration, learning, and community engagement. Join us to build a fulfilling career with opportunities for personal and professional growth. Whether you’re looking to connect with clients, collaborate with fellow freelancers, or take your skills to the next level, HUTSLE 5 is here to support you every step of the way.</p>
+            <p>Let’s create a thriving, impactful community—together. Become part of HUTSLE 5 and start building your future in freelancing today!</p>
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="footer-main">
+      <!-- Brand Identity Section -->
+      <div class="footer-brand">
+        <img src="Hustle 5 logo blue.PNG" alt="Hustle 5 Logo" class="footer-logo">
+        <p>Building long-lasting relationships through trust, quality, and unmatched customer support.</p>
+      </div>
+  
+      <!-- Quick Links Section -->
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/services">Services</a></li>
+          <li><a href="/careers">Careers</a></li>
+          <li><a href="/help">Help & Support</a></li>
+          <li><a href="/blog">Blog</a></li>
+        </ul>
+      </div>
+  
+      <!-- Social Media Section -->
+      <div class="footer-social">
+        <h4>Follow Us</h4>
+        <ul>
+          <li><a href="https://www.linkedin.com/company/hustle5">LinkedIn</a></li>
+          <li><a href="https://www.instagram.com/hustle5">Instagram</a></li>
+          <li><a href="https://www.twitter.com/hustle5">Twitter</a></li>
+          <li><a href="https://www.facebook.com/hustle5">Facebook</a></li>
+        </ul>
+      </div>
+  
+      <!-- Referral & Affiliate Program Section -->
+      <div class="footer-affiliate">
+        <h4>Referral Program</h4>
+        <p>Earn rewards by referring others to join Hustle 5. <a href="/referrals">Learn More</a></p>
+      </div>
+  
+      <!-- Newsletter Section -->
+      <div class="footer-newsletter">
+        <h4>Stay Updated</h4>
+        <input type="email" placeholder="Your Email Address">
+        <button>Subscribe</button>
+      </div>
+    </div>
+  
+    <!-- Legal Section -->
+    <div class="footer-legal">
+      <ul>
+        <li><a href="/terms">Terms & Conditions</a></li>
+        <li><a href="/privacy">Privacy Policy</a></li>
+        <li><a href="/cookie-policy">Cookie Policy</a></li>
+      </ul>
+    </div>
+  
+    <!-- Copyright Notice -->
+    <div class="footer-bottom">
+      <p>&copy; 2024 Hustle 5. All Rights Reserved.</p>
+    </div>
+  </footer>
+</div>
+</div>
+</div>
+
+
+    <script>
+
+function performSearch() {
+    // Get the input value
+    const query = document.getElementById("search-input").value;
+
+    if (query) {
+        // Here you could redirect to a search results page or use it to perform a search
+        // Example: Redirecting to a Google search
+        window.open(`https://www.google.com/search?q=${encodeURIComponent(query)}`, "_blank");
+
+        // Optionally, if you want to console log instead:
+        console.log("Search query:", query);
+    } else {
+        alert("Please enter a search term.");
+    }
+}
+
+
+        function toggleContent(contentId, button) {
+            // Close all sections before opening the new one
+            const allContent = document.querySelectorAll('div[id^="moreContent"]');
+            allContent.forEach(content => {
+                if (content.id !== contentId) {
+                    content.style.display = 'none';
+                    const otherButton = content.previousElementSibling;
+                    if (otherButton) otherButton.innerText = 'Read More';
+                }
+            });
+
+            // Toggle the current section
+            const content = document.getElementById(contentId);
+            if (content.style.display === 'none' || content.style.display === '') {
+                content.style.display = 'block';
+                button.innerText = 'Read Less';
+            } else {
+                content.style.display = 'none';
+                button.innerText = 'Read More';
+            }
+        }
+        // Move the carousel to the left
+function moveLeft() {
+    const carouselContainer = document.querySelector('.carousel-container');
+    const firstProfile = carouselContainer.querySelector('.profile');
+    const profileWidth = firstProfile.offsetWidth + 20; // Including margin
+
+    // Transition left
+    carouselContainer.style.transition = 'transform 0.5s ease-in-out';
+    const currentTransformValue = getCurrentTransformValue();
+    carouselContainer.style.transform = `translateX(${currentTransformValue + profileWidth}px)`;
+
+    // After the transition, move the first profile to the end
+    setTimeout(() => {
+        carouselContainer.appendChild(firstProfile);
+        carouselContainer.style.transition = 'none'; // Disable transition during rearranging
+        carouselContainer.style.transform = `translateX(0)`; // Reset position instantly
+        setTimeout(() => {
+            carouselContainer.style.transition = 'transform 0.5s ease-in-out'; // Re-enable transition
+        }, 50);
+    }, 500); // Delay to match the transition time
+}
+
+// Move the carousel to the right
+function moveRight() {
+    const carouselContainer = document.querySelector('.carousel-container');
+    const lastProfile = carouselContainer.querySelector('.profile:last-child');
+    const profileWidth = lastProfile.offsetWidth + 20; // Including margin
+
+    // Transition right
+    carouselContainer.style.transition = 'transform 0.5s ease-in-out';
+    const currentTransformValue = getCurrentTransformValue();
+    carouselContainer.style.transform = `translateX(${currentTransformValue - profileWidth}px)`;
+
+    // After the transition, move the last profile to the front
+    setTimeout(() => {
+        carouselContainer.insertBefore(lastProfile, carouselContainer.firstChild);
+        carouselContainer.style.transition = 'none'; // Disable transition during rearranging
+        carouselContainer.style.transform = `translateX(0)`; // Reset position instantly
+        setTimeout(() => {
+            carouselContainer.style.transition = 'transform 0.5s ease-in-out'; // Re-enable transition
+        }, 50);
+    }, 500); // Delay to match the transition time
+}
+
+// Get the current translateX value of the carousel container
+function getCurrentTransformValue() {
+    const carouselContainer = document.querySelector('.carousel-container');
+    const matrix = window.getComputedStyle(carouselContainer).transform;
+    if (matrix === 'none') return 0;
+    return parseFloat(matrix.split(',')[4]);
+}
+
+// Auto scroll the carousel every 3 seconds
+setInterval(moveRight, 3000);  // Call moveRight function every 3 seconds (3000ms)
+
+
+// Select all main category items with subcategories
+const mainCategories = document.querySelectorAll('.category-item');
+
+// Function to show subcategories on hover
+mainCategories.forEach(category => {
+    category.addEventListener('mouseenter', () => {
+        const subcategory = category.querySelector('.subcategories');
+        if (subcategory) {
+            subcategory.style.display = 'flex';
+        }
+    });
+
+    // Hide subcategories when leaving the main category item
+    category.addEventListener('mouseleave', () => {
+        const subcategory = category.querySelector('.subcategories');
+        if (subcategory) {
+            subcategory.style.display = 'none';
+        }
+    });
+});
+
+// Additional handling for sub-subcategories
+const subcategories = document.querySelectorAll('.subcategories > li');
+
+subcategories.forEach(subItem => {
+    subItem.addEventListener('mouseenter', () => {
+        const subSubCategory = subItem.querySelector('ul');
+        if (subSubCategory) {
+            subSubCategory.style.display = 'block';
+        }
+    });
+
+    subItem.addEventListener('mouseleave', () => {
+        const subSubCategory = subItem.querySelector('ul');
+        if (subSubCategory) {
+            subSubCategory.style.display = 'none';
+        }
+    });
+});
+
+/// JavaScript to position submenus within viewport bounds
+document.querySelectorAll('.category-item').forEach(item => {
+    item.addEventListener('mouseenter', () => {
+        const subcategories = item.querySelector('.subcategories');
+        if (subcategories) subcategories.style.display = 'flex';
+
+        const subSubcategories = subcategories.querySelectorAll('ul');
+        subSubcategories.forEach(subMenu => {
+            // Get position and width of the submenu
+            const rect = subMenu.getBoundingClientRect();
+
+            // Check if submenu overflows past viewport right edge
+            if (rect.right > window.innerWidth) {
+                subMenu.classList.add('dropdown-left'); // Apply left-align class
+            } else {
+                subMenu.classList.remove('dropdown-left'); // Remove if space on the right
+            }
+        });
+    });
+
+    // Hide subcategories when the mouse leaves
+    item.addEventListener('mouseleave', () => {
+        const subcategories = item.querySelector('.subcategories');
+        if (subcategories) subcategories.style.display = 'none';
+    });
+});
+</script>
 </body>
+</html>

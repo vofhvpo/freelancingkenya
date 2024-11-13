@@ -1,151 +1,197 @@
+<!DOCTYPE html>
 <html lang="en">
+<style>
+/* Reset some basic elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Basic layout */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+    padding-top: 20px;
+}
+
+/* Container for centering content */
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* Header */
+header {
+    background-color: #007bff;
+    color: white;
+    padding: 40px 0;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.2em;
+}
+
+/* About Section */
+.about {
+    background-color: white;
+    padding: 40px 0;
+}
+
+.about h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.about p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.about h3 {
+    font-size: 2em;
+    margin-top: 20px;
+}
+
+/* Services Section */
+.services {
+    background-color: #f9f9f9;
+    padding: 40px 0;
+}
+
+.services h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.service-item {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.service-item h3 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.service-item p {
+    font-size: 1.2em;
+}
+
+/* Values Section */
+.values {
+    background-color: white;
+    padding: 40px 0;
+}
+
+.values h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.values h3 {
+    font-size: 2em;
+    margin-top: 20px;
+}
+
+/* Footer */
+footer {
+    background-color: #007bff;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer p {
+    font-size: 1.2em;
+}
+
+</style>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Kenya Freelance Writers</title>
-    <style>
-        /* Base Styling */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-            color: #ffffff;
-        }
-        /* Footer */
-        footer {
-            margin-top: 40px;
-            padding: 10px 0;
-            text-align: center;
-            color: #bbb;
-            font-size: 0.9em;
-            border-top: 1px solid #333;
-        }
-        body {
-            background-color: #000; /* Deep black background */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            min-height: 100vh;
-            padding: 20px;
-            color: #ddd;
-        }
-        .container {
-            max-width: 900px;
-            width: 100%;
-            background-color: #111; /* Dark gray for content background */
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
-        }
-        h1 {
-            font-size: 2.5rem;
-            color: gold;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        h2 {
-            font-size: 1.5rem;
-            color: #66cdaa; /* Aqua color for headings */
-            margin-bottom: 15px;
-        }
-        p {
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
-        ul {
-            margin-left: 20px;
-            list-style: disc;
-            margin-bottom: 20px;
-        }
-         /* Buttons */
-         .go-back, .whatsapp {
-            position: fixed;
-            display: flex;
-          idth: 50px;
-            height: 50px;
-            colo  justify-content: center;
-            align-items: center;
-            wr: #fff;
-            font-size: 20px;
-            text-decoration: none;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-
-        /* Go Back Button */
-        .go-back {
-            background: #25D366;
-            top: 20px;
-            left: 20px;
-            background-color: #28a745;
-        }
-
-        /* WhatsApp Button */
-        .whatsapp {
-            bottom: 20px;
-            right: 20px;
-            background-color: #25D366;
-            animation: rotate 3s linear infinite;
-            padding: 10px;
-        }
-        .back-button:hover {
-            background-color: blue;
-        }
-    </style>
+    <title>About Us | HUTSLE 5</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <!-- Title -->
-        <h1>About Us</h1>
-        
-        <!-- Company Information -->
-        <p>Kenya Freelance Writers is a passionate and dedicated team of professionals providing high-quality freelance writing and editing services. Established on December 12, 2023, we are headquartered in the heart of Nairobi, Kenya, at Westlands Amenza Plaza, Third Floor, Room 19A. Our goal is to empower individuals and businesses by delivering expertly crafted, original content tailored to meet diverse needs across various industries.</p>
-        
-        <!-- Mission and Vision -->
-        <h2>Our Mission and Vision</h2>
-        <p>Our mission is to provide unparalleled writing services that foster growth, clarity, and success for our clients. At Kenya Freelance Writers, we believe in creating content that resonates with your audience, communicates your message effectively, and enhances your brand or personal image.</p>
-        
-        <!-- Values -->
-        <h2>Our Values</h2>
-        <ul>
-            <li><strong>Commitment to Excellence:</strong> We pride ourselves on producing high-quality, well-researched, and engaging content.</li>
-            <li><strong>Client Satisfaction:</strong> Our 24/7 customer support ensures seamless communication and satisfaction.</li>
-            <li><strong>Professional Integrity:</strong> We adhere to high ethical standards, valuing trust and transparency in every interaction.</li>
-        </ul>
-        
-        <!-- Certifications -->
-        <h2>Certifications, Licenses, and Regulatory Compliance</h2>
-        <p>Kenya Freelance Writers is a certified and registered company in compliance with Kenyan business regulations. Our operations are governed by the necessary licenses and certifications required by the Kenyan government, including adherence to standards set by Kenya’s Communications Authority and Data Protection Act.</p>
-        
-        <!-- Expertise -->
-        <h2>Our Expertise and Accomplishments</h2>
-        <p>Our team brings over a decade of collective experience in the freelance industry. Each writer on our team is highly trained and certified, ensuring we handle diverse projects professionally.</p>
-        
-        <!-- Why Choose Us -->
-        <h2>Why Choose Kenya Freelance Writers?</h2>
-        <ul>
-            <li>24/7 Customer Support</li>
-            <li>Convenient Location at Westlands Amenza Plaza, Nairobi</li>
-            <li>Affordable and Transparent Pricing</li>
-            <li>Strict Adherence to Deadlines</li>
-        </ul>
-        
-        <!-- Go Back Button -->
-        <a href="file:///C:/Users/HP/.vscode/finalisedhomepage.html#faqs" class="back-button">Go Back</a>
-    </div>
-    <!-- WhatsApp Button -->
-    <a href="https://wa.me/qr/CGYRGFT3LDKRG1" target="_blank" class="whatsapp">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png" alt="WhatsApp" style="width: 30px; height: 30px;">
-    </a>
-     <!-- Footer -->
-     <footer>
-        <p>Location: Westlands, Amanza Plaza, 3rd Floor</p>
-        <p>Contact: +254704195290 | CEO: John Musembi</p>
-        <p>Payment Methods: M-Pesa, Skrill, PayPal, Neteller, Bitcoin</p>
-        <p>&copy; 2024 Kenya Freelance Writers. All Rights Reserved.</p>
+    <header>
+        <div class="container">
+            <h1>Welcome to HUTSLE 5</h1>
+            <p>Your trusted platform for freelancing and content creation services.</p>
+        </div>
+    </header>
+
+    <section class="about">
+        <div class="container">
+            <h2>Introduction to HUTSLE 5</h2>
+            <p>Welcome to HUTSLE 5—the future of freelancing. As the freelancing industry grows rapidly, freelancers and clients alike need a platform that offers more than just a transactional space. At HUTSLE 5, we provide a comprehensive, seamless experience designed to empower both freelancers and clients.</p>
+            <p>Located in <strong>Westlands, Amanza Plaza, 3rd Floor</strong>, we serve as a hub for collaboration, connecting talented professionals with clients seeking creative services. Our CEO, <strong>John Musembi</strong>, is always available for inquiries and can be contacted directly at <strong>+254704195290</strong>.</p>
+
+            <h3>Our Mission</h3>
+            <p>At HUTSLE 5, we are driven by a simple mission—to bridge the gap between talented freelancers and clients in need of professional content creation services. We aim to build long-lasting relationships rooted in trust, quality, and unmatched customer support. Our platform offers a diverse array of services, tools, and resources designed to foster long-term success and mutual growth for all users.</p>
+        </div>
+    </section>
+
+    <section class="services">
+        <div class="container">
+            <h2>Services and Features</h2>
+            <div class="service-item">
+                <h3>Marketplace Listings & Job Posting</h3>
+                <p>Freelancers can create customized profiles and showcase their skills in various categories, including writing, editing, content creation, and more. Clients can post jobs, find the perfect match, and begin collaboration immediately.</p>
+            </div>
+            <div class="service-item">
+                <h3>Secure Payment Processing</h3>
+                <p>With integrated payment systems like M-Pesa, PayPal, Skrill, Neteller, and Bitcoin, both freelancers and clients enjoy a secure and easy-to-use payment platform.</p>
+            </div>
+            <div class="service-item">
+                <h3>Analytics Dashboard for Sellers</h3>
+                <p>Freelancers have access to an intuitive analytics dashboard that tracks their performance, reviews, and earnings, helping them grow their profiles and increase visibility.</p>
+            </div>
+            <div class="service-item">
+                <h3>Review and Rating System</h3>
+                <p>A transparent rating system allows clients and freelancers to rate each other based on their experiences, ensuring credibility within the community.</p>
+            </div>
+            <div class="service-item">
+                <h3>Affiliate/Referral Program</h3>
+                <p>Our Affiliate/Referral Program rewards users for bringing new clients and freelancers to the platform, creating a win-win situation for all.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="values">
+        <div class="container">
+            <h2>Company Values and Future Vision</h2>
+            <p>At HUTSLE 5, we’re committed to maintaining high standards of professionalism, ethical practices, and fair pricing. Our core values guide us as we build a platform that supports both freelancers and clients equally.</p>
+
+            <h3>Integrity & Transparency</h3>
+            <p>We foster a culture of honesty and transparency, ensuring that all transactions, communications, and agreements are handled with the highest level of trust.</p>
+
+            <h3>Support for Talent</h3>
+            <p>We understand that freelancing is not just a job—it’s a career. We provide resources, tools, and an environment where freelancers can thrive, grow, and achieve their professional goals.</p>
+
+            <h3>Innovation</h3>
+            <p>HUTSLE 5 is continuously evolving, and we’re always working on new features to enhance the user experience. We aim to stay ahead of the curve with new features, payment methods, and service offerings.</p>
+
+            <h3>Looking Ahead</h3>
+            <p>The future of HUTSLE 5 is bright. We plan to introduce more innovative features, strengthen community support, and continue evolving to meet the needs of both freelancers and clients.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>Join us on our journey to redefine freelancing. At HUTSLE 5, we believe in your success.</p>
+        </div>
     </footer>
 </body>
 </html>
