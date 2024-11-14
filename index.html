@@ -35,24 +35,31 @@ body {
 }
 
 
-/* General Header Styles */
 .header {
     height: 100%;
     width: 100%;
     z-index: 1000;
-    width: 100%;
-    background-color: #1471a7;
-    display: flex;
+    background-color: #19a714;
+       display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 5%;
+    margin-left: 10px;  /* Added left margin to the header */
     box-sizing: border-box;
     position: relative;
     top: 0;
-    height: 120px; /* Decreased height for a more compact header */
+    height: 300px; /* Decreased height for a more compact header */
     transition: all 0.3s ease;
 }
 
+.header-image-box {
+    position: relative;
+    margin-left: 0;  /* Ensures the box follows the header's margin */
+    width: 30px;     /* Set width to 70px */
+    height: 30px;
+margin-bottom: 100px;
+    
+}
 /* Logo Adjustments */
 .header .logo {
     font-size: 1.6rem; /* Smaller logo size */
@@ -60,60 +67,80 @@ body {
     font-weight: bold; /* Adds more emphasis */
 }
 
-/* Auth Buttons Styling */
+/* Auth Buttons Container Styling */
 .auth-buttons {
     display: flex;
-    gap: 15px; /* Increased space between buttons */
+    gap: 20px;  /* Increased space between buttons */
     align-items: center;
     position: absolute;
     right: 20px;  /* Positioned to the right */
     top: 10px;
     cursor: pointer;
+    margin-top: 40px;
 }
 
-.auth-buttons a {
-    padding: 10px 20px;
-    background-color: #fff;
-    color: #1471a7;
-    border-radius: 25px;
-    font-weight: bold;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
+/* Style for individual Login Button */
+.login-btn, .register-btn {
+    padding: 12px 25px;  /* Slightly more padding for a comfortable button */
+    background-color: #fff;  /* Clean white background */
+    color: #19a714;  /* Primary color for text */
+    border-radius: 30px;  /* Smooth rounded corners */
+    font-weight: 600;  /* Semi-bold font weight for emphasis */
+    font-size: 16px;  /* Standard font size for readability */
+    border: 2px solid #19a714;  /* Add a border matching the text color */
+    text-align: center;  /* Center text */
+    cursor: pointer;  /* Pointer cursor for better interactivity */
+    transition: all 0.3s ease;  /* Smooth transition for background and border */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* Light shadow for depth */
+    background-color: #fff;  /* Set background color */
 }
 
-.auth-buttons a:hover {
-    background-color: #0c5d78;
-    color: #fff;
+/* Hover Effect for Buttons */
+.login-btn:hover, .register-btn:hover {
+    background-color: #3eb16a;  /* Darken background color on hover */
+    color: #fff;  /* Change text color to white on hover */
+    border-color: #19a714;  /* Darken the border on hover */
+    transform: translateY(-2px);  /* Slightly lift the button for effect */
 }
 
+/* Active State for Buttons */
+.login-btn:active, .register-btn:active {
+    transform: translateY(1px);  /* Pressed button effect */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);  /* Darken shadow when pressed */
+}
 .search-box {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
     align-items: center;
+    justify-content: center;  /* Center content inside */
     gap: 10px;
-    width: 50%;  /* Default width for large screens */
+    width: 300px;  /* Sufficient width for a service search */
+    height: 5px; /* Extremely thin height */
     max-width: 100%;
     margin-bottom: 50px;  /* Adjust to prevent overlap */
-    cursor: pointer;
-    transition: width 0.3s ease;  /* Smooth resizing transition */
+    cursor: pointer; /* Add a border for visibility */
+    border-radius: 5px; /* Rounded corners for a clean look */
+    background-color: none; /* Light background color */
+    transition: width 0.3s ease, height 0.3s ease;  /* Smooth resizing transition */
 }
 
-/* Adjust width for smaller screens */
+/* Adjust for smaller screens (Tablets, <= 768px) */
 @media screen and (max-width: 768px) {
     .search-box {
-        width: 80%;  /* Decreases width on tablets and mobile devices */
+        width: 250px;  /* Slightly smaller width for tablets */
+        height: 5px; /* Keep the thin height */
     }
 }
 
-/* Adjust width for very small screens (e.g., smartphones in portrait mode) */
+/* Adjust for very small screens (Phones, <= 480px) */
 @media screen and (max-width: 480px) {
     .search-box {
-        width: 90%;  /* Further reduces width on very small screens */
+        width: 200px;  /* Smaller width for mobile */
+        height: 5px; /* Keep the thin height */
     }
 }
-
 /* Search Box Input Styles */
 .search-box input {
     padding: 12px;
@@ -126,7 +153,7 @@ body {
 
 /* Search Button Styles */
 .search-box button {
-    background-color: #1471a7;
+    background-color: #19a714;
     color: white;
     border: none;
     padding: 12px 25px;
@@ -137,7 +164,7 @@ body {
 }
 
 .search-box button:hover {
-    background-color: #0c5d78;
+    background-color: #53a750;
 }
 
 /* Responsive Media Queries for Different Screen Sizes */
@@ -195,7 +222,7 @@ body {
     justify-content: space-between;  /* Creates space between text box and image */
     align-items: center;             /* Centers content vertically */
     gap: 20px;                       /* Space between text and image */
-    padding: 20px;
+    padding: 40px;
     width: 100%;
     box-sizing: border-box;
     background-color: #fff;
@@ -205,14 +232,14 @@ body {
 
 /* Image Box (Right side) */
 .image-box {
-    max-width: 150px;               /* Controls the max width of the image box */
+    max-width: 100%;               /* Controls the max width of the image box */
     flex-shrink: 0;                 /* Prevents the image box from shrinking */
     text-align: center;             /* Centers the image inside its box */
 }
 
 .image-box img {
     width: 100%;                    /* Makes the image responsive */
-    max-width: 150px;               /* Ensures image doesn’t exceed 150px width */
+    max-width: 100%;               /* Ensures image doesn’t exceed 150px width */
     height: auto;                   /* Maintains aspect ratio */
     border-radius: 8px;             /* Adds rounded corners to the image */
 }
@@ -298,7 +325,7 @@ body {
 
 .top-rated-title h2 {
     font-size: 26px;
-    color: #333;
+    color: #19a714;
     font-weight: bold;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -313,8 +340,8 @@ body {
     overflow: hidden;
     padding: 20px;
     background-color: #fafafa;
-    border-top: 3px solid #1471a7;
-    border-bottom: 3px solid #1471a7;
+    border-top: 3px solid #19a714;
+    border-bottom: 3px solid #19a714;
 }
 
 .carousel-container {
@@ -341,7 +368,7 @@ body {
     height: 120px;
     border-radius: 50%;
     margin-bottom: 15px;
-    border: 3px solid #1471a7;
+    border: 3px solid #19a714;
 }
 
 .profile h3 {
@@ -368,7 +395,7 @@ body {
     background-color: transparent;
     border: none;
     font-size: 30px;
-    color: #1471a7;
+    color: #19a714;
     cursor: pointer;
     z-index: 2;
     padding: 10px;
@@ -1425,29 +1452,7 @@ document.querySelectorAll('.category-item').forEach(item => {
         if (subcategories) subcategories.style.display = 'none';
     });
 });
-// Function to resize the search box based on the window width
-function resizeSearchBox() {
-    const searchBox = document.querySelector('.search-box');
-    const windowWidth = window.innerWidth;
 
-    // Default width for large screens
-    let newWidth = '50%';
-
-    // Adjust width based on screen size
-    if (windowWidth <= 768) {
-        newWidth = '80%';  // For tablets and smaller devices
-    }
-    if (windowWidth <= 480) {
-        newWidth = '90%';  // For mobile phones
-    }
-
-    // Apply the new width to the search box
-    searchBox.style.width = newWidth;
-}
-
-// Call the function on window resize and initially when the page loads
-window.addEventListener('resize', resizeSearchBox);
-window.addEventListener('load', resizeSearchBox);
 
 </script>
 </body>
