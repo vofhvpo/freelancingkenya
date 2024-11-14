@@ -19,20 +19,20 @@ body {
     background-color: #f5f5f5;
     color: #333;
     box-sizing: border-box; /* Ensure padding doesn't overflow */
-  }
+}
 
-  /* Adjustments for smaller screens */
-  @media (max-width: 768px) {
+@media (max-width: 768px) {
     body {
-      padding: 4vw; /* Less padding on smaller screens */
+        padding: 4vw; /* Less padding on smaller screens */
     }
-  }
+}
 
-  @media (max-width: 480px) {
+@media (max-width: 480px) {
     body {
-      padding: 3vw; /* Further reduce padding for phones */
+        padding: 3vw; /* Further reduce padding for phones */
     }
-  }
+}
+
 /* Header Styles */
 .header {
     z-index: 1000;
@@ -41,36 +41,72 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 20px;
+    padding: 0 5%;
     box-sizing: border-box;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
+    transition: all 0.3s ease;
 }
 
-/* Large screen styles */
-@media (min-width: 769px) {
+@media (min-width: 1024px) {
     .header {
-        height: 180px; /* Height for larger screens */
+        padding: 0 10%; /* Increase padding for larger screens */
     }
 }
 
-/* Small screen styles */
+@media (max-width: 1024px) and (min-width: 768px) {
+    .header {
+        padding: 0 8%; /* Slightly less padding for tablets */
+    }
+}
+
 @media (max-width: 768px) {
     .header {
-        height: 100px; /* Adjusted height for smaller screens */
-        padding: 0 10px; /* Reduced padding to save space */
+        padding: 0 5%;
+        flex-direction: column; /* Stack items vertically */
+        justify-content: center;
+    }
+    .header .logo,
+    .header .menu {
+        font-size: 16px;
     }
 }
 
-/* Header Image (Optional) */
+.header .logo {
+    font-size: 1.8rem;
+}
+
+.header .menu {
+    font-size: 1.2rem;
+}
+
+.header .menu ul {
+    list-style-type: none;
+    display: flex;
+    gap: 15px;
+}
+
+.header .menu ul li {
+    font-size: 1rem;
+}
+
+/* Header Image */
 .header-image-box {
     width: 40px;
     height: 40px;
     background-color: none;
     border-radius: 50%;
     margin-bottom: 180px;
+}
+
+@media (max-width: 768px) {
+    .header-image-box {
+        width: 30px;
+        height: 30px;
+        margin-bottom: 100px;
+    }
 }
 
 /* Search Box */
@@ -82,14 +118,36 @@ body {
     left: 50%;
     transform: translateX(-50%);
     margin-bottom: 70px;
+    max-width: 90%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+    .search-box {
+        max-width: 80%;
+        margin-bottom: 50px;
+        font-size: 14px;
+        padding: 8px;
+    }
 }
 
 .search-box input[type="text"] {
-    width: 300px;
+    width: 100%;
+    max-width: 300px;
     padding: 10px 15px;
     font-size: 16px;
     border: 2px solid #ddd;
     border-radius: 5px;
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+    .search-box input[type="text"] {
+        max-width: 200px;
+        font-size: 14px;
+        padding: 8px 12px;
+    }
 }
 
 .search-box button {
@@ -102,39 +160,22 @@ body {
     cursor: pointer;
     margin-left: 5px;
     transition: background-color 0.3s;
+    width: auto;
+    max-width: 120px;
+}
+
+@media (max-width: 768px) {
+    .search-box button {
+        font-size: 14px;
+        padding: 8px 12px;
+        max-width: 100px;
+        margin-left: 3px;
+    }
 }
 
 .search-box button:hover {
     background-color: #0d4671;
-}
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-    /* Reduce header height and adjust padding */
-    .header {
-        height: 80px;
-        padding: 0 10px;
-    }
-
-    /* Adjust search box layout on smaller screens */
-    .search-box {
-        flex-direction: column;
-        position: static;
-        transform: none;
-        width: 100%;
-        margin-bottom: 20px;
-    }
-
-    .search-box input[type="text"] {
-        width: 90%;
-        font-size: 14px;
-        margin-bottom: 10px;
-    }
-
-    .search-box button {
-        width: 90%;
-        font-size: 14px;
-    }
+    transition: background-color 0.3s ease;
 }
 
 /* Main Categories */
@@ -144,6 +185,14 @@ body {
     justify-content: center;
     align-items: flex-end;
     margin-bottom: 30px;
+    flex-wrap: wrap;
+    padding: 0 10px;
+}
+
+@media (max-width: 768px) {
+    .nav-bar {
+        margin-bottom: 15px;
+    }
 }
 
 /* Auth Buttons */
@@ -153,9 +202,27 @@ body {
     right: 20px;
     display: flex;
     gap: 10px;
+    flex-wrap: wrap;
 }
 
-.auth-buttons .login-btn,
+@media (max-width: 768px) {
+    .auth-buttons {
+        top: 5px;
+        right: 10px;
+        gap: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .auth-buttons {
+        flex-direction: column;
+        top: 5px;
+        right: 5px;
+        gap: 5px;
+    }
+}
+
+.auth-buttons .login-btn, 
 .auth-buttons .register-btn {
     background-color: #ffffff;
     color: #1471a7;
@@ -166,13 +233,46 @@ body {
     font-size: 16px;
     font-weight: bold;
     transition: background-color 0.3s ease;
+    flex-shrink: 1;
+    max-width: 100%;
 }
+
+@media (max-width: 768px) {
+    .auth-buttons .login-btn, 
+    .auth-buttons .register-btn {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .auth-buttons .login-btn, 
+    .auth-buttons .register-btn {
+        padding: 5px 10px;
+        font-size: 12px;
+        width: 100%;
+ }
 
 .auth-buttons .login-btn:hover,
 .auth-buttons .register-btn:hover {
     background-color: #f0f0f0;
+    color: #125a8a;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+@media (max-width: 768px) {
+    .auth-buttons .login-btn:hover,
+    .auth-buttons .register-btn:hover {
+        background-color: #e0e0e0;
+    }
+}
+
+@media (max-width: 480px) {
+    .auth-buttons .login-btn:hover,
+    .auth-buttons .register-btn:hover {
+        background-color: #d0d0d0;
+    }
+}
 /* Main Content Container */
 .container {
     display: flex;
@@ -482,10 +582,10 @@ body {
     margin-right: 60px; /* Word spacing */
 }
 
-/* Footer Styles */
+    /* Footer Styles */
 .footer {
     background-color: #f8f9fa;
-    padding: 40px 20px;
+    padding: 40px 5%; /* Relative padding */
     font-family: 'Arial', sans-serif;
     color: #333;
     display: flex;
@@ -494,17 +594,84 @@ body {
     justify-content: center;
     text-align: center;
     margin-top: 40px;
+    width: 100%; /* Ensures full width */
+    box-sizing: border-box; /* Include padding in width calculation */
+    transition: all 0.3s ease;
 }
 
+/* Adjustments for large screens (Desktop) */
+@media (min-width: 1024px) {
+    .footer {
+        padding: 60px 8%; /* More padding for larger screens */
+    }
+}
+
+/* Adjustments for medium screens (Tablets) */
+@media (max-width: 1024px) and (min-width: 768px) {
+    .footer {
+        padding: 50px 6%; /* Slightly less padding for tablets */
+    }
+}
+
+/* Adjustments for small screens (Mobile) */
+@media (max-width: 768px) {
+    .footer {
+        padding: 0 5%; /* Less padding for mobile */
+        flex-direction: column; /* Stack items vertically */
+        justify-content: center; /* Center content */
+    }
+
+
+    /* Font size adjustments for small screens */
+    .footer .footer-text {
+        font-size: 14px; /* Smaller font size for mobile */
+    }
+}
+
+/* Optional: Font size adjustments for larger screens */
+.footer .footer-text {
+    font-size: 1rem; /* Use relative units */
+    line-height: 1.5;
+}
+
+/* Optional: Links styling */
+.footer a {
+    color: #1471a7;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: #0d4671; /* Hover effect for links */
+}
 .footer-main {
-    display: flex;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 40px;
+    display: grid; /* Use grid layout for flexibility */
+    grid-template-columns: repeat(4, 1fr); /* 4 equal columns by default */
+    grid-gap: 40px; /* Spacing between items */
     width: 100%;
-    max-width: 1200px;
+    max-width: 1200px; /* Maximum width of the footer */
     margin-bottom: 40px;
+    box-sizing: border-box; /* Ensure padding and margins are included in width calculation */
+    padding: 0 10px; /* Padding to avoid overflow */
 }
 
+/* Adjustments for smaller screens (Phones) */
+@media (max-width: 768px) {
+    .footer-main {
+        grid-template-columns: repeat(2, 1fr); /* Reduce to 2 columns on small screens */
+        grid-gap: 20px; /* Reduce the gap for small screens */
+    }
+}
+
+/* Adjustments for medium screens (Tablets and smaller laptops) */
+@media (max-width: 1024px) {
+    .footer-main {
+        grid-template-columns: repeat(3, 1fr); /* Reduce to 3 columns on medium screens */
+        grid-gap: 30px; /* Adjust gap for medium-sized screens */
+    }
+}
+
+/* Footer Brand, Links, Social, Affiliate, Newsletter */
 .footer-brand,
 .footer-links,
 .footer-social,
@@ -514,7 +681,46 @@ body {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    width: 100%; /* Ensure each section occupies full width */
+    padding: 10px 0; /* Adds padding to prevent them from touching edges */
 }
+
+/* Adjustments for Smaller Screens (Phones) */
+@media (max-width: 768px) {
+    .footer-brand,
+    .footer-links,
+    .footer-social,
+    .footer-affiliate,
+    .footer-newsletter {
+        font-size: 14px; /* Slightly smaller font size for mobile */
+        padding: 5px 0; /* Less padding on small screens */
+    }
+}
+
+/* Adjustments for Medium Screens (Tablets) */
+@media (max-width: 1024px) {
+    .footer-brand,
+    .footer-links,
+    .footer-social,
+    .footer-affiliate,
+    .footer-newsletter {
+        font-size: 16px; /* Increase font size on tablets */
+        padding: 8px 0; /* Adjust padding on tablets */
+    }
+}
+
+/* Adjustments for Larger Screens (Laptops and Desktops) */
+@media (min-width: 1025px) {
+    .footer-brand,
+    .footer-links,
+    .footer-social,
+    .footer-affiliate,
+    .footer-newsletter {
+        font-size: 18px; /* Larger font size for bigger screens */
+        padding: 10px 0; /* Padding for larger screens */
+    }
+}
+
 
 .footer-logo {
     width: 150px;
@@ -551,13 +757,42 @@ body {
     transition: color 0.3s ease;
 }
 
+/* Newsletter Input Field */
 .footer-newsletter input[type="email"] {
-    width: 140%;
+    width: 100%; /* Set width to 100% to ensure it fits within the container */
     padding: 10px;
     font-size: 14px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    box-sizing: border-box; /* Ensures padding is included in width */
+}
+
+/* Adjustments for Smaller Screens (Phones) */
+@media (max-width: 768px) {
+    .footer-newsletter input[type="email"] {
+        width: 90%; /* Decrease width slightly to avoid overflow */
+        font-size: 12px; /* Smaller font size on phones */
+        padding: 8px; /* Slightly smaller padding */
+    }
+}
+
+/* Adjustments for Medium Screens (Tablets) */
+@media (max-width: 1024px) {
+    .footer-newsletter input[type="email"] {
+        width: 95%; /* Slightly larger width for tablets */
+        font-size: 13px; /* Font size adjusted for tablets */
+        padding: 9px; /* Adjust padding for medium screens */
+    }
+}
+
+/* Adjustments for Larger Screens (Laptops and Desktops) */
+@media (min-width: 1025px) {
+    .footer-newsletter input[type="email"] {
+        width: 100%; /* Full width for larger screens */
+        font-size: 14px; /* Default font size for large screens */
+        padding: 10px; /* Default padding for larger screens */
+    }
 }
 
 .footer-newsletter button {
@@ -620,10 +855,11 @@ body {
         font-size: 12px;
     }
 }
-    
- </style>
+ 
+</style>
 </head>
 <body>
+
     <header class="header">
         <div class="search-box">
             <input type="text" id="search-input" placeholder="Search for Services...">
@@ -664,7 +900,14 @@ body {
           <div class="text-box">
             <P> . </p>
                 <P> . </p>
-
+                    <P> . </p>
+                        <P> . </p>
+                            <P> . </p>
+                                <P> . </p>
+                                    <P> . </p>
+                                        <P> . </p>
+                                            <P> . </p>
+                                                <P> . </p>
             <p class="heading">HUTSLE 5: Empowering Freelancers & Clients for Long-Term Success</p>
             <p>Welcome to <strong>Hustle 5</strong> - The Future of Freelancing. In today’s dynamic digital age, the freelancing industry is experiencing rapid growth. At <strong>Hustle 5</strong>, we understand that freelancers and clients alike are looking for a platform that goes beyond the traditional expectations—one that offers personalized services, cutting-edge tools, and a reliable community. That’s where we come in. <strong>Hustle 5</strong> is more than just another freelancing platform; it’s a solution built to empower freelancers and clients for long-term success. Whether you’re a freelancer striving to showcase your talents or a client seeking top-tier services, <strong>Hustle 5</strong> ensures a genuine and transparent experience for all.</p>
             <p><strong>Our Mission</strong> is simple: Build long-lasting relationships through trust, quality, and unmatched customer support.</p>
