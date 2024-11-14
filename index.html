@@ -4,37 +4,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HUTSLE 5</title>
     <style>
-      /* Basic Reset */
-* {
+      * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 body {
+    width: calc(100% - 6px); /* Subtract 3px from each side */
+    height: 100%;
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    margin: 0;
-    padding: 5vw; /* Adjust padding relative to screen size */
+    margin: 0 3px; /* 3px margin on the left and right */
     background-color: #f5f5f5;
     color: #333;
-    box-sizing: border-box; /* Ensure padding doesn't overflow */
 }
 
 @media (max-width: 768px) {
     body {
-        padding: 4vw; /* Less padding on smaller screens */
+        width: calc(100% - 6px); /* Maintain 3px margins on smaller screens */
+        margin: 0 3px;
     }
 }
 
 @media (max-width: 480px) {
     body {
-        padding: 3vw; /* Further reduce padding for phones */
+        width: calc(100% - 6px); /* Keep the 3px margins for small screens */
+        margin: 0 3px;
     }
 }
 
-/* Header Styles */
+
+/* General Header Styles */
 .header {
+    height: 100%;
+    width: 100%;
     z-index: 1000;
     width: 100%;
     background-color: #1471a7;
@@ -43,261 +47,183 @@ body {
     justify-content: space-between;
     padding: 0 5%;
     box-sizing: border-box;
-    position: relative; /* Changed from fixed to relative */
+    position: relative;
     top: 0;
-    left: 0;
-    right: 0;
-    height: 120px; /* Set height to 120px */
+    height: 120px; /* Decreased height for a more compact header */
     transition: all 0.3s ease;
 }
 
-@media (min-width: 1024px) {
-    .header {
-        padding: 0 10%; /* Increase padding for larger screens */
-    }
-}
-
-@media (max-width: 1024px) and (min-width: 768px) {
-    .header {
-        padding: 0 8%; /* Slightly less padding for tablets */
-    }
-}
-
-@media (max-width: 768px) {
-    .header {
-        padding: 0 5%;
-        flex-direction: column; /* Stack items vertically */
-        justify-content: center;
-    }
-    .header .logo,
-    .header .menu {
-        font-size: 16px;
-    }
-}
-
+/* Logo Adjustments */
 .header .logo {
-    font-size: 1.8rem;
+    font-size: 1.6rem; /* Smaller logo size */
+    color: #fff;
+    font-weight: bold; /* Adds more emphasis */
 }
 
-.header .menu {
-    font-size: 1.2rem;
-}
-
-.header .menu ul {
-    list-style-type: none;
+/* Auth Buttons Styling */
+.auth-buttons {
     display: flex;
-    gap: 15px;
-}
-
-.header .menu ul li {
-    font-size: 1rem;
-}
-
-/* Header Image */
-.header-image-box {
-    width: 40px;
-    height: 40px;
-    background-color: none;
-    border-radius: 50%;
-    margin-bottom: 180px;
-}
-
-@media (max-width: 768px) {
-    .header-image-box {
-        width: 30px;
-        height: 30px;
-        margin-bottom: 100px;
-    }
-}
-
-/* Search Box */
-.search-box {
-    display: flex;
+    gap: 15px; /* Increased space between buttons */
     align-items: center;
-    justify-content: center;
+    position: absolute;
+    right: 20px;  /* Positioned to the right */
+    top: 10px;
+    cursor: pointer;
+}
+
+.auth-buttons a {
+    padding: 10px 20px;
+    background-color: #fff;
+    color: #1471a7;
+    border-radius: 25px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.auth-buttons a:hover {
+    background-color: #0c5d78;
+    color: #fff;
+}
+
+.search-box {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    margin-bottom: 70px;
-    max-width: 90%;
-    padding: 10px;
-    box-sizing: border-box;
-}
-
-@media (max-width: 768px) {
-    .search-box {
-        max-width: 80%;
-        margin-bottom: 50px;
-        font-size: 14px;
-        padding: 8px;
-    }
-}
-
-.search-box input[type="text"] {
-    width: 100%;
-    max-width: 300px;
-    padding: 10px 15px;
-    font-size: 16px;
-    border: 2px solid #ddd;
-    border-radius: 5px;
-    box-sizing: border-box;
-}
-
-@media (max-width: 768px) {
-    .search-box input[type="text"] {
-        max-width: 200px;
-        font-size: 14px;
-        padding: 8px 12px;
-    }
-}
-
-.search-box button {
-    padding: 10px 15px;
-    font-size: 16px;
-    border: none;
-    background-color: #125a8a;
-    color: #fff;
-    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 50%;  /* Default width for large screens */
+    max-width: 100%;
+    margin-bottom: 50px;  /* Adjust to prevent overlap */
     cursor: pointer;
-    margin-left: 5px;
-    transition: background-color 0.3s;
-    width: auto;
-    max-width: 120px;
+    transition: width 0.3s ease;  /* Smooth resizing transition */
 }
 
-@media (max-width: 768px) {
-    .search-box button {
-        font-size: 14px;
-        padding: 8px 12px;
-        max-width: 100px;
-        margin-left: 3px;
+/* Adjust width for smaller screens */
+@media screen and (max-width: 768px) {
+    .search-box {
+        width: 80%;  /* Decreases width on tablets and mobile devices */
     }
+}
+
+/* Adjust width for very small screens (e.g., smartphones in portrait mode) */
+@media screen and (max-width: 480px) {
+    .search-box {
+        width: 90%;  /* Further reduces width on very small screens */
+    }
+}
+
+/* Search Box Input Styles */
+.search-box input {
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 25px;
+    border: 1px solid #ccc;
+    width: 100%;
+    transition: width 0.3s ease;
+}
+
+/* Search Button Styles */
+.search-box button {
+    background-color: #1471a7;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
 }
 
 .search-box button:hover {
-    background-color: #0d4671;
-    transition: background-color 0.3s ease;
+    background-color: #0c5d78;
 }
 
-/* Main Categories */
-.nav-bar {
-    flex-grow: 1;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    margin-bottom: 30px;
-    flex-wrap: wrap;
-    padding: 0 10px;
-}
+/* Responsive Media Queries for Different Screen Sizes */
 
+/* Medium screens (tablets) */
 @media (max-width: 768px) {
-    .nav-bar {
-        margin-bottom: 15px;
+    .header {
+        height: 100px; /* Adjust header height for medium screens */
     }
-}
 
-/* Auth Buttons */
-.auth-buttons {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-}
+    .logo {
+        font-size: 1.4rem; /* Smaller logo on smaller screens */
+    }
 
-@media (max-width: 768px) {
+    .search-box {
+        width: 60%;  /* Adjust search box width */
+    }
+
     .auth-buttons {
-        top: 5px;
-        right: 10px;
-        gap: 5px;
+        gap: 10px;  /* Reduced gap between auth buttons */
     }
 }
 
+/* Small screens (mobiles) */
 @media (max-width: 480px) {
+    .header {
+        height: 80px; /* Compact header for small screens */
+    }
+
+    .logo {
+        font-size: 1.2rem; /* Even smaller logo */
+    }
+
+    .search-box {
+        width: 80%;  /* Wider search box on small screens */
+    }
+
     .auth-buttons {
-        flex-direction: column;
-        top: 5px;
-        right: 5px;
+        flex-direction: column;  /* Stack buttons on small screens */
         gap: 5px;
+        top: 50px;  /* Adjust top position */
+    }
+
+    .search-box input {
+        font-size: 14px; /* Adjust input font size */
+    }
+
+    .search-box button {
+        font-size: 14px; /* Adjust button font size */
     }
 }
-
-.auth-buttons .login-btn, 
-.auth-buttons .register-btn {
-    background-color: #ffffff;
-    color: #1471a7;
-    padding: 8px 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-    flex-shrink: 1;
-    max-width: 100%;
-}
-
-@media (max-width: 768px) {
-    .auth-buttons .login-btn, 
-    .auth-buttons .register-btn {
-        padding: 6px 12px;
-        font-size: 14px;
-    }
-}
-
-@media (max-width: 480px) {
-    .auth-buttons .login-btn, 
-    .auth-buttons .register-btn {
-        padding: 5px 10px;
-        font-size: 12px;
-        width: 100%;
- }
-
-.auth-buttons .login-btn:hover,
-.auth-buttons .register-btn:hover {
-    background-color: #f0f0f0;
-    color: #125a8a;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-@media (max-width: 768px) {
-    .auth-buttons .login-btn:hover,
-    .auth-buttons .register-btn:hover {
-        background-color: #e0e0e0;
-    }
-}
-
-@media (max-width: 480px) {
-    .auth-buttons .login-btn:hover,
-    .auth-buttons .register-btn:hover {
-        background-color: #d0d0d0;
-    }
-}
-/* Main Content Container */
+/* Main Container */
 .container {
     display: flex;
-    align-items: flex-start;
-    gap: 40px;
-    padding: 80px 20px 20px;
+    justify-content: space-between;  /* Creates space between text box and image */
+    align-items: center;             /* Centers content vertically */
+    gap: 20px;                       /* Space between text and image */
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    align-items: center;  /* Center-aligns items vertically */
-    gap: 20px;            /* Creates space between the image and text */
-    padding: 10px;
+}
+
+/* Image Box (Right side) */
+.image-box {
+    max-width: 150px;               /* Controls the max width of the image box */
+    flex-shrink: 0;                 /* Prevents the image box from shrinking */
+    text-align: center;             /* Centers the image inside its box */
 }
 
 .image-box img {
-    width: 100px;
-    height: auto;
-    border-radius: 8px;
+    width: 100%;                    /* Makes the image responsive */
+    max-width: 150px;               /* Ensures image doesn’t exceed 150px width */
+    height: auto;                   /* Maintains aspect ratio */
+    border-radius: 8px;             /* Adds rounded corners to the image */
 }
 
+/* Text Box (Left side) */
 .text-box {
-    flex: 1;
+    flex: 1;                        /* Takes up remaining space */
+    text-align: left;               /* Aligns text to the left */
 }
 
+/* Heading, Subheading, Subsubheading Styling */
 .heading {
     font-weight: bold;
     color: #333;
@@ -331,47 +257,20 @@ body {
     text-align: center;
 }
 
-/* Right-alignment for the image box */
-.container .image-box {
-    margin-left: auto;
-}
-
 /* Responsive Design for Mobile */
 @media (max-width: 768px) {
-    /* Adjust nav-bar and layout */
-    .nav-bar {
-        flex-direction: column;
-        align-items: center;
-        margin-bottom: 20px;
-    }
-
-    /* Align auth buttons vertically */
-    .auth-buttons {
-        position: static;
-        justify-content: center;
-        width: 100%;
-        gap: 5px;
-    }
-
-    /* Reduce font sizes and padding for smaller screens */
-    .auth-buttons .login-btn,
-    .auth-buttons .register-btn {
-        font-size: 14px;
-        padding: 6px 12px;
-    }
-
-    /* Stack container elements vertically */
     .container {
         flex-direction: column;
         align-items: center;
-        padding: 60px 10px 20px;
-        gap: 20px;
+        padding: 20px;
     }
 
     .image-box img {
-        width: 80px;
+        width: 80px;  /* Resize image on smaller screens */
+        max-width: 100%;  /* Allow image to resize further if needed */
     }
 
+    /* Reduce font sizes for smaller screens */
     .heading {
         font-size: 20px;
     }
@@ -389,11 +288,6 @@ body {
         padding: 8px 16px;
     }
 }
-/* Main Content Container */
-.container {
-    flex-direction: column;
-    align-items: center;
-}
 
 /* Title Section */
 .top-rated-title {
@@ -409,7 +303,6 @@ body {
     letter-spacing: 1px;
     text-transform: uppercase;
 }
-
 /* Carousel Container */
 .carousel {
     z-index: 1;
@@ -509,12 +402,12 @@ body {
 }
 
 /* Responsive Design for Mobile */
-@media (max-width: 768px) {
+@media (max-width: 30px) {
     /* Adjustments for container */
-    .container {
+    .carousel-container {
         flex-direction: column;
         align-items: center;
-        padding: 20px;
+        padding: 2px;
     }
 
     /* Center and reduce spacing in profiles */
@@ -554,18 +447,19 @@ body {
         display: none;
     }
 } 
-        
 /* New Carousel container */
 .carousel-container-new {
     display: flex;
     overflow: hidden;
-    width: 100%; /* Full width */
+    width: calc(100% - 20px); /* Full width minus 10px on each side */
     justify-content: center;
     align-items: center;
     height: 80px; /* Increased height */
     font-size: 40px; /* Increased font size */
-    margin-top: 70px; /* Space below header */
+    margin-top: 130px; /* Space below header */
     position: relative;
+    margin-left: 10px; /* 10px from the left margin */
+    margin-right: 10px; /* 10px from the right margin */
 }
 
 .carousel-text {
@@ -901,16 +795,7 @@ body {
         </header>
         <div class="container">
           <div class="text-box">
-            <P> . </p>
-                <P> . </p>
-                    <P> . </p>
-                        <P> . </p>
-                            <P> . </p>
-                                <P> . </p>
-                                    <P> . </p>
-                                        <P> . </p>
-                                            <P> . </p>
-                                                <P> . </p>
+          
             <p class="heading">HUTSLE 5: Empowering Freelancers & Clients for Long-Term Success</p>
             <p>Welcome to <strong>Hustle 5</strong> - The Future of Freelancing. In today’s dynamic digital age, the freelancing industry is experiencing rapid growth. At <strong>Hustle 5</strong>, we understand that freelancers and clients alike are looking for a platform that goes beyond the traditional expectations—one that offers personalized services, cutting-edge tools, and a reliable community. That’s where we come in. <strong>Hustle 5</strong> is more than just another freelancing platform; it’s a solution built to empower freelancers and clients for long-term success. Whether you’re a freelancer striving to showcase your talents or a client seeking top-tier services, <strong>Hustle 5</strong> ensures a genuine and transparent experience for all.</p>
             <p><strong>Our Mission</strong> is simple: Build long-lasting relationships through trust, quality, and unmatched customer support.</p>
@@ -1514,7 +1399,7 @@ subcategories.forEach(subItem => {
     });
 });
 
-/// JavaScript to position submenus within viewport bounds
+
 document.querySelectorAll('.category-item').forEach(item => {
     item.addEventListener('mouseenter', () => {
         const subcategories = item.querySelector('.subcategories');
@@ -1534,12 +1419,36 @@ document.querySelectorAll('.category-item').forEach(item => {
         });
     });
 
-    // Hide subcategories when the mouse leaves
+    
     item.addEventListener('mouseleave', () => {
         const subcategories = item.querySelector('.subcategories');
         if (subcategories) subcategories.style.display = 'none';
     });
 });
+// Function to resize the search box based on the window width
+function resizeSearchBox() {
+    const searchBox = document.querySelector('.search-box');
+    const windowWidth = window.innerWidth;
+
+    // Default width for large screens
+    let newWidth = '50%';
+
+    // Adjust width based on screen size
+    if (windowWidth <= 768) {
+        newWidth = '80%';  // For tablets and smaller devices
+    }
+    if (windowWidth <= 480) {
+        newWidth = '90%';  // For mobile phones
+    }
+
+    // Apply the new width to the search box
+    searchBox.style.width = newWidth;
+}
+
+// Call the function on window resize and initially when the page loads
+window.addEventListener('resize', resizeSearchBox);
+window.addEventListener('load', resizeSearchBox);
+
 </script>
 </body>
 </html>
