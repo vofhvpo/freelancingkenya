@@ -1,197 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
-<style>
-/* Reset some basic elements */
-* {
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guides Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Basic layout */
 body {
     font-family: Arial, sans-serif;
-    line-height: 1.6;
     background-color: #f4f4f4;
-    color: #333;
-    padding-top: 20px;
-}
-
-/* Container for centering content */
-.container {
-    width: 80%;
-    margin: 0 auto;
-}
-
-/* Header */
-header {
-    background-color: #007bff;
-    color: white;
-    padding: 40px 0;
-    text-align: center;
-}
-
-header h1 {
-    font-size: 3em;
-    margin-bottom: 10px;
-}
-
-header p {
-    font-size: 1.2em;
-}
-
-/* About Section */
-.about {
-    background-color: white;
-    padding: 40px 0;
-}
-
-.about h2 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
-}
-
-.about p {
-    font-size: 1.2em;
-    margin-bottom: 20px;
-}
-
-.about h3 {
-    font-size: 2em;
-    margin-top: 20px;
-}
-
-/* Services Section */
-.services {
-    background-color: #f9f9f9;
-    padding: 40px 0;
-}
-
-.services h2 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
-}
-
-.service-item {
-    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
     padding: 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.service-item h3 {
-    font-size: 2em;
+.container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #1471a7;
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px 0 0 10px;
+}
+
+.topics {
+    list-style-type: none;
+    padding: 0;
+}
+
+.topics li {
+    margin-bottom: 15px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.topics li:hover {
+    color: #ffd700;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.content-item {
+    display: none;
+}
+
+.content-item h2 {
+    font-size: 24px;
     margin-bottom: 10px;
 }
 
-.service-item p {
-    font-size: 1.2em;
+.content-item p {
+    font-size: 16px;
+    line-height: 1.6;
 }
-
-/* Values Section */
-.values {
-    background-color: white;
-    padding: 40px 0;
-}
-
-.values h2 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
-}
-
-.values h3 {
-    font-size: 2em;
-    margin-top: 20px;
-}
-
-/* Footer */
-footer {
-    background-color: #007bff;
-    color: white;
-    padding: 20px 0;
-    text-align: center;
-}
-
-footer p {
-    font-size: 1.2em;
-}
-
-</style>
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | HUTSLE 5</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header>
+    </style>
+    <body>
         <div class="container">
-            <h1>Welcome to HUTSLE 5</h1>
-            <p>Your trusted platform for freelancing and content creation services.</p>
-        </div>
-    </header>
-
-    <section class="about">
-        <div class="container">
-            <h2>Introduction to HUTSLE 5</h2>
-            <p>Welcome to HUTSLE 5—the future of freelancing. As the freelancing industry grows rapidly, freelancers and clients alike need a platform that offers more than just a transactional space. At HUTSLE 5, we provide a comprehensive, seamless experience designed to empower both freelancers and clients.</p>
-            <p>Located in <strong>Westlands, Amanza Plaza, 3rd Floor</strong>, we serve as a hub for collaboration, connecting talented professionals with clients seeking creative services. Our CEO, <strong>John Musembi</strong>, is always available for inquiries and can be contacted directly at <strong>+254704195290</strong>.</p>
-
-            <h3>Our Mission</h3>
-            <p>At HUTSLE 5, we are driven by a simple mission—to bridge the gap between talented freelancers and clients in need of professional content creation services. We aim to build long-lasting relationships rooted in trust, quality, and unmatched customer support. Our platform offers a diverse array of services, tools, and resources designed to foster long-term success and mutual growth for all users.</p>
-        </div>
-    </section>
-
-    <section class="services">
-        <div class="container">
-            <h2>Services and Features</h2>
-            <div class="service-item">
-                <h3>Marketplace Listings & Job Posting</h3>
-                <p>Freelancers can create customized profiles and showcase their skills in various categories, including writing, editing, content creation, and more. Clients can post jobs, find the perfect match, and begin collaboration immediately.</p>
+            <!-- Left Sidebar (Subtopics) -->
+            <div class="sidebar">
+                <ul class="topics">
+                    <li onclick="showContent('digitalMarketing')">Digital Marketing Guides</li>
+                    <li onclick="showContent('graphicsDesign')">Graphics & Design Guides</li>
+                    <li onclick="showContent('dataGuides')">Data Guides</li>
+                    <li onclick="showContent('businessGuides')">Business Guides</li>
+                    <li onclick="showContent('musicAudio')">Music & Audio Guides</li>
+                    <li onclick="showContent('videoAnimation')">Video & Animation Guides</li>
+                    <li onclick="showContent('writingCopywriting')">Writing & Copywriting Guides</li>
+                    <li onclick="showContent('programmingTech')">Programming & Tech Guides</li>
+                    <li onclick="showContent('mostPopular')">The Most Popular Guides</li>
+                    <li onclick="showContent('whatIsDigitalMarketing')">What is digital marketing?</li>
+                    <li onclick="showContent('mobileMarketing')">Mobile marketing (a beginner's guide)</li>
+                    <li onclick="showContent('whatIsTikTok')">What is TikTok?</li>
+                </ul>
             </div>
-            <div class="service-item">
-                <h3>Secure Payment Processing</h3>
-                <p>With integrated payment systems like M-Pesa, PayPal, Skrill, Neteller, and Bitcoin, both freelancers and clients enjoy a secure and easy-to-use payment platform.</p>
-            </div>
-            <div class="service-item">
-                <h3>Analytics Dashboard for Sellers</h3>
-                <p>Freelancers have access to an intuitive analytics dashboard that tracks their performance, reviews, and earnings, helping them grow their profiles and increase visibility.</p>
-            </div>
-            <div class="service-item">
-                <h3>Review and Rating System</h3>
-                <p>A transparent rating system allows clients and freelancers to rate each other based on their experiences, ensuring credibility within the community.</p>
-            </div>
-            <div class="service-item">
-                <h3>Affiliate/Referral Program</h3>
-                <p>Our Affiliate/Referral Program rewards users for bringing new clients and freelancers to the platform, creating a win-win situation for all.</p>
+    
+            <!-- Right Content (Explanations) -->
+            <div class="content">
+                <div id="digitalMarketing" class="content-item">
+                    <h2>Digital Marketing Guides</h2>
+                    <p>Explanation of digital marketing guides...</p>
+                </div>
+                <div id="graphicsDesign" class="content-item">
+                    <h2>Graphics & Design Guides</h2>
+                    <p>Explanation of graphics and design guides...</p>
+                </div>
+                <div id="dataGuides" class="content-item">
+                    <h2>Data Guides</h2>
+                    <p>Explanation of data guides...</p>
+                </div>
+                <div id="businessGuides" class="content-item">
+                    <h2>Business Guides</h2>
+                    <p>Explanation of business guides...</p>
+                </div>
+                <div id="musicAudio" class="content-item">
+                    <h2>Music & Audio Guides</h2>
+                    <p>Explanation of music and audio guides...</p>
+                </div>
+                <div id="videoAnimation" class="content-item">
+                    <h2>Video & Animation Guides</h2>
+                    <p>Explanation of video and animation guides...</p>
+                </div>
+                <div id="writingCopywriting" class="content-item">
+                    <h2>Writing & Copywriting Guides</h2>
+                    <p>Explanation of writing and copywriting guides...</p>
+                </div>
+                <div id="programmingTech" class="content-item">
+                    <h2>Programming & Tech Guides</h2>
+                    <p>Explanation of programming and tech guides...</p>
+                </div>
+                <div id="mostPopular" class="content-item">
+                    <h2>The Most Popular Guides</h2>
+                    <p>Explanation of the most popular guides...</p>
+                </div>
+                <div id="whatIsDigitalMarketing" class="content-item">
+                    <h2>What is digital marketing?</h2>
+                    <p>Explanation of what digital marketing is...</p>
+                </div>
+                <div id="mobileMarketing" class="content-item">
+                    <h2>Mobile marketing (a beginner's guide)</h2>
+                    <p>Explanation of mobile marketing...</p>
+                </div>
+                <div id="whatIsTikTok" class="content-item">
+                    <h2>What is TikTok?</h2>
+                    <p>Explanation of what TikTok is...</p>
+                </div>
             </div>
         </div>
-    </section>
-
-    <section class="values">
-        <div class="container">
-            <h2>Company Values and Future Vision</h2>
-            <p>At HUTSLE 5, we’re committed to maintaining high standards of professionalism, ethical practices, and fair pricing. Our core values guide us as we build a platform that supports both freelancers and clients equally.</p>
-
-            <h3>Integrity & Transparency</h3>
-            <p>We foster a culture of honesty and transparency, ensuring that all transactions, communications, and agreements are handled with the highest level of trust.</p>
-
-            <h3>Support for Talent</h3>
-            <p>We understand that freelancing is not just a job—it’s a career. We provide resources, tools, and an environment where freelancers can thrive, grow, and achieve their professional goals.</p>
-
-            <h3>Innovation</h3>
-            <p>HUTSLE 5 is continuously evolving, and we’re always working on new features to enhance the user experience. We aim to stay ahead of the curve with new features, payment methods, and service offerings.</p>
-
-            <h3>Looking Ahead</h3>
-            <p>The future of HUTSLE 5 is bright. We plan to introduce more innovative features, strengthen community support, and continue evolving to meet the needs of both freelancers and clients.</p>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <p>Join us on our journey to redefine freelancing. At HUTSLE 5, we believe in your success.</p>
-        </div>
-    </footer>
-</body>
-</html>
+    
+        <script>
+        function showContent(topic) {
+            // Hide all content items
+            const contentItems = document.querySelectorAll('.content-item');
+            contentItems.forEach(item => {
+                item.style.display = 'none';
+            });
+        
+            // Show the selected topic's content
+            const selectedContent = document.getElementById(topic);
+            if (selectedContent) {
+                selectedContent.style.display = 'block';
+            }
+        }
+    </script>
+    </body>
+    </html>
