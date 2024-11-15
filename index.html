@@ -281,24 +281,30 @@ body {
     align-items: center;    /* Center horizontally */
     justify-content: center; /* Center vertically */
     gap: 20px;
-    margin: 5px auto;      /* Center container horizontally with automatic margins */
+    margin: 5px auto;       /* Center container horizontally with automatic margins */
     padding: 20px;
     width: calc(100% - 40px); /* Allow the container to scale with screen size, leaving some margin */
-    max-width: 100%;      /* Prevent the container from being too wide on large screens */
+    max-width: 100%;        /* Prevent the container from being too wide on large screens */
     height: 400px;          /* Fixed height */
     box-sizing: border-box;
-    background-color: #c2bf1c; /* Matches header theme */
+    background-color: #c2bf1c; /* Fallback background color in case the image doesn’t load */
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+    /* Background Image */
+    background-image: url('./images/HUSTLE5OFFICE2.PNG'); /* Replace with your image path */
+    background-size: cover;     /* Ensure the image covers the entire container */
+    background-repeat: no-repeat; /* Prevent image repetition */
+    background-position: center; /* Center the image */
 }
 
-/* Centered Search Box */
+
 .search-box {
     display: flex;
     align-items: center;    /* Center items vertically */
     justify-content: center; /* Center items horizontally */
     gap: 10px;
-    width: 300px;
+    width: 600px;
     max-width: 100%;        /* Ensure it doesn’t exceed container width */
     border-radius: 8px;
     padding: 10px;
@@ -332,19 +338,21 @@ body {
     border-radius: 25px;
     border: 1px solid #ccc;
     width: 100%;
-    transition: width 0.3s ease;
+    width: 200px;
+    transition:  0.3s ease;
 }
 
 /* Search Button Styles */
 .search-box button {
     background-color: #19a714;
-    color: white;
+    color: #ffffff;
+    width: 100px;
     border: none;
-    padding: 12px 25px;
-    border-radius: 25px;
+    padding: 12px;
+    border-radius: 10px;
     cursor: pointer;
     font-size: 16px;
-    transition: background-color 0.3s ease;
+    transition:  0.3s ease;
 }
 
 .search-box button:hover {
@@ -442,12 +450,6 @@ body {
     transform: translateY(-10px);
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
 }
-
-/* Hidden Content Sections */
-#moreContentPaymentPractices, #moreContentCustomerSupport, #moreContentAffiliateProgramme, #moreContentCommunityBuilding, #moreContentRegistration, #moreContentHustle {
-    display: none;
-}
-
 /* Responsive Design for Mobile */
 @media (max-width: 30px) {
     /* Adjustments for container */
@@ -950,6 +952,10 @@ button:hover {
         font-size: 12px;
         padding: 10px;
     }
+}
+
+#moreContentPaymentPractices, #moreContentCustomerSupport, #moreContentAffiliateProgramme, #moreContentCommunityBuilding, #moreContentRegistration, #moreContentHustle {
+    display: none;
 }
 </style>
 </head>
