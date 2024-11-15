@@ -4,7 +4,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HUTSLE 5</title>
     <style>
-      * {
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -36,7 +37,7 @@ body {
 
 /* General Header Styling */
 .header {
-    height: 80px; /* Default header height */
+    height: 20%; /* Default header height */
     margin-bottom: 5px;
     width: 100%;
     z-index: 1000;
@@ -46,7 +47,7 @@ body {
     justify-content: space-between;
     padding: 0 5%;
     box-sizing: border-box;
-    position: relative;
+    position: fixed;
     top: 0;
     transition: all 0.3s ease;
 }
@@ -189,140 +190,89 @@ body {
 /* Main Container */
 .container {
     display: flex;
-    justify-content: space-between;  /* Creates space between text box and image */
-    align-items: center;             /* Centers content vertically */
-    gap: 20px;                       /* Space between text and image */
+    flex-direction: row;               /* Aligns items in a row for large screens */
+    justify-content: space-between;    /* Creates space between text and image */
+    align-items: center;               /* Centers content vertically */
+    gap: 20px;                         /* Space between text and image */
     padding: 40px;
     width: 100%;
+    max-width: 100%;                 /* Limits container width for readability */
+    margin: auto;                      /* Centers container */
     box-sizing: border-box;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;  /* Smooth resizing transitions */
 }
 
-
+/* Text Box (Right Side) */
 .text-box {
-    flex: 1;                        /* Takes up remaining space */
-    text-align: left;               /* Aligns text to the left */
-    margin-left: 10px;             /* Adds space to the left side to prevent overlap with the image */
-    padding: 20px;
-}
-/* Image Box (Right side) */
-.image-box {
-    width: 100%;                    /* Fixed width for consistent sizing */
-    flex-shrink: 0;                  /* Prevents the image box from shrinking */
-    text-align: center;              /* Centers the image inside its box */
-    position: relative;                /* Keeps the image fixed as the page scrolls */
-    top: 0;                          /* Aligns it to the top of the container */
-    margin-top: 20px;                /* Adds spacing from the top */
-    z-index: 10;                     /* Ensures the image stays above the text */
+    flex: 2;                           /* Takes up more space than the image box */
+    text-align: left;                  /* Aligns text to the left */
+    font-size: 1rem;                   /* Base font size for readability */
+    line-height: 1.5;                  /* Line height for readability */
+    color: #333;
+    position: relative;
 }
 
-/* Image inside the box */
-.image-box img {
-    width: 100%;                     /* Makes the image responsive */
-    max-width: 150px;                /* Ensures the image does not exceed 150px */
-    height: auto;                    /* Maintains aspect ratio */
-    border-radius: 8px;              /* Adds rounded corners */
-}
-
-/* Text Box (Left side) */
-.text-box {
-    flex: 1;                          /* Takes up remaining space */
-    text-align: left;                 /* Aligns text to the left */
-    margin-right: 160px;              /* Prevents overlap with the image */
-    padding-top: 20px;                /* Starts text from top of container */
-    position: relative;               /* Keeps text flow inside the container */
-    overflow: hidden;                 /* Hides text overflow when collapsed */
-}
-
-/* Heading, Subheading, Subsubheading Styling */
+/* Heading, Subheading, and Read More Button */
 .heading {
     font-weight: bold;
     color: #333;
-    font-size: 22px;
+    font-size: 1.5rem;
     margin-bottom: 10px;
 }
 
 .subheading {
-    font-weight: bold;
-    color: #333;
-    font-size: 18px;
-    margin-top: 20px;
-}
-
-.subsubheading {
-    font-weight: bold;
-    font-size: 16px;
-    margin-top: 10px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-top: 15px;
     color: #555;
 }
 
-/* Read More Button Styling */
 .read-more-button {
     background-color: #1471a7;
     color: white;
+    width: 100px;
     border: none;
     padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
     cursor: pointer;
-    font-size: 14px;
-    margin-top: 10px;
-    border-radius: 4px;
-    text-align: center;
+    transition: background-color 0.3s ease;
 }
 
-/* Expanded Text Styling (for Read More button toggle) */
-.text-box.expanded {
-    max-height: none;                 /* Allows text to expand */
-    overflow: visible;                /* Shows expanded text */
-    transition: max-height 0.3s ease-in-out;
+.read-more-button:hover {
+    background-color: #0f5b85;
 }
 
 /* Responsive Design for Mobile */
 @media (max-width: 768px) {
     .container {
-        flex-direction: column;
-        align-items: center;
+        flex-direction: column;        /* Stacks text and image vertically */
+        align-items: flex-start;       /* Aligns items to the start */
         padding: 20px;
     }
 
-    .image-box img {
-        width: 80px;  /* Resize image on smaller screens */
-        max-width: 100%;  /* Allow image to resize further if needed */
+ 
+
+    .text-box {
+        font-size: 0.9rem;             /* Slightly smaller text for smaller screens */
+        line-height: 1.4;
     }
 
-    /* Reduce font sizes for smaller screens */
     .heading {
-        font-size: 20px;
+        font-size: 1.2rem;
     }
 
     .subheading {
-        font-size: 16px;
-    }
-
-    .subsubheading {
-        font-size: 14px;
+        font-size: 1rem;
     }
 
     .read-more-button {
-        font-size: 12px;
+        font-size: 0.9rem;
         padding: 8px 16px;
     }
-}
-
-/* Title Section */
-.top-rated-title {
-    text-align: center;
-    margin-top: 40px;
-    margin-bottom: 20px;
-}
-
-.top-rated-title h2 {
-    font-size: 26px;
-    color: #19a714;
-    font-weight: bold;
-    letter-spacing: 1px;
-    text-transform: uppercase;
 }
 /* New Container */
 .container-new {
@@ -825,22 +775,7 @@ body {
         font-size: 12px;
     }
 }
-/* Basic styles for the page */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-}
 
-/* Basic styles for the page */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-    overflow-x: hidden; /* Prevent horizontal scrolling */
-}
 
 /* Popup Container (overlay) */
 .popup-container {
@@ -874,18 +809,17 @@ body {
 }
 
 /* Left Image Box */
-.image-box {
+.popup-image-box {
     flex: 1; /* Scales proportionally */
     max-width: 40%; /* Limit width for better layout */
     margin-right: 15px;
 }
 
-.image-box img {
+.popup-image-box img {
     width: 100%;
     height: auto;
     border-radius: 8px;
 }
-
 /* Right Content Box */
 .content-box {
     flex: 2; /* Takes up remaining space */
@@ -972,20 +906,19 @@ button:hover {
 /* Close Button */
 .close-btn {
     position: absolute;
-    top: -15px;
-    right: -15px;
+    top: -30px;
+    right: -30px;
     font-size: 25px;
     font-weight: bold;
     cursor: pointer;
-    color: #333;
-    background: white;
+    color: white;
     border-radius: 50%;
     width: 30px;
     height: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid #ccc;
+    
 }
 
 /* Responsive Design for Mobile */
@@ -997,7 +930,7 @@ button:hover {
         padding: 15px;
     }
 
-    .image-box {
+    .popup-image-box {
         display: none; /* Hide the image box on smaller screens */
     }
 
@@ -1019,24 +952,24 @@ button:hover {
     }
 }
 </style>
-
+</head>
 <body>
     <header class="header">
         <div class="header-image-box">
-            <img src="images/blackbackground_logo_hustler_5-removebg-preview.png" alt="Header Image"> <!-- Ensure the file name matches -->
+            <img src="./images/balckbackground_logo_hustler_5-removebg-preview (1).png" alt="Header Image"> <!-- Ensure the file name matches -->
         </div>
         <div class="auth-buttons">
             <button class="login-btn">Login</button>
             <button class="register-btn">Register</button>
         </div>
     </header>
-
-    <hr class="bold-line">
-
-    <!-- Additional content for container-new can go here -->
-    <div class="container-new">
-        <!-- Your carousel or other content -->
-    </div>
+<div class="container-new">
+        <div class="search-box">
+            <input type="text" id="search-input" placeholder="Search for Services...">
+            <button onclick="performSearch()">Search</button>
+        </div>
+        </div>
+           
 
     <!-- Popup Container -->
     <div id="popup-container" class="popup-container">
@@ -1045,14 +978,14 @@ button:hover {
             <span class="close-btn" id="close-btn">&times;</span>
 
             <!-- Left Image Box -->
-            <div class="image-box">
-                <img src="images/hustle5_popup.png" alt="Hustle Five Image"> <!-- Ensure the file path is correct -->
+            <div class="popup-image-box">
+                <img src="./images/hustle 5 popup.PNG" alt="Hustle Five Image"> <!-- Ensure the file path is correct -->
             </div>
 
             <!-- Right Content (Login/Register Form) -->
             <div class="content-box">
-                <h2>Welcome to Hustle Five Freelancing Hub</h2>
-                <p>Join Hustle Five today and access a wide range of freelancing opportunities in writing, graphic design, marketing, and more!</p>
+                <h2>Welcome to Hustle 5 Freelancing Hub</h2>
+                <p>Join Hustle 5 today and access a wide range of freelancing opportunities in writing, graphic design, marketing, and more!</p>
 
                 <h3>Login or Register</h3>
 
@@ -1062,26 +995,13 @@ button:hover {
                     <input type="password" id="password" placeholder="Enter your password" required><br>
                     <button type="submit">Login</button>
                     <p>Don't have an account? <a href="#">Sign Up</a></p>
-                </form>
-            </div>
-        </div>
-    </div>
-            <!-- Social Login -->
-            <div class="social-login">
                 <button class="google-btn">Login with Google</button>
                 <button class="facebook-btn">Login with Facebook</button>
             </div>
+                </form>           
         </div>
     </div>
 </div>
-
-        <div class="container-new">
-            <div class="search-box">
-                <input type="text" id="search-input" placeholder="Search for Services...">
-                <button onclick="performSearch()">Search</button>
-            </div>
-            </div>
-               
         <div class="container">
           <div class="text-box">
           
