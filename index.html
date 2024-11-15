@@ -556,11 +556,13 @@ body {
     display: flex;
     overflow: hidden; /* Ensures text stays within the container */
     width: 100%; /* Full width of the parent container */
+    justify-content: center; /* Center the text horizontally */
     align-items: center;
     height: 20px; /* Default height for large screens */
     position: relative; /* Keeps the text positioned inside */
-    margin-bottom: 5px; /* Adjust margin for spacing */
-    padding: 0; /* Remove extra padding for seamless appearance */
+    margin: 0 auto; /* Centers the container and prevents overflow */
+    padding: 0 10px; /* Add padding to prevent text from touching edges */
+    box-sizing: border-box; /* Includes padding in width calculations */
     z-index: 1;
     background-color: #19a714; /* Optional background color */
 }
@@ -574,6 +576,7 @@ body {
     color: #57c72b; /* Text color */
     gap: 15px; /* Spacing between words */
     font-weight: bold;
+    overflow: hidden; /* Prevents spilling outside the container */
 }
 
 /* Animation for Text Scrolling */
@@ -591,6 +594,7 @@ body {
     }
     .carousel-text {
         font-size: 2.5rem; /* Increase font size */
+        padding: 0 15px; /* Add padding for consistent margin */
     }
 }
 
@@ -598,9 +602,11 @@ body {
 @media (max-width: 768px) {
     .carousel-new {
         height: 80px; /* Decrease height for medium screens */
+        padding: 0 5px; /* Add padding for smaller devices */
     }
     .carousel-text {
         font-size: 1.8rem; /* Smaller font size for tablets */
+        gap: 10px; /* Adjust spacing between words */
     }
 }
 
@@ -608,10 +614,11 @@ body {
 @media (max-width: 480px) {
     .carousel-new {
         height: 60px; /* Compact height for small screens */
+        padding: 0 5px; /* Add padding for smaller devices */
     }
     .carousel-text {
         font-size: 1.2rem; /* Even smaller font size for phones */
-        gap: 10px; /* Adjust spacing between words */
+        gap: 5px; /* Adjust spacing between words */
     }
 }
 .footer {
