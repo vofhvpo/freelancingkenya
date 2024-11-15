@@ -842,7 +842,6 @@ body {
     overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
-
 /* Popup Container (overlay) */
 .popup-container {
     position: fixed;
@@ -973,18 +972,20 @@ button:hover {
 /* Close Button */
 .close-btn {
     position: absolute;
-    top: -30px;
-    right: -30px;
+    top: -15px;
+    right: -15px;
     font-size: 25px;
     font-weight: bold;
     cursor: pointer;
-    color: white;
+    color: #333;
+    background: white;
+    border-radius: 50%;
     width: 30px;
     height: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
-   
+    border: 1px solid #ccc;
 }
 
 /* Responsive Design for Mobile */
@@ -997,9 +998,7 @@ button:hover {
     }
 
     .image-box {
-        margin: 0 0 20px 0;
-        flex: 1;
-        max-width: 100%;
+        display: none; /* Hide the image box on smaller screens */
     }
 
     .content-box {
@@ -1020,49 +1019,53 @@ button:hover {
     }
 }
 </style>
-</head>
-<body>
 
+<body>
     <header class="header">
         <div class="header-image-box">
-            <img src="./images/balckbackground_logo_hustler_5-removebg-preview (1).png" alt="Header Image">
+            <img src="images/blackbackground_logo_hustler_5-removebg-preview.png" alt="Header Image"> <!-- Ensure the file name matches -->
         </div>
         <div class="auth-buttons">
             <button class="login-btn">Login</button>
             <button class="register-btn">Register</button>
         </div>
-    </div>
-</header>
+    </header>
 
-<hr class="bold-line">
-        <!-- Additional content for container-new can go here -->
-    </div>
- <!-- Popup Container -->
- <div id="popup-container" class="popup-container">
-    <div class="popup-content">
-        <!-- Close Button -->
-        <span class="close-btn" id="close-btn">&times;</span>
+    <hr class="bold-line">
 
-        <!-- Left Image Box -->
-        <div class="image-box">
-            <img src="./images/hustle 5 popup.PNG" alt="Hustle Five Image">
+    <!-- Additional content for container-new can go here -->
+    <div class="container-new">
+        <!-- Your carousel or other content -->
+    </div>
+
+    <!-- Popup Container -->
+    <div id="popup-container" class="popup-container">
+        <div class="popup-content">
+            <!-- Close Button -->
+            <span class="close-btn" id="close-btn">&times;</span>
+
+            <!-- Left Image Box -->
+            <div class="image-box">
+                <img src="images/hustle5_popup.png" alt="Hustle Five Image"> <!-- Ensure the file path is correct -->
+            </div>
+
+            <!-- Right Content (Login/Register Form) -->
+            <div class="content-box">
+                <h2>Welcome to Hustle Five Freelancing Hub</h2>
+                <p>Join Hustle Five today and access a wide range of freelancing opportunities in writing, graphic design, marketing, and more!</p>
+
+                <h3>Login or Register</h3>
+
+                <!-- Form -->
+                <form id="login-form">
+                    <input type="email" id="email" placeholder="Enter your email" required><br>
+                    <input type="password" id="password" placeholder="Enter your password" required><br>
+                    <button type="submit">Login</button>
+                    <p>Don't have an account? <a href="#">Sign Up</a></p>
+                </form>
+            </div>
         </div>
-
-        <!-- Right Content (Login/Register Form) -->
-        <div class="content-box">
-            <h2>Welcome to Hustle Five Freelancing Hub</h2>
-            <p>Join Hustle Five today and access a wide range of freelancing opportunities in writing, graphic design, marketing, and more!</p>
-            
-            <h3>Login or Register</h3>
-
-            <!-- Form -->
-            <form id="login-form">
-                <input type="email" id="email" placeholder="Enter your email" required><br>
-                <input type="password" id="password" placeholder="Enter your password" required><br>
-                <button type="submit">Login</button>
-                <p>Don't have an account? <a href="#">Sign Up</a></p>
-            </form>
-
+    </div>
             <!-- Social Login -->
             <div class="social-login">
                 <button class="google-btn">Login with Google</button>
@@ -1195,9 +1198,9 @@ button:hover {
                 <p>Video Editor with expertise in Adobe Premiere and After Effects</p>
             </div>
         </div>
-        
         <button class="carousel-btn right-btn" onclick="moveRight()">›</button>
     </div>
+</div>
 
     
 <!-- Main content container for Payments -->
@@ -1547,10 +1550,7 @@ button:hover {
 </div>
 </div>
 </div>
-
-
-    <script>
-
+<script>
 function performSearch() {
     // Get the input value
     const query = document.getElementById("search-input").value;
@@ -1567,29 +1567,29 @@ function performSearch() {
     }
 }
 
-
-        function toggleContent(contentId, button) {
-            // Close all sections before opening the new one
-            const allContent = document.querySelectorAll('div[id^="moreContent"]');
-            allContent.forEach(content => {
-                if (content.id !== contentId) {
-                    content.style.display = 'none';
-                    const otherButton = content.previousElementSibling;
-                    if (otherButton) otherButton.innerText = 'Read More';
-                }
-            });
-
-            // Toggle the current section
-            const content = document.getElementById(contentId);
-            if (content.style.display === 'none' || content.style.display === '') {
-                content.style.display = 'block';
-                button.innerText = 'Read Less';
-            } else {
-                content.style.display = 'none';
-                button.innerText = 'Read More';
-            }
+function toggleContent(contentId, button) {
+    // Close all sections before opening the new one
+    const allContent = document.querySelectorAll('div[id^="moreContent"]');
+    allContent.forEach(content => {
+        if (content.id !== contentId) {
+            content.style.display = 'none';
+            const otherButton = content.previousElementSibling;
+            if (otherButton) otherButton.innerText = 'Read More';
         }
-        // Move the carousel to the left
+    });
+
+    // Toggle the current section
+    const content = document.getElementById(contentId);
+    if (content.style.display === 'none' || content.style.display === '') {
+        content.style.display = 'block';
+        button.innerText = 'Read Less';
+    } else {
+        content.style.display = 'none';
+        button.innerText = 'Read More';
+    }
+}
+
+// Move the carousel to the left
 function moveLeft() {
     const carouselContainer = document.querySelector('.carousel-container');
     const firstProfile = carouselContainer.querySelector('.profile');
@@ -1644,7 +1644,6 @@ function getCurrentTransformValue() {
 // Auto scroll the carousel every 3 seconds
 setInterval(moveRight, 3000);  // Call moveRight function every 3 seconds (3000ms)
 
-
 // Select all main category items with subcategories
 const mainCategories = document.querySelectorAll('.category-item');
 
@@ -1685,7 +1684,6 @@ subcategories.forEach(subItem => {
     });
 });
 
-
 document.querySelectorAll('.category-item').forEach(item => {
     item.addEventListener('mouseenter', () => {
         const subcategories = item.querySelector('.subcategories');
@@ -1705,50 +1703,36 @@ document.querySelectorAll('.category-item').forEach(item => {
         });
     });
 
-    
     item.addEventListener('mouseleave', () => {
         const subcategories = item.querySelector('.subcategories');
         if (subcategories) subcategories.style.display = 'none';
     });
 });
+
 function toggleText() {
     const textBox = document.querySelector('.text-box');
     textBox.classList.toggle('expanded');
 }
 
-
-
 // Get references to the popup container and the close button
 const popupContainer = document.getElementById('popup-container');
 const closeButton = document.getElementById('close-btn');
 
-// Function to show the popup when the page loads
+// Combined window.onload function
 window.onload = function() {
     popupContainer.style.display = 'flex'; // Show the popup
-};
 
-// Close the popup when the close button is clicked
-closeButton.onclick = function() {
-    popupContainer.style.display = 'none'; // Hide the popup
-};
-
-// Close the popup if the user clicks outside of the popup content
-window.onclick = function(event) {
-    if (event.target === popupContainer) {
+    // Close the popup when the close button is clicked
+    closeButton.onclick = function() {
         popupContainer.style.display = 'none'; // Hide the popup
-    }
-};
-function showPopup() {
-    document.getElementById('popup').style.display = 'flex';
-}
+    };
 
-function closePopup() {
-    document.getElementById('popup').style.display = 'none';
-}
-
-// Open popup on page load
-window.onload = function() {
-    showPopup();
+    // Close the popup if the user clicks outside of the popup content
+    window.onclick = function(event) {
+        if (event.target === popupContainer) {
+            popupContainer.style.display = 'none'; // Hide the popup
+        }
+    };
 };
 </script>
 </body>
