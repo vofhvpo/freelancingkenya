@@ -384,6 +384,7 @@ body {
         padding: 8px 16px;
     }
 }
+
 /* New Container */
 .container-new {
     display: flex;
@@ -401,14 +402,13 @@ body {
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 
-    /* Background Image */
-    background-image: url('./images/HUSTLE5OFFICE2.PNG'); /* Replace with your image path */
+     /* Background Image */
+     background-image: url('./images/HUSTLE5OFFICE2.PNG'); /* Replace with your image path */
     background-size: cover;     /* Ensure the image covers the entire container */
     background-repeat: no-repeat; /* Prevent image repetition */
     background-position: center; /* Center the image */
+    margin-top: 90px;  /* Set margin-top to account for the header height and add a 10px gap */
 }
-
-
 .search-box {
     display: flex;
     align-items: center;    /* Center items vertically */
@@ -423,9 +423,11 @@ body {
 
 /* Responsive adjustments for the container */
 @media screen and (max-width: 768px) {
-    .container-new {
+    .container-new { padding: 20px;
         
-        padding: 20px;
+        background-size: cover; /* Use cover for smaller screens */
+    }
+       
     }
     .search-box {
         width: 250px;
