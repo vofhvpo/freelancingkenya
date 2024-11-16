@@ -1786,9 +1786,20 @@ document.addEventListener('DOMContentLoaded', function () {
     const hamburgerMenu = document.querySelector('.hamburger-menu');
     const dropdownMenu = document.querySelector('.dropdown-menu');
 
-    hamburgerMenu.addEventListener('click', function () {
+    // Toggle dropdown menu when hamburger is clicked
+    hamburgerMenu.addEventListener('click', function (event) {
+        // Prevent click event from propagating to document click listener
+        event.stopPropagation();
         dropdownMenu.style.display =
             dropdownMenu.style.display === 'flex' ? 'none' : 'flex';
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function (event) {
+        // If the click was outside the dropdown menu and hamburger menu
+        if (!dropdownMenu.contains(event.target) && !hamburgerMenu.contains(event.target)) {
+            dropdownMenu.style.display = 'none';
+        }
     });
 });
 </script>
