@@ -37,7 +37,7 @@ body {
 
 /* General Header Styling */
 .header {
-    height: 20%;
+    height: 80px; /* Set a fixed height for better control */
     margin-bottom: 5px;
     width: 100%;
     z-index: 1000;
@@ -153,8 +153,8 @@ body {
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     .header {
-        height: 50px;
-        padding: 0 4%;
+        height: 60px;
+        padding: 0 10%;
     }
     
     .hamburger-menu {
@@ -190,8 +190,8 @@ body {
 
 @media (max-width: 480px) {
     .header {
-        height: 40px;
-        padding: 0 3%;
+        height: 50px;
+        padding: 0 15%;
     }
 
     
@@ -1599,22 +1599,21 @@ button:hover {
 </div>
 </div>
 <script>
+// Perform search functionality
 function performSearch() {
     // Get the input value
     const query = document.getElementById("search-input").value;
 
     if (query) {
-        // Here you could redirect to a search results page or use it to perform a search
-        // Example: Redirecting to a Google search
+        // Redirect to a Google search or use it for other purposes
         window.open(`https://www.google.com/search?q=${encodeURIComponent(query)}`, "_blank");
-
-        // Optionally, if you want to console log instead:
-        console.log("Search query:", query);
+        console.log("Search query:", query); // Optionally log the query
     } else {
         alert("Please enter a search term.");
     }
 }
 
+// Toggle content visibility
 function toggleContent(contentId, button) {
     // Close all sections before opening the new one
     const allContent = document.querySelectorAll('div[id^="moreContent"]');
@@ -1732,6 +1731,7 @@ subcategories.forEach(subItem => {
     });
 });
 
+// Dropdown visibility handling for category items
 document.querySelectorAll('.category-item').forEach(item => {
     item.addEventListener('mouseenter', () => {
         const subcategories = item.querySelector('.subcategories');
@@ -1757,12 +1757,13 @@ document.querySelectorAll('.category-item').forEach(item => {
     });
 });
 
+// Toggle text box visibility
 function toggleText() {
     const textBox = document.querySelector('.text-box');
     textBox.classList.toggle('expanded');
 }
 
-// Get references to the popup container and the close button
+// Popup handling
 const popupContainer = document.getElementById('popup-container');
 const closeButton = document.getElementById('close-btn');
 
@@ -1782,6 +1783,8 @@ window.onload = function() {
         }
     };
 };
+
+// Mobile Dropdown Menu (Hamburger) Click Event Handling
 document.addEventListener('DOMContentLoaded', function () {
     const hamburgerMenu = document.querySelector('.hamburger-menu');
     const dropdownMenu = document.querySelector('.dropdown-menu');
@@ -1790,8 +1793,7 @@ document.addEventListener('DOMContentLoaded', function () {
     hamburgerMenu.addEventListener('click', function (event) {
         // Prevent click event from propagating to document click listener
         event.stopPropagation();
-        dropdownMenu.style.display =
-            dropdownMenu.style.display === 'flex' ? 'none' : 'flex';
+        dropdownMenu.style.display = dropdownMenu.style.display === 'flex' ? 'none' : 'flex';
     });
 
     // Close dropdown when clicking outside
