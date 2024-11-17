@@ -84,18 +84,27 @@
         }
 
         button {
-            background-color: green;
+            background-color: grey;
             color: white;
             padding: 10px 20px;
             border: none;
             border-radius: 5px;
-            cursor: pointer;
+            cursor: not-allowed;
             font-size: 16px;
             width: 100%;
             margin-bottom: 10px;
         }
+        #register-btn:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+    }
 
-        button:hover {
+        button.enabled {
+            background-color: green;
+            cursor: pointer;
+        }
+
+        button:hover.enabled {
             background-color: darkgreen;
         }
 
@@ -114,7 +123,6 @@
     </style>
 </head>
 <body>
-    <!-- Logo at the top left -->
     <img src="./Hustle 5 logo blue.PNG" alt="Logo" class="logo">
 
     <div class="frame">
@@ -136,13 +144,12 @@
             </div>
         </div>
 
-        <button id="register-btn" onclick="register()">Register Account</button>
+        <button id="register-btn" onclick="register()" disabled>Register Account</button>
 
         <div class="login-link">
             <p>Already have an account? <a href="login.html">Log In</a></p>
         </div>
     </div>
-
     <script>
         let selectedRole = '';
 
@@ -159,6 +166,16 @@
             } else if (role === 'buyer') {
                 document.getElementById('dot-buyer').style.backgroundColor = 'green';
             }
+
+            // Enable the register button
+            const registerButton = document.getElementById('register-btn');
+            if (selectedRole) {
+                registerButton.removeAttribute('disabled');
+                registerButton.classList.add('enabled');
+            } else {
+                registerButton.setAttribute('disabled', 'true');
+                registerButton.classList.remove('enabled');
+            }
         }
 
         function register() {
@@ -166,10 +183,13 @@
                 alert('Please select a role: Seller or Buyer.');
                 return;
             }
+
+            console.log(`Selected role: ${selectedRole}`); // Debugging log
+
             if (selectedRole === 'seller') {
-                window.location.href = 'seller-register.html'; // Redirect to Seller registration
+                window.location.href = './pages/sellerregistrationform.html';
             } else if (selectedRole === 'buyer') {
-                window.location.href = 'buyer-register.html'; // Redirect to Buyer registration
+                window.location.href = './pages/buyerregistration.html';
             }
         }
     </script>

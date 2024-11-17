@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hire a Freelancer</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+            margin: 0;
+            padding: 30px 0;  /* Space at the top and bottom */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            box-sizing: border-box;
+        }
+
+        /* Title and Subheading */
+        h2 {
+            text-align: center;
+            color: #333;
+            font-size: 2vw;  /* Adjusted font size */
+            margin-top: 10px;
+            margin-bottom: 15px;  /* Reduced margin */
+        }
+
+        p {
+            text-align: center;
+            color: #777;
+            font-size: 12px;  /* Reduced font size */
+            margin-bottom: 20px;
+        }
+
+        /* Input field styling */
+        label {
+            font-size: 12px;  /* Reduced font size */
+            color: #333;
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea,
+        input[type="checkbox"] {
+            width: 100%;
+            padding: 10px;
+            margin: 6px 0 16px 0;  /* Reduced margin between inputs */
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 12px;  /* Reduced font size */
+            background-color: #f9f9f9;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        textarea:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+
+        /* Register Button */
+        button.hire-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px 18px;  /* Adjusted padding */
+            font-size: 14px;  /* Adjusted font size */
+            cursor: pointer;
+            width: 100%;
+            border-radius: 4px;
+            margin-top: 16px;
+            box-sizing: border-box;
+        }
+
+        button.hire-btn:hover {
+            background-color: #45a049;
+        }
+
+        /* Login Link */
+        p {
+            font-size: 12px;  /* Adjusted font size */
+            text-align: center;
+            color: #333;
+        }
+
+        p a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        p a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .form-wrapper {
+                padding: 15px;
+                width: 90%;
+            }
+
+            h2 {
+                font-size: 8vw;
+                margin-top: 6vh;
+                margin-bottom: 6vh;
+            }
+
+            p {
+                font-size: 14px;
+            }
+
+            button.hire-btn {
+                font-size: 14px;
+                padding: 12px 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Wrapper for the Forms -->
+    <div class="form-wrapper">
+        <h2>Hire a Freelancer</h2>
+        <p>Looking for a skilled freelancer? Fill in the details below to get started with hiring the perfect match for your project.</p>
+        <form>
+            <label for="company-name">Company Name</label>
+            <input type="text" id="company-name" name="company-name" required>
+
+            <label for="contact-name">Contact Person</label>
+            <input type="text" id="contact-name" name="contact-name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="project-description">Project Description</label>
+            <textarea id="project-description" name="project-description" rows="4" required></textarea>
+
+            <label for="skills-required">Skills Required</label>
+            <input type="text" id="skills-required" name="skills-required" required>
+
+            <label for="budget">Budget (USD)</label>
+            <input type="text" id="budget" name="budget" required>
+
+            <label for="project-duration">Project Duration</label>
+            <input type="text" id="project-duration" name="project-duration" required>
+
+            <label>
+                <input type="checkbox" id="terms" name="terms" required>
+                I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.
+            </label>
+
+            <button type="submit" class="hire-btn">Submit Hiring Request</button>
+
+            <p>Have an account? <a href="#">Log In</a></p>
+        </form>
+    </div>
+
+</body>
+</html>

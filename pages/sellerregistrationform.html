@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seller and Buyer Registration</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+            margin: 0;
+            padding: 30px 0;  /* Space at the top and bottom */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            box-sizing: border-box;
+        }
+
+
+        /* Title and Subheading */
+        h2 {
+            text-align: center;
+            color: #333;
+            font-size: 2vw;  /* Adjusted font size */
+            margin-top: 10px;
+            margin-bottom: 15px;  /* Reduced margin */
+        }
+
+        p {
+            text-align: center;
+            color: #777;
+            font-size: 12px;  /* Reduced font size */
+            margin-bottom: 20px;
+        }
+
+        /* Input field styling */
+        label {
+            font-size: 12px;  /* Reduced font size */
+            color: #333;
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="checkbox"] {
+            width: 100%;
+            padding: 10px;
+            margin: 6px 0 16px 0;  /* Reduced margin between inputs */
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 12px;  /* Reduced font size */
+            background-color: #f9f9f9;
+            box-sizing: border-box;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="password"]:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+
+        /* Checkbox label */
+        input[type="checkbox"] {
+            width: auto;
+            margin-right: 10px;
+        }
+
+        input[type="checkbox"]:checked {
+            background-color: #4CAF50;
+        }
+
+        /* Register Button */
+        button.register-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px 18px;  /* Adjusted padding */
+            font-size: 14px;  /* Adjusted font size */
+            cursor: pointer;
+            width: 100%;
+            border-radius: 4px;
+            margin-top: 16px;
+            box-sizing: border-box;
+        }
+
+        button.register-btn:hover {
+            background-color: #45a049;
+        }
+
+        /* Login Link */
+        p {
+            font-size: 12px;  /* Adjusted font size */
+            text-align: center;
+            color: #333;
+        }
+
+        p a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        p a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .form-wrapper {
+                padding: 15px;
+                width: 90%;
+            }
+
+            h2 {
+                font-size: 8vw;
+                margin-top: 6vh;
+                margin-bottom: 6vh;
+            }
+
+            p {
+                font-size: 14px;
+            }
+
+            button.register-btn {
+                font-size: 14px;
+                padding: 12px 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Wrapper for the Forms -->
+    <div class="form-wrapper">
+        <h2>Join as a Seller</h2>
+        <p>Ready to offer your expertise and work with clients worldwide? Fill in your details below to get started.</p>
+        <form>
+            <label for="first-name">First Name</label>
+            <input type="text" id="first-name" name="first-name" required>
+
+            <label for="last-name">Last Name</label>
+            <input type="text" id="last-name" name="last-name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="country">Country</label>
+            <input type="text" id="country" name="country" value="Kenya" required>
+
+            <label>
+                <input type="checkbox" id="newsletter" name="newsletter">
+                Send me helpful emails to find rewarding work and job leads.
+            </label>
+
+            <label>
+                <input type="checkbox" id="terms" name="terms" required>
+                Yes, I understand and agree to the <a href="#">Terms of Service</a>, including the <a href="#">User Agreement</a> and <a href="#">Privacy Policy</a>.
+            </label>
+
+            <button type="submit" class="register-btn">Register</button>
+
+            <p>Already have an account? <a href="#">Log In</a></p>
+        </form>
+    </div>
+
+</body>
+</html>
