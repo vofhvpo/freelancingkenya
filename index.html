@@ -479,6 +479,60 @@ body {
 .search-box button:hover {
     background-color: #53a750;
 }
+/* Premium container styles */
+.premium {
+  width: calc(100% - 40px); /* Full width minus 20px on both sides */
+  height: 400px; /* Specified height */
+  background-color: #0e5e18; /* Dark green background color */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  position: relative; /* Necessary for absolute positioning of children */
+  margin: 20px auto; /* Centers the container horizontally and adds 20px margin on top and bottom */
+  border: 2px solid #333; /* Dark border for prominence */
+  border-radius: 10px; /* Rounded corners */
+  padding: 20px; /* Add padding inside the container to prevent content from touching edges */
+  box-sizing: border-box; /* Ensures padding is included in the width */
+}
+    /* Premium image box styles */
+    .premium-image-box {
+      position: absolute; /* Allows precise placement in the container */
+      width: 150px; /* Decent width relative to height */
+      height: 100px; /* 0.25 of the premium container's height */
+      border: 2px solid #333; /* Dark border for clarity */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds depth */
+      background-color: #eaeaea; /* Placeholder background for images */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden; /* Ensures the image stays inside the box */
+    }
+
+    .premium-image-box-img {
+      width: 100%; /* Scale the image to fit the box */
+      height: 100%; /* Scale the image to fit the box */
+      object-fit: cover; /* Ensures images fill the box while maintaining aspect ratio */
+    }
+
+    /* Positioning each premium image box in the corners */
+    .premium-image-box.top-left {
+      top: 0;
+      left: 0;
+    }
+
+    .premium-image-box.top-right {
+      top: 0;
+      right: 0;
+    }
+
+    .premium-image-box.bottom-left {
+      bottom: 0;
+      left: 0;
+    }
+
+    .premium-image-box.bottom-right {
+      bottom: 0;
+      right: 0;
+    }
+
 /* Carousel Container */
 .carousel {
     z-index: 1;
@@ -624,6 +678,117 @@ body {
             background-color:#19a714;/* Line color */
             margin: 0; 
  }
+
+   /* Overall container styles */
+   .freelance-carousel-wrapper {
+      text-align: center;
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+
+    /* Title styling */
+    .freelance-carousel-title {
+      font-size: 24px;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Container styles for carousel */
+    .freelance-carousel {
+      width: 100%;
+      height: 150px;
+      display: flex;
+      overflow: hidden;
+      position: relative;
+      background-color: #fff;
+      align-items: center;
+      justify-content: flex-start;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Items container inside carousel */
+    .freelance-carousel-items {
+      display: flex;
+      transition: transform 0.3s ease;
+    }
+
+    /* Individual box styles */
+    .freelance-carousel-box {
+      width: 200px;
+      height: 150px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 15px;
+      background-color: #fff;
+      color: #333;
+      font-weight: bold;
+      text-transform: uppercase;
+      border: 2px solid #333;
+      border-radius: 8px;
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+      font-size: 14px;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    /* Hover effect for boxes */
+    .freelance-carousel-box:hover {
+      background-color: #f0f0f0;
+    }
+
+    /* Decorative lines in the boxes */
+    .freelance-carousel-box::before,
+    .freelance-carousel-box::after {
+      content: '';
+      position: absolute;
+      background: #eee;
+      width: 100%;
+      height: 4px;
+    }
+
+    .freelance-carousel-box::before {
+      top: 20%;
+    }
+
+    .freelance-carousel-box::after {
+      bottom: 20%;
+    }
+/* Navigation button styles */
+.freelance-carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: none;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 50%;
+  z-index: 10;
+  transition: background-color 0.3s;
+}
+
+.freelance-carousel-btn.prev {
+  left: 0; /* Aligns to the left edge */
+  margin-left: 5px; /* Optional spacing from edge */
+}
+
+.freelance-carousel-btn.next {
+  right: 0; /* Aligns to the right edge */
+  margin-right: 5px; /* Optional spacing from edge */
+}
+
+/* Hover effect */
+.freelance-carousel-btn:hover {
+  background-color: #555;
+}
    
    .footer {
     background-color: #f8f9fa;
@@ -1091,7 +1256,7 @@ button:hover {
         <div class="auth-buttons">
             <button class="btn enter-market-btn">Enter Market</button>
             <button class="btn survey-btn">Survey</button>
-            <button class="btn register-btn">Register</button>
+            <button class="btn register-btn" onclick="window.location.href='buyer.html';">Register</button>
             <button class="btn login-btn">Login</button>
         </div>
         <div class="hamburger-menu">☰</div> <!-- Hamburger menu icon -->
@@ -1197,31 +1362,31 @@ button:hover {
         
         <div class="carousel-container">
             <div class="profile">
-                <img src="freelancer1.jpg" alt="Freelancer 1">
+                <img src="./images2/kenyaflag-removebg-preview.png" alt="Freelancer 1">
                 <h3>John Doe</h3>
                 <p>Rating: ⭐⭐⭐⭐</p>
                 <p>Web Developer specializing in front-end development</p>
             </div>
             <div class="profile">
-                <img src="freelancer2.jpg" alt="Freelancer 2">
+                <img src="./images2/KM2.PNG" alt="Freelancer 2">
                 <h3>Jane Smith</h3>
                 <p>Rating: ⭐⭐⭐⭐⭐</p>
                 <p>Graphic Designer with 5 years of experience</p>
             </div>
             <div class="profile">
-                <img src="freelancer3.jpg" alt="Freelancer 3">
+                <img src="./images2/ukman1.PNG" alt="Freelancer 3">
                 <h3>Maria Gonzalez</h3>
                 <p>Rating: ⭐⭐⭐⭐⭐</p>
                 <p>Content Writer specializing in SEO and tech articles</p>
             </div>
             <div class="profile">
-                <img src="freelancer4.jpg" alt="Freelancer 4">
+                <img src="./images2/norwaywoman1.PNG" alt="Freelancer 4">
                 <h3>David Kim</h3>
                 <p>Rating: ⭐⭐⭐⭐</p>
                 <p>Mobile App Developer with experience in Android and iOS</p>
             </div>
             <div class="profile">
-                <img src="freelancer5.jpg" alt="Freelancer 5">
+                <img src="./images2/usaman2.PNG" alt="Freelancer 5">
                 <h3>Ayesha Patel</h3>
                 <p>Rating: ⭐⭐⭐⭐⭐</p>
                 <p>UX/UI Designer creating user-friendly interfaces</p>
@@ -1260,6 +1425,55 @@ button:hover {
         <button class="carousel-btn right-btn" onclick="moveRight()">›</button>
     </div>
 </div>
+
+<div class="premium">
+    <!-- Top-left corner image box -->
+    <div class="premium-image-box top-left">
+      <img class="premium-image-box-img" src="./images/ofspace-llc-jUIOwgzumvM-unsplash.jpg" alt="Top Left Image">
+    </div>
+  
+    <!-- Top-right corner image box -->
+    <div class="premium-image-box top-right">
+      <img class="premium-image-box-img" src="./images/artiz.ai_A_stylized_image_of_ (4).jpg" alt="Top Right Image">
+    </div>
+  
+    <!-- Bottom-left corner image box -->
+    <div class="premium-image-box bottom-left">
+      <img class="premium-image-box-img" src="./images/desk-surface-with-laptop-smartphone (1).jpg" alt="Bottom Left Image">
+    </div>
+  
+    <!-- Bottom-right corner image box -->
+    <div class="premium-image-box bottom-right">
+      <img class="premium-image-box-img" src="./images/community.PNG" alt="Bottom Right Image">
+    </div>
+  </div>
+
+<div class="freelance-carousel-wrapper">
+    <!-- Title -->
+    <div class="freelance-carousel-title">Top Rated Services</div>
+
+<div class="freelance-carousel">
+    <!-- Left button -->
+    <button class="freelance-carousel-btn freelance-carousel-left-btn" onclick="moveFreelanceCarousel(-1)">&#60;</button>
+    
+    <!-- Carousel items -->
+    <div class="freelance-carousel-items">
+      <a href="#" class="freelance-carousel-box" onclick="boxClicked('Web Development')">Web Development</a>
+      <a href="#" class="freelance-carousel-box" onclick="boxClicked('Graphic Design')">Graphic Design</a>
+      <a href="#" class="freelance-carousel-box" onclick="boxClicked('Content Writing')">Content Writing</a>
+      <a href="#" class="freelance-carousel-box" onclick="boxClicked('Digital Marketing')">Digital Marketing</a>
+      <a href="#" class="freelance-carousel-box" onclick="boxClicked('Video Production')">Video Production</a>
+      <a href="#" class="freelance-carousel-box" onclick="boxClicked('Virtual Assistance')">Virtual Assistance</a>
+      <a href="#" class="freelance-carousel-box" onclick="boxClicked('Translation')">Translation</a>
+      <a href="#" class="freelance-carousel-box" onclick="boxClicked('Mobile App Development')">Mobile App Development</a>
+      <a href="#" class="freelance-carousel-box" onclick="boxClicked('Financial Consulting')">Financial Consulting</a>
+      <a href="#" class="freelance-carousel-box" onclick="boxClicked('Voice Over')">Voice Over</a>
+    </div>
+
+    <!-- Right button -->
+    <button class="freelance-carousel-btn freelance-carousel-right-btn" onclick="moveFreelanceCarousel(1)">&#62;</button>
+  </div>
+
 
     
 <!-- Main content container for Payments -->
@@ -1610,221 +1824,149 @@ button:hover {
 </div>
 </div>
 <script>
-// Perform search functionality
-function performSearch() {
-    // Get the input value
-    const query = document.getElementById("search-input").value;
-
-    if (query) {
-        // Redirect to a Google search or use it for other purposes
-        window.open(`https://www.google.com/search?q=${encodeURIComponent(query)}`, "_blank");
-        console.log("Search query:", query); // Optionally log the query
-    } else {
-        alert("Please enter a search term.");
+    // Perform search functionality
+    function performSearch() {
+        const query = document.getElementById("search-input")?.value?.trim(); // Ensure input exists and is trimmed
+        if (query) {
+            window.open(`https://www.google.com/search?q=${encodeURIComponent(query)}`, "_blank");
+            console.log("Search query:", query);
+        } else {
+            alert("Please enter a search term.");
+        }
     }
-}
-
-// Toggle content visibility
-function toggleContent(contentId, button) {
-    // Close all sections before opening the new one
-    const allContent = document.querySelectorAll('div[id^="moreContent"]');
-    allContent.forEach(content => {
-        if (content.id !== contentId) {
-            content.style.display = 'none';
-            const otherButton = content.previousElementSibling;
-            if (otherButton) otherButton.innerText = 'Read More';
+    
+    // Toggle content visibility
+    function toggleContent(contentId, button) {
+        const allContent = document.querySelectorAll('div[id^="moreContent"]');
+        allContent.forEach(content => {
+            if (content.id !== contentId) {
+                content.style.display = 'none';
+                const otherButton = content.previousElementSibling;
+                if (otherButton) otherButton.innerText = 'Read More';
+            }
+        });
+    
+        const content = document.getElementById(contentId);
+        if (content) {
+            content.style.display = content.style.display === 'block' ? 'none' : 'block';
+            button.innerText = content.style.display === 'block' ? 'Read Less' : 'Read More';
         }
-    });
-
-    // Toggle the current section
-    const content = document.getElementById(contentId);
-    if (content.style.display === 'none' || content.style.display === '') {
-        content.style.display = 'block';
-        button.innerText = 'Read Less';
-    } else {
-        content.style.display = 'none';
-        button.innerText = 'Read More';
     }
-}
-
-// Move the carousel to the left
-function moveLeft() {
-    const carouselContainer = document.querySelector('.carousel-container');
-    const firstProfile = carouselContainer.querySelector('.profile');
-    const profileWidth = firstProfile.offsetWidth + 20; // Including margin
-
-    // Transition left
-    carouselContainer.style.transition = 'transform 0.5s ease-in-out';
-    const currentTransformValue = getCurrentTransformValue();
-    carouselContainer.style.transform = `translateX(${currentTransformValue + profileWidth}px)`;
-
-    // After the transition, move the first profile to the end
-    setTimeout(() => {
-        carouselContainer.appendChild(firstProfile);
-        carouselContainer.style.transition = 'none'; // Disable transition during rearranging
-        carouselContainer.style.transform = `translateX(0)`; // Reset position instantly
+    
+    // Move the carousel to the left
+    function moveLeft() {
+        const carouselContainer = document.querySelector('.carousel-container');
+        const firstProfile = carouselContainer?.querySelector('.profile');
+        if (!carouselContainer || !firstProfile) return;
+    
+        const profileWidth = firstProfile.offsetWidth + 20; // Including margin
+        carouselContainer.style.transition = 'transform 0.5s ease-in-out';
+        const currentTransformValue = getCurrentTransformValue();
+        carouselContainer.style.transform = `translateX(${currentTransformValue + profileWidth}px)`;
+    
         setTimeout(() => {
-            carouselContainer.style.transition = 'transform 0.5s ease-in-out'; // Re-enable transition
-        }, 50);
-    }, 500); // Delay to match the transition time
-}
-
-// Move the carousel to the right
-function moveRight() {
-    const carouselContainer = document.querySelector('.carousel-container');
-    const lastProfile = carouselContainer.querySelector('.profile:last-child');
-    const profileWidth = lastProfile.offsetWidth + 20; // Including margin
-
-    // Transition right
-    carouselContainer.style.transition = 'transform 0.5s ease-in-out';
-    const currentTransformValue = getCurrentTransformValue();
-    carouselContainer.style.transform = `translateX(${currentTransformValue - profileWidth}px)`;
-
-    // After the transition, move the last profile to the front
-    setTimeout(() => {
-        carouselContainer.insertBefore(lastProfile, carouselContainer.firstChild);
-        carouselContainer.style.transition = 'none'; // Disable transition during rearranging
-        carouselContainer.style.transform = `translateX(0)`; // Reset position instantly
+            carouselContainer.appendChild(firstProfile);
+            resetCarouselTransform(carouselContainer);
+        }, 500);
+    }
+    
+    // Move the carousel to the right
+    function moveRight() {
+        const carouselContainer = document.querySelector('.carousel-container');
+        const lastProfile = carouselContainer?.querySelector('.profile:last-child');
+        if (!carouselContainer || !lastProfile) return;
+    
+        const profileWidth = lastProfile.offsetWidth + 20; // Including margin
+        carouselContainer.style.transition = 'transform 0.5s ease-in-out';
+        const currentTransformValue = getCurrentTransformValue();
+        carouselContainer.style.transform = `translateX(${currentTransformValue - profileWidth}px)`;
+    
         setTimeout(() => {
-            carouselContainer.style.transition = 'transform 0.5s ease-in-out'; // Re-enable transition
-        }, 50);
-    }, 500); // Delay to match the transition time
-}
-
-// Get the current translateX value of the carousel container
-function getCurrentTransformValue() {
-    const carouselContainer = document.querySelector('.carousel-container');
-    const matrix = window.getComputedStyle(carouselContainer).transform;
-    if (matrix === 'none') return 0;
-    return parseFloat(matrix.split(',')[4]);
-}
-
-// Auto scroll the carousel every 3 seconds
-setInterval(moveRight, 3000);  // Call moveRight function every 3 seconds (3000ms)
-
-// Select all main category items with subcategories
-const mainCategories = document.querySelectorAll('.category-item');
-
-// Function to show subcategories on hover
-mainCategories.forEach(category => {
-    category.addEventListener('mouseenter', () => {
-        const subcategory = category.querySelector('.subcategories');
-        if (subcategory) {
-            subcategory.style.display = 'flex';
-        }
+            carouselContainer.insertBefore(lastProfile, carouselContainer.firstChild);
+            resetCarouselTransform(carouselContainer);
+        }, 500);
+    }
+    
+    // Helper function: Reset carousel transform
+    function resetCarouselTransform(carouselContainer) {
+        carouselContainer.style.transition = 'none';
+        carouselContainer.style.transform = 'translateX(0)';
+        setTimeout(() => (carouselContainer.style.transition = 'transform 0.5s ease-in-out'), 50);
+    }
+    
+    // Get the current translateX value of the carousel container
+    function getCurrentTransformValue() {
+        const carouselContainer = document.querySelector('.carousel-container');
+        const matrix = window.getComputedStyle(carouselContainer)?.transform;
+        if (!matrix || matrix === 'none') return 0;
+        return parseFloat(matrix.split(',')[4]) || 0;
+    }
+    
+    // Auto-scroll carousel every 3 seconds
+    setInterval(moveRight, 3000);
+    
+    // Handle subcategory visibility
+    document.querySelectorAll('.category-item').forEach(category => {
+        category.addEventListener('mouseenter', () => {
+            const subcategory = category.querySelector('.subcategories');
+            if (subcategory) subcategory.style.display = 'flex';
+        });
+        category.addEventListener('mouseleave', () => {
+            const subcategory = category.querySelector('.subcategories');
+            if (subcategory) subcategory.style.display = 'none';
+        });
     });
-
-    // Hide subcategories when leaving the main category item
-    category.addEventListener('mouseleave', () => {
-        const subcategory = category.querySelector('.subcategories');
-        if (subcategory) {
-            subcategory.style.display = 'none';
-        }
-    });
-});
-
-// Additional handling for sub-subcategories
-const subcategories = document.querySelectorAll('.subcategories > li');
-
-subcategories.forEach(subItem => {
-    subItem.addEventListener('mouseenter', () => {
-        const subSubCategory = subItem.querySelector('ul');
-        if (subSubCategory) {
-            subSubCategory.style.display = 'block';
-        }
-    });
-
-    subItem.addEventListener('mouseleave', () => {
-        const subSubCategory = subItem.querySelector('ul');
-        if (subSubCategory) {
-            subSubCategory.style.display = 'none';
-        }
-    });
-});
-
-// Dropdown visibility handling for category items
-document.querySelectorAll('.category-item').forEach(item => {
-    item.addEventListener('mouseenter', () => {
-        const subcategories = item.querySelector('.subcategories');
-        if (subcategories) subcategories.style.display = 'flex';
-
-        const subSubcategories = subcategories.querySelectorAll('ul');
-        subSubcategories.forEach(subMenu => {
-            // Get position and width of the submenu
-            const rect = subMenu.getBoundingClientRect();
-
-            // Check if submenu overflows past viewport right edge
-            if (rect.right > window.innerWidth) {
-                subMenu.classList.add('dropdown-left'); // Apply left-align class
-            } else {
-                subMenu.classList.remove('dropdown-left'); // Remove if space on the right
+    
+    // Toggle dropdown menu visibility
+    document.addEventListener('DOMContentLoaded', () => {
+        const hamburgerMenu = document.querySelector('.hamburger-menu');
+        const dropdownMenu = document.querySelector('.dropdown-menu');
+    
+        hamburgerMenu?.addEventListener('click', event => {
+            event.stopPropagation();
+            dropdownMenu.style.display = dropdownMenu.style.display === 'flex' ? 'none' : 'flex';
+        });
+    
+        document.addEventListener('click', event => {
+            if (!dropdownMenu.contains(event.target) && !hamburgerMenu.contains(event.target)) {
+                dropdownMenu.style.display = 'none';
             }
         });
     });
-
-    item.addEventListener('mouseleave', () => {
-        const subcategories = item.querySelector('.subcategories');
-        if (subcategories) subcategories.style.display = 'none';
-    });
-});
-
-// Toggle text box visibility
-function toggleText() {
-    const textBox = document.querySelector('.text-box');
-    textBox.classList.toggle('expanded');
-}
-
-// Popup handling
-const popupContainer = document.getElementById('popup-container');
-const closeButton = document.getElementById('close-btn');
-
-// Combined window.onload function
-window.onload = function() {
-    popupContainer.style.display = 'flex'; // Show the popup
-
-    // Close the popup when the close button is clicked
-    closeButton.onclick = function() {
-        popupContainer.style.display = 'none'; // Hide the popup
-    };
-
-    // Close the popup if the user clicks outside of the popup content
-    window.onclick = function(event) {
-        if (event.target === popupContainer) {
-            popupContainer.style.display = 'none'; // Hide the popup
+    
+    // Show popup on page load
+    window.onload = function () {
+        const popupContainer = document.getElementById('popup-container');
+        const closeButton = document.getElementById('close-btn');
+    
+        if (popupContainer) {
+            popupContainer.style.display = 'flex';
+            closeButton?.addEventListener('click', () => (popupContainer.style.display = 'none'));
+            window.addEventListener('click', event => {
+                if (event.target === popupContainer) popupContainer.style.display = 'none';
+            });
         }
     };
-};
-
-// Mobile Dropdown Menu (Hamburger) Click Event Handling
-document.addEventListener('DOMContentLoaded', function () {
-    const hamburgerMenu = document.querySelector('.hamburger-menu');
-    const dropdownMenu = document.querySelector('.dropdown-menu');
-
-    // Toggle dropdown menu when hamburger is clicked
-    hamburgerMenu.addEventListener('click', function (event) {
-        // Prevent click event from propagating to document click listener
-        event.stopPropagation();
-        dropdownMenu.style.display = dropdownMenu.style.display === 'flex' ? 'none' : 'flex';
-    });
-
-    // Close dropdown when clicking outside
-    document.addEventListener('click', function (event) {
-        // If the click was outside the dropdown menu and hamburger menu
-        if (!dropdownMenu.contains(event.target) && !hamburgerMenu.contains(event.target)) {
-            dropdownMenu.style.display = 'none';
-        }
-    });
-});
-// Select the dropdown button and menu
-const dropdownButton = document.querySelector('.dropdown-button');
-const dropdownMenu = document.querySelector('.dropdown-menu');
-
-// Toggle dropdown menu on button click
-dropdownButton.addEventListener('click', () => {
-    // Toggle the display of the dropdown menu
-    dropdownMenu.style.display = (dropdownMenu.style.display === 'flex') ? 'none' : 'flex';
-});
-
-</script>
+    
+    // Freelance carousel handling
+    let currentIndex = 0;
+    function moveFreelanceCarousel(direction) {
+        const items = document.querySelector('.freelance-carousel-items');
+        const boxes = document.querySelectorAll('.freelance-carousel-box');
+        if (!items || boxes.length === 0) return;
+    
+        const boxWidth = boxes[0].offsetWidth + 15;
+        const containerWidth = document.querySelector('.freelance-carousel').offsetWidth;
+        const maxVisible = Math.floor(containerWidth / boxWidth);
+        const maxIndex = boxes.length - maxVisible;
+    
+        currentIndex = Math.min(Math.max(currentIndex + direction, 0), maxIndex);
+        items.style.transform = `translateX(${-currentIndex * boxWidth}px)`;
+    }
+    
+    function boxClicked(service) {
+        alert(`You clicked on ${service}!`);
+    }
+    </script>
 </body>
 </html>
