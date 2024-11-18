@@ -395,89 +395,117 @@ body {
     }
 }
 
-/* New Container */
+/* Container Styling */
 .container-new {
     display: flex;
-    flex-direction: column; /* Arrange items vertically */
-    align-items: center;    /* Center horizontally */
-    justify-content: center; /* Center vertically */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     gap: 20px;
-    margin: 5px auto;       /* Center container horizontally with automatic margins */
+    margin: 5px auto;
     padding: 20px;
-    width: calc(100% - 40px); /* Allow the container to scale with screen size, leaving some margin */
-    max-width: 100%;        /* Prevent the container from being too wide on large screens */
-    height: 400px;          /* Fixed height */
+    width: calc(100% - 40px);
+    max-width: 100%;
+    height: 400px;
     box-sizing: border-box;
-    background-color: #c2bf1c; /* Fallback background color in case the image doesn’t load */
+    background-color: #c2bf1c;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-
-     /* Background Image */
-     background-image: url('./images/HUSTLE5OFFICE2.PNG'); /* Replace with your image path */
-    background-size: cover;     /* Ensure the image covers the entire container */
-    background-repeat: no-repeat; /* Prevent image repetition */
-    background-position: center; /* Center the image */
-    margin-top: 90px;  /* Set margin-top to account for the header height and add a 10px gap */
+    background-image: url('./images/HUSTLE5OFFICE2.PNG');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-top: 90px;
 }
+
+/* Search Box Styling */
 .search-box {
     display: flex;
-    align-items: center;    /* Center items vertically */
-    justify-content: center; /* Center items horizontally */
-    gap: 10px;
+    align-items: center;
+    gap: 0;
     width: 600px;
-    max-width: 100%;        /* Ensure it doesn’t exceed container width */
-    border-radius: 8px;
-    padding: 10px;
-    transition: width 0.3s ease, height 0.3s ease;
+    max-width: 100%;
+    border-radius: 50px;
+    padding: 5px 10px;
+    border: 1px solid #dcdcdc;
+    background-color: #fff;
+    position: relative;
 }
 
-/* Responsive adjustments for the container */
+/* Input Field */
+.search-box input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    padding: 10px 15px;
+    border-radius: 50px;
+}
+
+/* Button Styling */
+.search-box button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: #5f6368;
+    margin-right: 10px;
+}
+
+.search-box button i {
+    font-size: 18px;
+}
+
+/* Dropdown Styling */
+.search-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    border: 1px solid #dcdcdc;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: none;
+    z-index: 10;
+    overflow: hidden;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.search-dropdown.active {
+    display: block;
+}
+
+.search-dropdown a {
+    display: block;
+    padding: 10px 15px;
+    font-size: 14px;
+    text-decoration: none;
+    color: #202124;
+    border-bottom: 1px solid #f1f3f4;
+    transition: 0.3s;
+}
+
+.search-dropdown a:last-child {
+    border-bottom: none;
+}
+
+.search-dropdown a:hover {
+    background: #f1f3f4;
+}
+
+
+/* Responsive Adjustments */
 @media screen and (max-width: 768px) {
-    .container-new { padding: 20px;
-        
-        background-size: cover; /* Use cover for smaller screens */
-    }
-       
-        .search-box {
-        width: 250px;
+    .search-box {
+        width: 80%;
     }
 }
 
 @media screen and (max-width: 480px) {
-    .container-new {
-        padding: 15px;
-    }
     .search-box {
-        width: 200px;
+        width: 90%;
     }
-}
-
-/* Search Box Input Styles */
-.search-box input {
-    padding: 12px;
-    font-size: 16px;
-    border-radius: 25px;
-    border: 1px solid #ccc;
-    width: 100%;
-    width: 200px;
-    transition:  0.3s ease;
-}
-
-/* Search Button Styles */
-.search-box button {
-    background-color: #19a714;
-    color: #ffffff;
-    width: 100px;
-    border: none;
-    padding: 12px;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 16px;
-    transition:  0.3s ease;
-}
-
-.search-box button:hover {
-    background-color: #53a750;
 }
 /* Premium container styles */
 .premium {
@@ -1264,13 +1292,25 @@ button:hover {
         <button class="btn register-btn">Register</button>
         <button class="btn login-btn">Login</button>
     </div>
+
+     <!-- Font Awesome CDN -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     </header>
 <div class="container-new">
-        <div class="search-box">
-            <input type="text" id="search-input" placeholder="Search for Services...">
-            <button onclick="performSearch()">Search</button>
+    <div class="search-box">
+        <!-- Search Input -->
+        <input type="text" id="search-input" placeholder="Search...">
+
+        <!-- Search Button -->
+        <button id="search-button">
+            <i class="fas fa-search"></i> <!-- Font Awesome Icon -->
+        </button>
+
+        <!-- Search Dropdown -->
+        <div class="search-dropdown">
+            <!-- Suggestions dynamically rendered here -->
         </div>
-        </div>
+    </div>
            
 
     <!-- Popup Container -->
@@ -1965,6 +2005,1071 @@ button:hover {
     function boxClicked(service) {
         alert(`You clicked on ${service}!`);
     }
+
+    const searchInput = document.getElementById('search-input');
+const dropdown = document.querySelector('.search-dropdown');
+
+// Simulated Suggestions
+const suggestions = [
+    'Graphic Design',
+    'Web Development',
+    'Content Writing',
+    'Copywriting',
+    'Translation',
+    'Social Media Management',
+    'Virtual Assistance',
+    'SEO (Search Engine Optimization)',
+    'Video Editing',
+    'Photography',
+    'Audio Editing',
+    'Illustration',
+    'Logo Design',
+    'Mobile App Development',
+    'Software Development',
+    'WordPress Development',
+    'Digital Marketing',
+    'Branding',
+    'Data Entry',
+    'Research',
+    'Transcription',
+    'Voiceover',
+    'Customer Support',
+    'Administrative Support',
+    'Marketing Strategy',
+    'E-commerce Services',
+    'Legal Consulting',
+    'Accounting and Bookkeeping',
+    'Tutoring',
+    'Resume Writing',
+    'Event Planning',
+    'Public Relations',
+    'Animation',
+    'UX/UI Design',
+    'Game Development',
+    'Content Strategy',
+    'Online Courses/Coaching',
+    'Website Maintenance',
+    'Data Analysis',
+    'Email Marketing',
+    'Financial Planning',
+    'IT Support',
+    'Project Management',
+    'Blockchain Development',
+    'Business Consulting',
+    'Tax Preparation',
+    'App Testing',
+    'CRM Development',
+    'Video Production',
+    'Cloud Services',
+    '3D Modeling',
+    'Email Copywriting',
+    'Market Research',
+    'Grant Writing',
+    'Mobile Game Development',
+    'Scientific Research',
+    'Copy Editing',
+    'Proofreading',
+    'Speech Writing',
+    'Patent Services',
+    'Health and Wellness Coaching',
+    'Fitness Training',
+    'Music Production',
+    'Real Estate Consulting',
+    'Fashion Design',
+    'Architecture',
+    'HR Services',
+    'Network Administration',
+    'Product Design',
+    'Environmental Consulting',
+    'Logo Design', 
+    'Brochure Design',      
+    'Business Card Design', 
+    'Flyer Design', 
+    'Infographic Design', 
+    'T-shirt Design', 
+    'Book Cover Design', 
+    'Packaging Design', 
+    'Banner Ads', 
+    'Web Design', 
+    'Illustration', 
+    'Social Media Design', 
+    'Presentation Design', 
+    '3D Design', 
+    'Frontend Development', 
+    'Backend Development', 
+    'Full Stack Development', 
+    'WordPress Development', 
+    'E-commerce Development', 
+    'Shopify Development', 
+    'React Development', 
+    'Node.js Development', 
+    'PHP Development', 
+    'HTML/CSS', 
+    'JavaScript Development', 
+    'Mobile Web Development', 
+    'Web Applications', 
+    'API Development', 
+    'Progressive Web Apps (PWA)', 
+    'Website Maintenance',  
+    'Blog Writing', 
+    'SEO Content Writing', 
+    'Technical Writing', 
+    'Copywriting', 
+    'Article Writing', 
+    'Website Content Writing', 
+    'Product Descriptions', 
+    'Email Copywriting', 
+    'Press Releases', 
+    'Creative Writing', 
+    'Case Studies', 
+    'Speech Writing', 
+    'Ghostwriting', 
+    'Academic Writing', 
+    'Resume Writing',  
+    'Sales Copywriting', 
+    'Website Copywriting', 
+    'Product Copywriting', 
+    'Email Copywriting', 
+    'Social Media Copywriting', 
+    'Landing Page Copywriting', 
+    'Ad Copywriting', 
+    'Brand Copywriting', 
+    'SEO Copywriting', 
+    'Creative Copywriting', 
+    'Direct Response Copywriting', 
+    'English to Spanish Translation', 
+    'Spanish to English Translation', 
+    'French Translation', 
+    'German Translation', 
+    'Italian Translation', 
+    'Russian Translation', 
+    'Chinese Translation', 
+    'Japanese Translation', 
+    'Arabic Translation', 
+    'Transcription', 
+    'Proofreading', 
+    'Subtitling', 
+    'Localization', 
+    'Document Translation', 
+    'Website Translation', 
+    'Technical Translation', 
+    'Certified Translation',
+    'Social Media Management', 
+    'Facebook Marketing', 
+    'Instagram Marketing', 
+    'Twitter Marketing', 
+    'LinkedIn Marketing', 
+    'Pinterest Marketing', 
+    'TikTok Marketing', 
+    'Social Media Strategy', 
+    'Social Media Content Creation', 
+    'Community Management', 
+    'Social Media Ads', 
+    'Brand Management', 
+    'Influencer Marketing', 
+    'Social Media Analytics', 
+    'Social Media Campaigns', 
+    'Social Media Consulting', 
+    'Administrative Support', 
+    'Email Management', 
+    'Calendar Management', 
+    'Data Entry', 
+    'Customer Support', 
+    'Travel Planning', 
+    'Research and Reports', 
+    'Social Media Management', 
+    'Personal Assistance', 
+    'Project Management', 
+    'Bookkeeping', 
+    'Event Coordination', 
+    'Transcription Services', 
+    'File Management',  
+    'On-Page SEO', 
+    'Off-Page SEO', 
+    'Technical SEO', 
+    'Local SEO', 
+    'E-commerce SEO', 
+    'SEO Audits', 
+    'Keyword Research', 
+    'Link Building', 
+    'Content SEO', 
+    'SEO Writing', 
+    'SEO Analytics', 
+    'SEO Reporting', 
+    'SEO Consulting', 
+    'SEO for WordPress', 
+    'Video Production', 
+    'YouTube Video Editing', 
+    'Social Media Video Editing', 
+    'Animation', 
+    'Green Screen Editing', 
+    'Explainer Videos', 
+    'Music Videos', 
+    'Corporate Videos', 
+    'Ad Video Creation', 
+    'Video Color Correction', 
+    'Video Transitions', 
+    'Documentary Editing', 
+    'Video Marketing', 
+    'Real Estate Video Editing', 
+    'Product Photography', 
+    'Event Photography', 
+    'Real Estate Photography', 
+    'Portrait Photography', 
+    'Wedding Photography', 
+    'Food Photography', 
+    'Fashion Photography', 
+    'Commercial Photography', 
+    'Sports Photography', 
+    'Photo Editing', 
+    'Photo Retouching', 
+    'Drone Photography', 
+    'Stock Photography', 
+    'Travel Photography', 
+    'Photography Consulting',
+    'Audio Editing', 
+    'Podcast Editing', 
+    'Music Editing', 
+    'Voice Over Editing', 
+    'Sound Design', 
+    'Mixing and Mastering', 
+    'Audio Restoration', 
+    'Jingle Production', 
+    'Background Music', 
+    'Audio Conversion', 
+    'Radio Production', 
+    'Sound Effects', 
+    'Noise Reduction', 
+    'Dialogue Editing', 
+    'Audio Post-Production', 
+    'Children’s Book Illustration', 
+    'Digital Illustration', 
+    'Concept Art', 
+    'Character Design', 
+    'Tattoo Design', 
+    'Portrait Illustration', 
+    'Vector Art', 
+    'Caricature Art', 
+    'Book Cover Illustration', 
+    'Storyboard Illustration', 
+    'Fashion Illustration', 
+    'Medical Illustration', 
+    'Infographics', 
+    'Tattoo Design', 
+    'Minimalist Logo Design', 
+    '3D Logo Design', 
+    'Vintage Logo Design', 
+    'Wordmark Logo Design', 
+    'Lettermark Logo Design', 
+    'Emblem Logo Design', 
+    'Abstract Logo Design', 
+    'Mascot Logo Design', 
+    'Typographic Logo Design', 
+    'Business Logo Design', 
+    'Creative Logo Design', 
+    'Branding and Logo Design', 
+    'iOS App Development', 
+    'Android App Development', 
+    'Cross-Platform App Development', 
+    'React Native App Development', 
+    'Flutter App Development', 
+    'App UI/UX Design', 
+    'Mobile App Design', 
+    'App Backend Development', 
+    'E-commerce App Development', 
+    'Game App Development', 
+    'App Testing', 
+    'App Maintenance', 
+    'App Store Optimization',  
+    'Custom Software Development', 
+    'Desktop Software Development', 
+    'Enterprise Software Development', 
+    'CRM Development', 
+    'ERP Software Development', 
+    'SaaS Development', 
+    'API Development', 
+    'Software Architecture', 
+    'Software Testing', 
+    'Bug Fixing', 
+    'Software Consulting', 
+    'Software Updates', 
+    'WordPress Website Design', 
+    'WordPress Theme Customization', 
+    'WordPress Plugin Development', 
+    'WooCommerce Development', 
+    'WordPress SEO Optimization', 
+    'WordPress Migration', 
+    'WordPress Security', 
+    'WordPress Speed Optimization', 
+    'WordPress Maintenance', 
+    'Landing Page Design on WordPress', 
+    'WordPress Development for Blogs', 
+    'SEO (Search Engine Optimization)', 
+    'PPC (Pay-Per-Click) Advertising', 
+    'Social Media Marketing', 
+    'Content Marketing', 
+    'Affiliate Marketing', 
+    'Influencer Marketing', 
+    'Email Marketing', 
+    'Display Advertising', 
+    'Google Ads Campaigns', 
+    'Facebook Ads Campaigns', 
+    'Instagram Ads Campaigns', 
+    'E-commerce Marketing', 
+    'Online Reputation Management', 
+    'Brand Strategy', 
+    'Brand Identity Design', 
+    'Brand Consulting', 
+    'Brand Positioning', 
+    'Brand Voice Development', 
+    'Brand Naming', 
+    'Brand Guidelines', 
+    'Brand Awareness Campaigns', 
+    'Rebranding', 
+    'Personal Branding', 
+    'Corporate Branding', 
+    'Brand Messaging', 
+    'Excel Data Entry', 
+    'Online Data Entry', 
+    'Data Mining', 
+    'Data Conversion', 
+    'Data Scraping', 
+    'Copy-Paste Tasks', 
+    'Data Collection', 
+    'CRM Data Entry', 
+    'Database Management', 
+    'Spreadsheet Management', 
+    'PDF to Excel/Data Conversion', 
+    'Data Cleaning', 
+    'Data Processing', 
+    'Market Research', 
+    'Business Research', 
+    'Academic Research', 
+    'Product Research', 
+    'Competitor Research', 
+    'Data Research', 
+    'Consumer Research', 
+    'Industry Research', 
+    'Legal Research', 
+    'Patent Research', 
+    'Survey Research', 
+    'Medical Research', 
+    'Scientific Research', 
+    'Research Analysis', 
+    'Research Writing',
+    'Transcription', 
+    'Audio Transcription', 
+    'Video Transcription', 
+    'Medical Transcription', 
+    'Legal Transcription', 
+    'Podcast Transcription', 
+    'Verbatim Transcription', 
+    'Focus Group Transcription', 
+    'Conference Transcription', 
+    'Subtitling', 
+    'Captioning', 
+    'Translation and Transcription', 
+    'Commercial Voiceover', 
+    'Narration Voiceover', 
+    'Explainer Video Voiceover', 
+    'Character Voiceover', 
+    'IVR Voiceover', 
+    'Radio Ad Voiceover', 
+    'Audiobook Voiceover', 
+    'Video Game Voiceover', 
+    'Animation Voiceover', 
+    'Dubbing', 
+    'Voiceover for Presentations', 
+    'Podcast Voiceover', 
+    'Email Support', 
+    'Live Chat Support', 
+    'Phone Support', 
+    'Help Desk Support', 
+    'Technical Support', 
+    'Customer Service Representative', 
+    'Order Management', 
+    'Product Support', 
+    'Complaint Handling', 
+    'Customer Feedback Management', 
+    'Ticketing System Management', 
+    'Multilingual Support', 
+    'Data Entry', 
+    'Calendar Management', 
+    'Travel Arrangements', 
+    'Email Management', 
+    'Scheduling Appointments', 
+    'Document Management', 
+    'File Organization', 
+    'Presentation Creation', 
+    'Event Coordination', 
+    'Virtual Assistance', 
+    'Project Management', 
+    'Meeting Coordination', 
+    'Research and Reports', 
+    'Digital Marketing Strategy', 
+    'Content Marketing Strategy', 
+    'Social Media Marketing Strategy', 
+    'Brand Strategy', 
+    'SEO Strategy', 
+    'PPC Strategy', 
+    'Email Marketing Strategy', 
+    'Market Research Strategy', 
+    'Product Marketing Strategy', 
+    'E-commerce Strategy', 
+    'Affiliate Marketing Strategy', 
+    'Influencer Marketing Strategy', 
+    'E-commerce Website Design', 
+    'E-commerce Website Development', 
+    'E-commerce Marketing', 
+    'Shopify Store Setup', 
+    'WooCommerce Store Setup', 
+    'Magento Store Development', 
+    'Amazon Store Setup', 
+    'E-commerce Product Photography', 
+    'Payment Gateway Integration', 
+    'E-commerce SEO', 
+    'E-commerce Product Management', 
+    'E-commerce Copywriting', 
+    'E-commerce Customer Service', 
+    'Business Legal Advice', 
+    'Contract Drafting', 
+    'Legal Research', 
+    'Intellectual Property Consulting', 
+    'Corporate Law Consulting', 
+    'Immigration Law Consulting', 
+    'Employment Law Consulting', 
+    'Family Law Consulting', 
+    'Real Estate Law Consulting', 
+    'Tax Law Consulting', 
+    'Regulatory Compliance Consulting', 
+    'Nonprofit Legal Consulting', 
+    'Tax Preparation', 
+    'Financial Statement Preparation', 
+    'QuickBooks Accounting', 
+    'Xero Accounting', 
+    'Payroll Services', 
+    'Accounts Receivable', 
+    'Accounts Payable', 
+    'Bank Reconciliation', 
+    'Financial Forecasting', 
+    'Business Accounting Consulting', 
+    'Bookkeeping for Small Business', 
+    'Budgeting and Costing', 
+    'Inventory Management', , 
+    'Online Tutoring', 
+    'Math Tutoring', 
+    'Science Tutoring', 
+    'English Tutoring', 
+    'Test Preparation Tutoring', 
+    'Language Tutoring', 
+    'Coding Tutoring', 
+    'History Tutoring', 
+    'Reading and Writing Tutoring', 
+    'SAT/ACT Tutoring', 
+    'Homeschool Tutoring', 
+    'Group Tutoring', 
+    'Music Tutoring', 
+    'Entry-Level Resume Writing', 
+    'Professional Resume Writing', 
+    'Executive Resume Writing', 
+    'CV Writing', 
+    'LinkedIn Profile Optimization', 
+    'Cover Letter Writing', 
+    'Federal Resume Writing', 
+    'Military-to-Civilian Resume Writing', 
+    'Resumes for Career Changers', 
+    'Academic CV Writing', 
+    'Resumes for International Jobs', 
+    'Personal Branding and Resume Writing',
+    'Event Planning', 
+    'Wedding Planning', 
+    'Corporate Event Planning', 
+    'Birthday Party Planning', 
+    'Conference Planning', 
+    'Trade Show Planning', 
+    'Product Launches', 
+    'Fundraising Events', 
+    'Festival Planning', 
+    'Virtual Event Planning', 
+    'Event Design', 
+    'Event Coordination', 
+    'Venue Selection', 
+    'Event Marketing', 
+    'Event Budgeting',
+    'Media Relations', 
+    'Press Release Writing', 
+    'Crisis Management', 
+    'Public Relations Strategy', 
+    'Influencer Relations', 
+    'Brand Reputation Management', 
+    'Corporate Communications', 
+    'Press Kit Creation', 
+    'Event Promotion', 
+    'Speech Writing', 
+    'Content Distribution', 
+    'Social Media PR', 
+    'Media Outreach', 
+    'Public Relations Consulting', 
+    '2D Animation', 
+    '3D Animation', 
+    'Explainer Videos', 
+    'Whiteboard Animation', 
+    'Character Animation', 
+    'Cartoon Animation', 
+    'Motion Graphics', 
+    'Stop Motion Animation', 
+    'Logo Animation', 
+    'Infographic Animation', 
+    'Product Animation', 
+    'App Animation', 
+    'Game Animation', 
+    'Medical Animation', 
+    'User Research', 
+    'User Testing', 
+    'Wireframing', 
+    'Prototyping', 
+    'Interface Design', 
+    'Interaction Design', 
+    'User Journey Mapping', 
+    'Information Architecture', 
+    'Mobile UX/UI Design', 
+    'Responsive Web Design', 
+    'Design Systems', 
+    'Usability Testing', 
+    'Design Audits', 
+    'UX Consulting', 
+    'Mobile Game Development', 
+    'Unity Game Development', 
+    'Unreal Engine Game Development', 
+    'Game Design', 
+    'Game Programming', 
+    '3D Game Development', 
+    '2D Game Development', 
+    'Augmented Reality Games', 
+    'Virtual Reality Games', 
+    'Game Testing', 
+    'Game Monetization', 
+    'Multiplayer Game Development', 
+    'Game Animation', 
+    'Educational Games', 
+    'Content Marketing Strategy', 
+    'Content Calendar Creation', 
+    'SEO Content Strategy', 
+    'Social Media Content Strategy', 
+    'Content Curation', 
+    'Blog Content Strategy', 
+    'Video Content Strategy', 
+    'Copywriting Strategy', 
+    'Content Optimization', 
+    'Lead Generation Content', 
+    'Brand Storytelling', 
+    'Content Distribution Strategy', 
+    'Content Performance Analysis', 
+    'Course Creation', 
+    'E-learning Course Development', 
+    'Coaching for Entrepreneurs', 
+    'Business Coaching', 
+    'Life Coaching', 
+    'Fitness Coaching', 
+    'Health Coaching', 
+    'Career Coaching', 
+    'Online Course Design', 
+    'Webinars and Workshops', 
+    'Tutoring and Education', 
+    'Skills Development Coaching', 
+    'Group Coaching', 
+    'Online Learning Platforms', 
+    'Website Updates', 
+    'Website Speed Optimization', 
+    'Website Security', 
+    'Backup and Recovery', 
+    'Plugin Updates', 
+    'SEO Maintenance', 
+    'Content Management', 
+    'Bug Fixes', 
+    'Technical Support', 
+    'Website Monitoring', 
+    'Mobile Compatibility Updates', 
+    'Content Freshness', 
+    'Website Audit and Optimization',  
+    'Data Visualization', 
+    'Data Mining', 
+    'Statistical Analysis', 
+    'Predictive Analytics', 
+    'Business Intelligence', 
+    'Market Research Analysis', 
+    'Data Reporting', 
+    'Data Modeling', 
+    'Big Data Analysis', 
+    'Survey Data Analysis', 
+    'Financial Data Analysis', 
+    'Customer Analytics', 
+    'Data Dashboards', 
+    'Email Campaign Creation', 
+    'Email List Building', 
+    'Email Template Design', 
+    'Email Automation', 
+    'Email Segmentation', 
+    'Email Newsletter Creation', 
+    'Email Analytics', 
+    'A/B Testing for Emails', 
+    'Email Marketing Strategy', 
+    'Email Copywriting', 
+    'Drip Email Campaigns', 
+    'Transactional Email Setup', 
+    'Email Marketing Consulting', 
+    'Email Marketing Integration', 
+    'Financial Planning', 
+    'Personal Financial Planning', 
+    'Retirement Planning', 
+    'Investment Planning', 
+    'Tax Planning', 
+    'Estate Planning', 
+    'Debt Management', 
+    'Risk Management', 
+    'Cash Flow Management', 
+    'Financial Goals Setting', 
+    'College Savings Plans', 
+    'Wealth Management', 
+    'Financial Planning for Business', 
+    'Insurance Planning', 
+    'Budgeting and Forecasting', 
+    'Remote IT Support', 
+    'On-site IT Support', 
+    'Network Setup and Management', 
+    'Help Desk Support', 
+    'Cloud Storage Support', 
+    'Data Recovery', 
+    'Software Installation', 
+    'Hardware Troubleshooting', 
+    'IT Security and Monitoring', 
+    'System Upgrades', 
+    'Network Security', 
+    'IT Consulting', 
+    'Tech Support for Small Business', 
+    'Project Planning', 
+    'Agile Project Management', 
+    'Waterfall Project Management', 
+    'Risk Management', 
+    'Time Management', 
+    'Project Scheduling', 
+    'Budgeting and Cost Control', 
+    'Team Collaboration', 
+    'Project Monitoring and Reporting', 
+    'Stakeholder Management', 
+    'Project Scope Management', 
+    'Project Documentation', 
+    'Change Management', 
+    'Project Coordination', 
+    'Smart Contract Development', 
+    'Cryptocurrency Development', 
+    'Blockchain Application Development', 
+    'Blockchain Consulting', 
+    'Private Blockchain Development', 
+    'Public Blockchain Development', 
+    'DeFi Development', 
+    'NFT Development', 
+    'Blockchain Security', 
+    'Blockchain Auditing', 
+    'Tokenization Solutions', 
+    'Blockchain Integration', 
+    'Blockchain Wallet Development', 
+    'Ethereum Development', 
+    'Management Consulting', 
+    'Strategic Planning', 
+    'Process Improvement', 
+    'Organizational Development', 
+    'Market Research and Analysis', 
+    'Operational Efficiency', 
+    'Business Process Outsourcing', 
+    'Startup Consulting', 
+    'Sales and Marketing Strategy', 
+    'Change Management', 
+    'Corporate Strategy', 
+    'Business Analysis', 
+    'Growth Strategy', 
+    'Individual Tax Preparation', 
+    'Business Tax Preparation', 
+    'Corporate Tax Filing', 
+    'Tax Consultation', 
+    'Tax Planning', 
+    'IRS Representation', 
+    'Sales Tax Filing', 
+    'State Tax Preparation', 
+    'Tax Audit Representation', 
+    'Property Tax Filing', 
+    'Non-profit Tax Filing', 
+    'Tax Return Filing', 
+    'Tax Deductions and Credits', 
+    'Mobile App Testing', 
+    'Web App Testing', 
+    'Functional Testing', 
+    'Usability Testing', 
+    'Security Testing', 
+    'Performance Testing', 
+    'Automated Testing', 
+    'Regression Testing', 
+    'Beta Testing', 
+    'App Compatibility Testing', 
+    'Load Testing', 
+    'App Quality Assurance', 
+    'Cross-platform Testing', 
+    'CRM Customization', 
+    'Salesforce Development', 
+    'Zoho CRM Setup', 
+    'HubSpot CRM Integration', 
+    'CRM Implementation', 
+    'CRM Support and Maintenance', 
+    'CRM Strategy', 
+    'CRM System Integration', 
+    'CRM Software Development', 
+    'Customer Data Management', 
+    'Marketing Automation CRM', 
+    'CRM Reporting and Analytics', 
+    'CRM Cloud Solutions', 
+    'Corporate Video Production', 
+    'Explainer Videos', 
+    'Promotional Videos', 
+    'Animated Videos', 
+    'YouTube Videos', 
+    'Music Videos', 
+    'Event Video Production', 
+    'Video Editing', 
+    'Documentary Filmmaking', 
+    'Training Videos', 
+    'Commercial Video Production', 
+    'Product Video Production', 
+    'Video Post Production',  
+    'Cloud Storage Solutions', 
+    'Cloud Hosting', 
+    'Cloud Computing Consulting', 
+    'Cloud Security Solutions', 
+    'Cloud Migration', 
+    'Infrastructure as a Service (IaaS)', 
+    'Platform as a Service (PaaS)', 
+    'Software as a Service (SaaS)', 
+    'Private Cloud Solutions', 
+    'Public Cloud Solutions', 
+    'Hybrid Cloud Solutions', 
+    'Cloud Application Development', 
+    'Disaster Recovery and Backup', 
+    'Cloud Analytics', 
+    '3D Modeling',
+    'Character Modeling',
+    'Architectural Modeling',
+    'Product Modeling',
+    'Environment Modeling',
+    '3D Animation Models',
+    'Low-Poly 3D Modeling',
+    '3D Character Rigging',
+    '3D Sculpting',
+    '3D Rendering',
+    'Virtual Reality Modeling',
+    'Game Asset Modeling',
+    'Mechanical Modeling',
+    'Texturing and Materials',
+    '3D Print Modeling',
+
+    'Email Copywriting',
+    'Sales Email Copywriting',
+    'Marketing Email Copywriting',
+    'Transactional Email Copywriting',
+    'Welcome Email Sequence',
+    'Email Campaign Copywriting',
+    'Email Subject Line Writing',
+    'Cold Email Writing',
+    'Email Newsletter Copywriting',
+    'Product Email Copywriting',
+    'Drip Email Copywriting',
+    'Email CTA Writing',
+    'Promotional Email Copywriting',
+    'Personalized Email Writing',
+    'Email Copy Optimization',
+    'Market Segmentation',
+    'Consumer Behavior Research',
+    'Competitive Analysis',
+    'Industry Research',
+    'Trend Analysis',
+    'SWOT Analysis',
+    'Target Audience Research',
+    'Product Feasibility Research',
+    'Survey Research',
+    'Focus Group Research',
+    'Customer Satisfaction Surveys',
+    'Market Entry Research',
+    'Pricing Research',
+    'Market Intelligence',
+    'Non-Profit Grant Writing',
+    'Government Grant Writing',
+    'Research Grant Writing',
+    'Foundation Grant Writing',
+    'Corporate Grant Writing',
+    'Small Business Grant Writing',
+    'Grant Proposal Writing',
+    'Grant Application Review',
+    'Grant Research',
+    'Grant Reporting',
+    'Grant Budgeting',
+    'Proposal Writing for Grants',
+    'Grant Fundraising',
+    'Grant Writing Consulting',
+    'iOS Game Development',
+    'Android Game Development',
+    'Unity Game Development',
+    'Unreal Engine Game Development',
+    '2D Mobile Game Development',
+    '3D Mobile Game Development',
+    'Augmented Reality Games',
+    'Virtual Reality Games',
+    'Mobile Game Testing',
+    'Mobile Game Design',
+    'Game Development for Kids',
+    'Mobile Multiplayer Game Development',
+    'Game Monetization',
+    'Mobile Game Marketing',
+    'Medical Research',
+    'Biological Research',
+    'Social Science Research',
+    'Psychological Research',
+    'Market Research',
+    'Environmental Research',
+    'Data Science Research',
+    'Physics Research',
+    'Mathematical Research',
+    'Educational Research',
+    'Laboratory Research',
+    'Pharmaceutical Research',
+    'Clinical Trials Research',
+    'Research Data Analysis',
+    'Book Copy Editing',
+    'Article Copy Editing',
+    'Website Content Editing',
+    'Business Copy Editing',
+    'Academic Copy Editing',
+    'Proofreading and Editing',
+    'Manuscript Editing',
+    'Content Editing',
+    'Journal Editing',
+    'Magazine Editing',
+    'Film Script Editing',
+    'SEO Content Editing',
+    'Copy Refinement',
+    'Style Guide Editing',
+    'Document Proofreading',
+    'Academic Proofreading',
+    'Book Proofreading',
+    'Resume Proofreading',
+    'Website Proofreading',
+    'Business Document Proofreading',
+    'Proofreading for Grammar and Spelling',
+    'Legal Proofreading',
+    'SEO Proofreading',
+    'Essay Proofreading',
+    'Magazine Proofreading',
+    'Press Release Proofreading',
+    'Journal Proofreading',
+    'Online Content Proofreading',
+    'Political Speech Writing',
+    'Corporate Speech Writing',
+    'Wedding Speech Writing',
+    'Motivational Speech Writing',
+    'Graduation Speech Writing',
+    'Event Speech Writing',
+    'Award Speech Writing',
+    'Ceremonial Speech Writing',
+    'Public Speaking Speech Writing',
+    'Keynote Speech Writing',
+    'Toastmaster Speech Writing',
+    'Public Relations Speech Writing',
+    'Press Conference Speech Writing',
+    'Media Speech Writing',
+    'Patent Search',
+    'Patent Filing',
+    'Patent Drafting',
+    'Patent Research',
+    'Patent Application Preparation',
+    'Patent Litigation',
+    'Patent Prosecution',
+    'Patent Valuation',
+    'Patent Portfolio Management',
+    'Patent Licensing',
+    'Patent Protection',
+    'Patent Appeal',
+    'Intellectual Property (IP) Consulting',
+    'Patent Design Services',
+    'Health and Wellness Coaching',
+    'Life Coaching',
+    'Weight Loss Coaching',
+    'Nutrition Coaching',
+    'Stress Management Coaching',
+    'Fitness and Health Coaching',
+    'Mental Health Coaching',
+    'Holistic Health Coaching',
+    'Personalized Wellness Plans',
+    'Mindfulness Coaching',
+    'Chronic Illness Coaching',
+    'Sleep Coaching',
+    'Work-Life Balance Coaching',
+    'Yoga Coaching',
+    'Fitness Goal Setting',
+    'Personal Training',
+    'Strength Training',
+    'Cardio Training',
+    'Crossfit Coaching',
+    'Yoga Instruction',
+    'Pilates Training',
+    'Sports Training',
+    'Post-Rehabilitation Training',
+    'Weight Loss Fitness Programs',
+    'High-Intensity Interval Training (HIIT)',
+    'Online Fitness Coaching',
+    'Mobility and Flexibility Training',
+    'Group Fitness Classes',
+    'Muscle Building Programs',
+    'Beat Making',
+    'Music Composition',
+    'Songwriting',
+    'Sound Design',
+    'Mixing and Mastering',
+    'Audio Engineering',
+    'Music Arrangement',
+    'Music Production for Films',
+    'Voiceover Recording',
+    'Podcast Production',
+    'Studio Recording',
+    'Music Production for Ads',
+    'Electronic Music Production',
+    'Music Production Consulting',
+    'Real Estate Investment Consulting',
+    'Property Management Consulting',
+    'Real Estate Development Consulting',
+    'Commercial Real Estate Consulting',
+    'Residential Real Estate Consulting',
+    'Real Estate Marketing Consulting',
+    'Real Estate Financing Consulting',
+    'Luxury Real Estate Consulting',
+    'Real Estate Appraisal Consulting',
+    'Property Valuation Consulting',
+    'Real Estate Syndication',
+    'Real Estate Tax Consulting',
+    'Real Estate Acquisition Consulting',
+    'Real Estate Legal Consulting',
+    'Clothing Design',
+    'Accessory Design',
+    'Apparel Design',
+    'Fashion Illustration',
+    'Textile Design',
+    'Streetwear Design',
+    'Haute Couture Design',
+    'Fashion Trend Forecasting',
+    'Fashion Branding',
+    'Custom Fashion Design',
+    'Footwear Design',
+    'Fashion Collection Design',
+    'Fashion Styling',
+    'Sustainable Fashion Design',
+    'Residential Architecture',
+    'Commercial Architecture',
+    'Interior Architecture',
+    'Urban Planning',
+    'Landscape Architecture',
+    'Building Design',
+    'Architectural Visualization',
+    'Sustainable Architecture',
+    '3D Modeling for Architecture',
+    'Architecture Consulting',
+    'Architectural Drafting',
+    'Building Renovation',
+    'Construction Management',
+    'Architectural Design for Renovations',
+    'Recruitment and Hiring',
+    'Employee Training and Development',
+    'Employee Relations',
+    'Compensation and Benefits Consulting',
+    'HR Compliance',
+    'HR Technology Solutions',
+    'Workforce Planning',
+    'Performance Management',
+    'HR Outsourcing',
+    'Talent Management',
+    'Employee Engagement Programs',
+    'Leadership Development',
+    'Diversity and Inclusion Programs',
+    'HR Strategy Consulting',
+    'Network Setup and Installation',
+    'Network Security',
+    'Wi-Fi Network Setup',
+    'LAN and WAN Setup',
+    'Network Monitoring and Troubleshooting',
+    'Server Management',
+    'Cloud Network Solutions',
+    'VPN Setup and Management',
+    'Firewall Configuration',
+    'Network Optimization',
+    'Network Support Services',
+    'Router and Switch Configuration',
+    'Network Consulting',
+    'Disaster Recovery Planning',
+    'Industrial Design',
+    'Prototype Design',
+    'Product Development',
+    'UX/UI Product Design',
+    'Consumer Product Design',
+    '3D Product Modeling',
+    'Product Packaging Design',
+    'Sustainable Product Design',
+    'Apparel and Textile Product Design',
+    'Product Branding',
+    'Product Innovation',
+    'Product Conceptualization',
+    'Product Testing and Prototyping',
+    'Product Design Research',
+    'Environmental Impact Assessment',
+    'Sustainability Consulting',
+    'Environmental Compliance Consulting',
+    'Waste Management Consulting',
+    'Air and Water Quality Testing',
+    'Climate Change Consulting',
+    'Environmental Remediation',
+    'Renewable Energy Consulting',
+    'Energy Efficiency Consulting',
+    'Ecological Restoration',
+    'Environmental Permitting',
+    'Environmental Health and Safety Consulting',
+    'Natural Resource Management',
+    'Green Building Certification',
+];
+
+
+// Handle Input Event
+searchInput.addEventListener('input', () => {
+    const query = searchInput.value.toLowerCase();
+    dropdown.innerHTML = ''; // Clear dropdown
+
+    if (query) {
+        const filtered = suggestions.filter((item) =>
+            item.toLowerCase().includes(query)
+        );
+
+        filtered.forEach((suggestion) => {
+            const link = document.createElement('a');
+            link.textContent = suggestion;
+            link.href = '#';
+            dropdown.appendChild(link);
+        });
+
+        dropdown.classList.add('active');
+    } else {
+        dropdown.classList.remove('active');
+    }
+});
+
+// Hide Dropdown on Click Outside
+document.addEventListener('click', (e) => {
+    if (!e.target.closest('.search-box')) {
+        dropdown.classList.remove('active');
+    }
+});
     </script>
 </body>
 </html>

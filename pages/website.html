@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bible Study Search</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f2f2f2;
+        }
+
+        .search-container {
+            position: relative;
+            width: 400px;
+            max-width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+            border: 1px solid #dcdcdc;
+            border-radius: 24px;
+            outline: none;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+            padding-right: 40px; /* Space for magnifying glass */
+        }
+
+        input[type="text"]:focus {
+            border-color: #4285f4;
+        }
+
+        button {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: transparent;
+            border: none;
+            cursor: pointer;
+        }
+
+        .dropdown {
+            position: absolute;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            background-color: #fff;
+            border: 1px solid #dcdcdc;
+            border-radius: 4px;
+            z-index: 10;
+            display: none;
+        }
+
+        .dropdown a {
+            padding: 12px;
+            text-decoration: none;
+            display: block;
+            color: #202124;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .dropdown a:hover {
+            background-color: #f1f3f4;
+        }
+
+        .active {
+            display: block;
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: #4285f4;
+        }
+
+        .fade {
+            color: #dcdcdc;
+        }
+
+        .search-icon {
+            font-size: 20px;
+            color: #4285f4;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="search-container">
+        <input type="text" id="search-box" placeholder="Search Bible Study..." oninput="showDropdown()" onfocus="showDropdown()" onblur="hideDropdown()">
+        <button onclick="search()"><span class="search-icon">&#x1F50D;</span></button>
+
+        <div class="dropdown" id="dropdown">
+            <a href="https://www.google.com/search?q=Bible+Study+Mark" target="_blank" class="dropdown-item">Bible Study Mark</a>
+            <a href="https://www.google.com/search?q=Bible+Study+Joshua" target="_blank" class="dropdown-item">Bible Study Joshua</a>
+            <a href="https://www.google.com/search?q=Bible+Study+Ruth" target="_blank" class="dropdown-item">Bible Study Ruth</a>
+            <a href="https://www.google.com/search?q=Bible+Study+Peter" target="_blank" class="dropdown-item">Bible Study Peter</a>
+            <a href="https://www.google.com/search?q=Bible+Study+John" target="_blank" class="dropdown-item">Bible Study John</a>
+        </div>
+    </div>
+
+    <script>
+        const suggestions = [
+            "Bible Study Mark", "Bible Study Joshua", "Bible Study Ruth", 
+            "Bible Study Peter", "Bible Study John"
+        ];
+
+        function showDropdown() {
+            let input = document.getElementById("search-box").value;
+            let dropdown = document.getElementById("dropdown");
+
+            if (input.length > 0) {
+                dropdown.classList.add("active");
+                filterSuggestions(input);
+            } else {
+                dropdown.classList.remove("active");
+            }
+        }
+
+        function hideDropdown() {
+            setTimeout(function() {
+                document.getElementById("dropdown").classList.remove("active");
+            }, 200);
+        }
+
+        function filterSuggestions(input) {
+            let filtered = suggestions.filter(suggestion => suggestion.toLowerCase().includes(input.toLowerCase()));
+            let dropdown = document.getElementById("dropdown");
+            dropdown.innerHTML = "";  // Clear previous suggestions
+
+            filtered.forEach(suggestion => {
+                let div = document.createElement("a");
+                div.classList.add("dropdown-item");
+                div.href = `https://www.google.com/search?q=${suggestion.split(" ").join("+")}`;
+                div.target = "_blank";
+
+                // Split the text into parts for styling
+                let parts = suggestion.split(input);
+                div.innerHTML = parts[0] + `<span class="highlight">${input}</span>` + parts[1];
+                dropdown.appendChild(div);
+            });
+        }
+
+        function search() {
+            let query = document.getElementById("search-box").value;
+            if (query) {
+                window.location.href = `https://www.google.com/search?q=${query}`;
+            }
+        }
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
